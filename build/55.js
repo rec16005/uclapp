@@ -1,18 +1,17 @@
 webpackJsonp([55],{
 
-/***/ 1958:
+/***/ 2038:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonStorageManagerCourseStoragePageModule", function() { return AddonStorageManagerCourseStoragePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreContentLinksChooseSitePageModule", function() { return CoreContentLinksChooseSitePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__course_storage__ = __webpack_require__(2100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__choose_site__ = __webpack_require__(2190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,43 +37,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var AddonStorageManagerCourseStoragePageModule = /** @class */ (function () {
-    function AddonStorageManagerCourseStoragePageModule() {
+var CoreContentLinksChooseSitePageModule = /** @class */ (function () {
+    function CoreContentLinksChooseSitePageModule() {
     }
-    AddonStorageManagerCourseStoragePageModule = __decorate([
+    CoreContentLinksChooseSitePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__course_storage__["a" /* AddonStorageManagerCourseStoragePage */],
+                __WEBPACK_IMPORTED_MODULE_2__choose_site__["a" /* CoreContentLinksChooseSitePage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__["a" /* CorePipesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__course_storage__["a" /* AddonStorageManagerCourseStoragePage */]),
-                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ],
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__choose_site__["a" /* CoreContentLinksChooseSitePage */]),
+                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ]
         })
-    ], AddonStorageManagerCourseStoragePageModule);
-    return AddonStorageManagerCourseStoragePageModule;
+    ], CoreContentLinksChooseSitePageModule);
+    return CoreContentLinksChooseSitePageModule;
 }());
 
-//# sourceMappingURL=course-storage.module.js.map
+//# sourceMappingURL=choose-site.module.js.map
 
 /***/ }),
 
-/***/ 2100:
+/***/ 2190:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonStorageManagerCourseStoragePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreContentLinksChooseSitePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__core_course_providers_course__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_course_providers_module_prefetch_delegate__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_course_providers_helper__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_delegate__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_helper__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_login_providers_helper__ = __webpack_require__(84);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -104,146 +102,102 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
- * Page that displays the amount of file storage used by each activity on the course, and allows
- * the user to delete these files.
+ * Page to display the list of sites to choose one to perform a content link action.
  */
-var AddonStorageManagerCourseStoragePage = /** @class */ (function () {
-    function AddonStorageManagerCourseStoragePage(navParams, courseProvider, prefetchDelegate, courseHelperProvider, domUtils, translate) {
-        this.courseProvider = courseProvider;
-        this.prefetchDelegate = prefetchDelegate;
-        this.courseHelperProvider = courseHelperProvider;
+var CoreContentLinksChooseSitePage = /** @class */ (function () {
+    function CoreContentLinksChooseSitePage(navCtrl, navParams, contentLinksDelegate, sitesProvider, domUtils, translate, contentLinksHelper, loginHelper) {
+        this.navCtrl = navCtrl;
+        this.contentLinksDelegate = contentLinksDelegate;
+        this.sitesProvider = sitesProvider;
         this.domUtils = domUtils;
         this.translate = translate;
-        this.course = navParams.get('course');
+        this.contentLinksHelper = contentLinksHelper;
+        this.loginHelper = loginHelper;
+        this.url = navParams.get('url');
     }
     /**
-     * View loaded.
+     * Component being initialized.
      */
-    AddonStorageManagerCourseStoragePage.prototype.ionViewDidLoad = function () {
+    CoreContentLinksChooseSitePage.prototype.ngOnInit = function () {
         var _this = this;
-        this.courseProvider.getSections(this.course.id, false, true).then(function (sections) {
-            _this.courseHelperProvider.addHandlerDataForModules(sections, _this.course.id);
-            _this.sections = sections;
-            _this.totalSize = 0;
-            var allPromises = [];
-            _this.sections.forEach(function (section) {
-                section.totalSize = 0;
-                section.modules.forEach(function (module) {
-                    module.parentSection = section;
-                    module.totalSize = 0;
-                    // Note: This function only gets the size for modules which are downloadable.
-                    // For other modules it always returns 0, even if they have downloaded some files.
-                    // However there is no 100% reliable way to actually track the files in this case.
-                    // You can maybe guess it based on the component and componentid.
-                    // But these aren't necessarily consistent, for example mod_frog vs mmaModFrog.
-                    // There is nothing enforcing correct values.
-                    // Most modules which have large files are downloadable, so I think this is sufficient.
-                    var promise = _this.prefetchDelegate.getModuleDownloadedSize(module, _this.course.id).
-                        then(function (size) {
-                        // There are some cases where the return from this is not a valid number.
-                        if (!isNaN(size)) {
-                            module.totalSize = Number(size);
-                            section.totalSize += size;
-                            _this.totalSize += size;
-                        }
-                    });
-                    allPromises.push(promise);
-                });
-            });
-            Promise.all(allPromises).then(function () {
-                _this.loaded = true;
-            });
-        });
-    };
-    /**
-     * The user has requested a delete for the whole course data.
-     *
-     * (This works by deleting data for each module on the course that has data.)
-     */
-    AddonStorageManagerCourseStoragePage.prototype.deleteForCourse = function () {
-        var modules = [];
-        this.sections.forEach(function (section) {
-            section.modules.forEach(function (module) {
-                if (module.totalSize > 0) {
-                    modules.push(module);
-                }
-            });
-        });
-        this.deleteModules(modules);
-    };
-    /**
-     * The user has requested a delete for a section's data.
-     *
-     * (This works by deleting data for each module in the section that has data.)
-     *
-     * @param {any} section Section object with information about section and modules
-     */
-    AddonStorageManagerCourseStoragePage.prototype.deleteForSection = function (section) {
-        var modules = [];
-        section.modules.forEach(function (module) {
-            if (module.totalSize > 0) {
-                modules.push(module);
+        if (!this.url) {
+            return this.leaveView();
+        }
+        // Check if it's the root URL.
+        this.sitesProvider.isStoredRootURL(this.url).then(function (data) {
+            if (data.site) {
+                // It's the root URL.
+                _this.isRootURL = true;
+                return data.siteIds;
             }
+            else if (data.siteIds.length) {
+                // Not root URL, but the URL belongs to at least 1 site. Check if there is any action to treat the link.
+                return _this.contentLinksDelegate.getActionsFor(_this.url).then(function (actions) {
+                    _this.action = _this.contentLinksHelper.getFirstValidAction(actions);
+                    if (!_this.action) {
+                        return Promise.reject(_this.translate.instant('core.contentlinks.errornoactions'));
+                    }
+                    return _this.action.sites;
+                });
+            }
+            else {
+                // No sites to treat the URL.
+                return Promise.reject(_this.translate.instant('core.contentlinks.errornosites'));
+            }
+        }).then(function (siteIds) {
+            // Get the sites that can perform the action.
+            return _this.sitesProvider.getSites(siteIds);
+        }).then(function (sites) {
+            _this.sites = sites;
+        }).catch(function (error) {
+            _this.domUtils.showErrorModalDefault(error, 'core.contentlinks.errornosites', true);
+            _this.leaveView();
+        }).finally(function () {
+            _this.loaded = true;
         });
-        this.deleteModules(modules);
     };
     /**
-     * The user has requested a delete for a module's data
-     *
-     * @param {any} module Module details
+     * Cancel.
      */
-    AddonStorageManagerCourseStoragePage.prototype.deleteForModule = function (module) {
-        if (module.totalSize > 0) {
-            this.deleteModules([module]);
+    CoreContentLinksChooseSitePage.prototype.cancel = function () {
+        this.leaveView();
+    };
+    /**
+     * Perform the action on a certain site.
+     *
+     * @param {string} siteId Site ID.
+     */
+    CoreContentLinksChooseSitePage.prototype.siteClicked = function (siteId) {
+        if (this.isRootURL) {
+            this.loginHelper.redirect('', {}, siteId);
+        }
+        else {
+            this.action.action(siteId, this.navCtrl);
         }
     };
     /**
-     * Deletes the specified modules, showing the loading overlay while it happens.
-     *
-     * @param {any[]} modules Modules to delete
-     * @return Promise<void> Once deleting has finished
+     * Cancel and leave the view.
      */
-    AddonStorageManagerCourseStoragePage.prototype.deleteModules = function (modules) {
+    CoreContentLinksChooseSitePage.prototype.leaveView = function () {
         var _this = this;
-        var modal = this.domUtils.showModalLoading();
-        var promises = [];
-        modules.forEach(function (module) {
-            // Remove the files.
-            var promise = _this.prefetchDelegate.removeModuleFiles(module, _this.course.id).then(function () {
-                // When the files are removed, update the size.
-                module.parentSection.totalSize -= module.totalSize;
-                _this.totalSize -= module.totalSize;
-                module.totalSize = 0;
-            });
-            promises.push(promise);
-        });
-        return Promise.all(promises).then(function () {
-            modal.dismiss();
-        }).catch(function (error) {
-            modal.dismiss();
-            _this.domUtils.showErrorModalDefault(error, _this.translate.instant('core.errordeletefile'));
+        this.sitesProvider.logout().finally(function () {
+            _this.navCtrl.setRoot('CoreLoginSitesPage');
         });
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
-    ], AddonStorageManagerCourseStoragePage.prototype, "content", void 0);
-    AddonStorageManagerCourseStoragePage = __decorate([
+    CoreContentLinksChooseSitePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-storagemanager-course-storage',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\storagemanager\pages\course-storage\course-storage.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'addon.storagemanager.managestorage\' | translate }}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <core-loading [hideUntil]="loaded">\n\n        <ion-card class="wholecourse">\n\n            <ion-card-header>\n\n                <h1 text-wrap>{{ course.displayname }}</h1>\n\n                <p text-wrap>{{ \'addon.storagemanager.info\' | translate }}</p>\n\n                <ion-item no-padding padding-top>\n\n                    <ion-row class="size">\n\n                        <ion-icon name="cube"></ion-icon>\n\n                        {{ \'addon.storagemanager.storageused\' | translate }}\n\n                        {{ totalSize | coreBytesToSize }}\n\n                    </ion-row>\n\n                    <button ion-button icon-only item-end no-padding (click)="deleteForCourse()" [disabled]="totalSize == 0">\n\n                        <core-icon name="trash" label="{{ \'addon.storagemanager.deletecourse\' | translate }}"></core-icon>\n\n                    </button>\n\n                </ion-item>\n\n            </ion-card-header>\n\n        </ion-card>\n\n        <ng-container *ngFor="let section of sections">\n\n            <ion-card *ngIf="section.totalSize > 0" class="section">\n\n                <ion-card-header>\n\n                    <ion-item no-padding>\n\n                        <ion-row>\n\n                            <h2 text-wrap>{{ section.name }}</h2>\n\n                        </ion-row>\n\n                        <ion-row class="size">\n\n                            <ion-icon name="cube"></ion-icon>\n\n                            {{ section.totalSize | coreBytesToSize }}\n\n                        </ion-row>\n\n                        <button ion-button icon-only item-end no-padding (click)="deleteForSection(section)">\n\n                            <core-icon name="trash" label="{{ \'addon.storagemanager.deletedatafrom\' | translate: { name: section.name } }}"></core-icon>\n\n                        </button>\n\n                    </ion-item>\n\n                </ion-card-header>\n\n                <ion-card-content>\n\n                    <ng-container *ngFor="let module of section.modules">\n\n                        <div *ngIf="module.totalSize > 0">\n\n                            <ion-item no-padding>\n\n                                <ion-row class="{{module.handlerData.class}}">\n\n                                    <img *ngIf="module.handlerData.icon" [src]="module.handlerData.icon" alt="" role="presentation" class="core-module-icon"\n\n                                    >{{ module.name }}\n\n                                </ion-row>\n\n                                <ion-row class="size">\n\n                                    <ion-icon name="cube"></ion-icon>\n\n                                    {{ module.totalSize | coreBytesToSize }}\n\n                                </ion-row>\n\n                                <button ion-button icon-only outline item-end (click)="deleteForModule(module)">\n\n                                    <core-icon name="trash" label="{{ \'addon.storagemanager.deletedatafrom\' | translate: { name: module.name } }}"></core-icon>\n\n                                </button>\n\n                            </ion-item>\n\n                        </div>\n\n                    </ng-container>\n\n                </ion-card-content>\n\n            </ion-card>\n\n        </ng-container>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\storagemanager\pages\course-storage\course-storage.html"*/,
+            selector: 'page-core-content-links-choose-site',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\contentlinks\pages\choose-site\choose-site.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.contentlinks.chooseaccount\' | translate }}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <core-loading [hideUntil]="loaded">\n\n        <ion-list>\n\n            <ion-item text-wrap>\n\n                <p class="item-heading">{{ \'core.contentlinks.chooseaccounttoopenlink\' | translate }}</p>\n\n                <p>{{ url }}</p>\n\n            </ion-item>\n\n            <a ion-item *ngFor="let site of sites" (click)="siteClicked(site.id)" detail-none>\n\n                <ion-avatar item-start>\n\n                    <img [src]="site.avatar" core-external-content [siteId]="site.id" alt="{{ \'core.pictureof\' | translate:{$a: site.fullname} }}" role="presentation" onError="this.src=\'assets/img/user-avatar.png\'">\n\n                </ion-avatar>\n\n                <h2>{{site.fullName}}</h2>\n\n                <p><core-format-text [text]="site.siteName" clean="true" [siteId]="site.id"></core-format-text></p>\n\n                <p>{{site.siteUrl}}</p>\n\n            </a>\n\n            <ion-item>\n\n                <button ion-button block (click)="cancel()">{{ \'core.login.cancel\' | translate }}</button>\n\n            </ion-item>\n\n        </ion-list>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\contentlinks\pages\choose-site\choose-site.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__core_course_providers_course__["a" /* CoreCourseProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__core_course_providers_module_prefetch_delegate__["a" /* CoreCourseModulePrefetchDelegate */],
-            __WEBPACK_IMPORTED_MODULE_4__core_course_providers_helper__["a" /* CoreCourseHelperProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */]])
-    ], AddonStorageManagerCourseStoragePage);
-    return AddonStorageManagerCourseStoragePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__providers_delegate__["a" /* CoreContentLinksDelegate */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_helper__["a" /* CoreContentLinksHelperProvider */], __WEBPACK_IMPORTED_MODULE_7__core_login_providers_helper__["a" /* CoreLoginHelperProvider */]])
+    ], CoreContentLinksChooseSitePage);
+    return CoreContentLinksChooseSitePage;
 }());
 
-//# sourceMappingURL=course-storage.js.map
+//# sourceMappingURL=choose-site.js.map
 
 /***/ })
 

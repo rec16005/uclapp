@@ -1,15 +1,15 @@
 webpackJsonp([21],{
 
-/***/ 1995:
+/***/ 2073:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreSettingsListPageModule", function() { return CoreSettingsListPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreSharedFilesListPageModule", function() { return CoreSharedFilesListPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__list__ = __webpack_require__(2136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list__ = __webpack_require__(2224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
 // (C) Copyright 2015 Martin Dougiamas
@@ -37,38 +37,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreSettingsListPageModule = /** @class */ (function () {
-    function CoreSettingsListPageModule() {
+var CoreSharedFilesListPageModule = /** @class */ (function () {
+    function CoreSharedFilesListPageModule() {
     }
-    CoreSettingsListPageModule = __decorate([
+    CoreSharedFilesListPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__list__["a" /* CoreSettingsListPage */]
+                __WEBPACK_IMPORTED_MODULE_2__list__["a" /* CoreSharedFilesListPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__list__["a" /* CoreSettingsListPage */]),
-                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__list__["a" /* CoreSharedFilesListPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ]
         })
-    ], CoreSettingsListPageModule);
-    return CoreSettingsListPageModule;
+    ], CoreSharedFilesListPageModule);
+    return CoreSharedFilesListPageModule;
 }());
 
 //# sourceMappingURL=list.module.js.map
 
 /***/ }),
 
-/***/ 2136:
+/***/ 2224:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSettingsListPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSharedFilesListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_delegate__ = __webpack_require__(218);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_split_view_split_view__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_events__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_file__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_utils_text__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_sharedfiles__ = __webpack_require__(435);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -95,48 +99,159 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
 /**
- * Page that displays the list of settings pages.
+ * Modal to display the list of shared files.
  */
-var CoreSettingsListPage = /** @class */ (function () {
-    function CoreSettingsListPage(settingsDelegate, platorm, navParams) {
-        this.settingsDelegate = settingsDelegate;
-        this.isIOS = platorm.is('ios');
-        this.selectedPage = navParams.get('page') || false;
+var CoreSharedFilesListPage = /** @class */ (function () {
+    function CoreSharedFilesListPage(viewCtrl, navParams, sharedFilesProvider, sitesProvider, textUtils, translate, fileProvider, eventsProvider, navCtrl) {
+        this.viewCtrl = viewCtrl;
+        this.sharedFilesProvider = sharedFilesProvider;
+        this.sitesProvider = sitesProvider;
+        this.textUtils = textUtils;
+        this.translate = translate;
+        this.fileProvider = fileProvider;
+        this.eventsProvider = eventsProvider;
+        this.navCtrl = navCtrl;
+        this.path = '';
+        this.siteId = navParams.get('siteId') || this.sitesProvider.getCurrentSiteId();
+        this.mimetypes = navParams.get('mimetypes');
+        this.isModal = !!navParams.get('isModal');
+        this.manage = !!navParams.get('manage');
+        this.pick = !!navParams.get('pick');
+        this.path = navParams.get('path') || '';
     }
     /**
-     * View loaded.
+     * Component being initialized.
      */
-    CoreSettingsListPage.prototype.ionViewDidLoad = function () {
-        this.handlers = this.settingsDelegate.getHandlers();
-        if (this.selectedPage) {
-            this.openHandler(this.selectedPage);
+    CoreSharedFilesListPage.prototype.ngOnInit = function () {
+        var _this = this;
+        this.loadFiles();
+        // Listen for new files shared with the app.
+        this.shareObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_3__providers_events__["a" /* CoreEventsProvider */].FILE_SHARED, function (data) {
+            if (data.siteId == _this.siteId) {
+                // File was stored in current site, refresh the list.
+                _this.filesLoaded = false;
+                _this.loadFiles().finally(function () {
+                    _this.filesLoaded = true;
+                });
+            }
+        });
+    };
+    /**
+     * Load the files.
+     *
+     * @return {Promise<any>} Promise resolved when done.
+     */
+    CoreSharedFilesListPage.prototype.loadFiles = function () {
+        var _this = this;
+        if (this.path) {
+            this.title = this.fileProvider.getFileAndDirectoryFromPath(this.path).name;
         }
-        else if (this.splitviewCtrl.isOn()) {
-            this.openHandler('CoreSettingsGeneralPage');
+        else {
+            this.title = this.translate.instant('core.sharedfiles.sharedfiles');
+        }
+        return this.sharedFilesProvider.getSiteSharedFiles(this.siteId, this.path, this.mimetypes).then(function (files) {
+            _this.files = files;
+            _this.filesLoaded = true;
+        });
+    };
+    /**
+     * Close modal.
+     */
+    CoreSharedFilesListPage.prototype.closeModal = function () {
+        this.viewCtrl.dismiss();
+    };
+    /**
+     * Refresh the list of files.
+     *
+     * @param {any} refresher Refresher.
+     */
+    CoreSharedFilesListPage.prototype.refreshFiles = function (refresher) {
+        this.loadFiles().finally(function () {
+            refresher.complete();
+        });
+    };
+    /**
+     * Called when a file is deleted. Remove the file from the list.
+     *
+     * @param {number} index Position of the file.
+     */
+    CoreSharedFilesListPage.prototype.fileDeleted = function (index) {
+        this.files.splice(index, 1);
+    };
+    /**
+     * Called when a file is renamed. Update the list.
+     *
+     * @param {number} index Position of the file.
+     * @param {any} data Data containing the new FileEntry.
+     */
+    CoreSharedFilesListPage.prototype.fileRenamed = function (index, data) {
+        this.files[index] = data.file;
+    };
+    /**
+     * Open a subfolder.
+     *
+     * @param {any} folder The folder to open.
+     */
+    CoreSharedFilesListPage.prototype.openFolder = function (folder) {
+        var path = this.textUtils.concatenatePaths(this.path, folder.name);
+        if (this.isModal) {
+            // In Modal we don't want to open a new page because we cannot dismiss the modal from the new page.
+            this.path = path;
+            this.filesLoaded = false;
+            this.loadFiles();
+        }
+        else {
+            this.navCtrl.push('CoreSharedFilesListPage', {
+                path: path,
+                manage: this.manage,
+                pick: this.pick,
+                siteId: this.siteId,
+                mimetypes: this.mimetypes,
+                isModal: this.isModal
+            });
         }
     };
     /**
-     * Open a handler.
+     * Change site loaded.
      *
-     * @param {string} page Page to open.
-     * @param {any} params Params of the page to open.
+     * @param {string} id Site to load.
      */
-    CoreSettingsListPage.prototype.openHandler = function (page, params) {
-        this.selectedPage = page;
-        this.splitviewCtrl.push(page, params);
+    CoreSharedFilesListPage.prototype.changeSite = function (id) {
+        this.siteId = id;
+        this.path = '';
+        this.filesLoaded = false;
+        this.loadFiles();
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__components_split_view_split_view__["a" /* CoreSplitViewComponent */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__components_split_view_split_view__["a" /* CoreSplitViewComponent */])
-    ], CoreSettingsListPage.prototype, "splitviewCtrl", void 0);
-    CoreSettingsListPage = __decorate([
+    /**
+     * A file was picked.
+     *
+     * @param {any} file Picked file.
+     */
+    CoreSharedFilesListPage.prototype.filePicked = function (file) {
+        this.viewCtrl.dismiss(file);
+    };
+    /**
+     * Component destroyed.
+     */
+    CoreSharedFilesListPage.prototype.ngOnDestroy = function () {
+        if (this.shareObserver) {
+            this.shareObserver.off();
+        }
+    };
+    CoreSharedFilesListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-settings-list',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\settings\pages\list\list.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.settings.settings\' | translate}}</ion-title>\n\n        <ion-buttons end>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<core-split-view>\n\n    <ion-content>\n\n        <ion-list>\n\n            <a ion-item (click)="openHandler(\'CoreSettingsGeneralPage\')" [title]="\'core.settings.general\' | translate"  [class.core-split-item-selected]="\'CoreSettingsGeneralPage\' == selectedPage" detail-push>\n\n                <ion-icon name="construct" item-start></ion-icon>\n\n                <p>{{ \'core.settings.general\' | translate }}</p>\n\n            </a>\n\n            <a ion-item (click)="openHandler(\'CoreSettingsSpaceUsagePage\')" [title]="\'core.settings.spaceusage\' | translate" [class.core-split-item-selected]="\'CoreSettingsSpaceUsagePage\' == selectedPage" detail-push>\n\n                <ion-icon name="stats" item-start></ion-icon>\n\n                <p>{{ \'core.settings.spaceusage\' | translate }}</p>\n\n            </a>\n\n            <a ion-item (click)="openHandler(\'CoreSettingsSynchronizationPage\')" [title]="\'core.settings.synchronization\' | translate" [class.core-split-item-selected]="\'CoreSettingsSynchronizationPage\' == selectedPage" detail-push>\n\n                <ion-icon name="sync" item-start></ion-icon>\n\n                <p>{{ \'core.settings.synchronization\' | translate }}</p>\n\n            </a>\n\n            <a ion-item *ngIf="isIOS" (click)="openHandler(\'CoreSharedFilesListPage\', {manage: true})" [title]="\'core.sharedfiles.sharedfiles\' | translate" [class.core-split-item-selected]="\'CoreSharedFilesListPage\' == selectedPage" detail-push>\n\n                <ion-icon name="folder" item-start></ion-icon>\n\n                <p>{{ \'core.sharedfiles.sharedfiles\' | translate }}</p>\n\n            </a>\n\n\n\n            <a ion-item *ngFor="let handler of handlers" [ngClass]="[\'core-settings-handler\', handler.class]" (click)="openHandler(handler.page, handler.params)" [title]="handler.title | translate" detail-push [class.core-split-item-selected]="handler.page == selectedPage">\n\n                <core-icon [name]="handler.icon" item-start *ngIf="handler.icon"></core-icon>\n\n                <p>{{ handler.title | translate}}</p>\n\n            </a>\n\n\n\n            <a ion-item (click)="openHandler(\'CoreSettingsAboutPage\')" [title]="\'core.settings.about\' | translate" [class.core-split-item-selected]="\'CoreSettingsAboutPage\' == selectedPage" detail-push>\n\n                <ion-icon name="contacts" item-start></ion-icon>\n\n                <p>{{ \'core.settings.about\' | translate }}</p>\n\n            </a>\n\n        </ion-list>\n\n    </ion-content>\n\n</core-split-view>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\settings\pages\list\list.html"*/,
+            selector: 'page-core-shared-files-list',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\sharedfiles\pages\list\list.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n\n\n        <ion-buttons end *ngIf="isModal">\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="filesLoaded" (ionRefresh)="refreshFiles($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <!-- Allow selecting the site to view. -->\n\n    <core-site-picker [hidden]="!filesLoaded" [initialSite]="siteId" (siteSelected)="changeSite($event)"></core-site-picker>\n\n    <core-loading [hideUntil]="filesLoaded">\n\n        <ion-list *ngIf="files && files.length > 0">\n\n            <ng-container *ngFor="let file of files; let idx = index">\n\n                <core-local-file *ngIf="file.isFile" [file]="file" [manage]="manage" [overrideClick]="pick" (onClick)="filePicked(file)" (onDelete)="fileDeleted(idx)" (onRename)="fileRenamed(idx, $event)"></core-local-file>\n\n                <a ion-item text-wrap class="item-media" *ngIf="!file.isFile" (click)="openFolder(file)">\n\n                    <img src="assets/img/files/folder-64.png" alt="{{ \'core.folder\' | translate }}" role="presentation" item-start>\n\n                    <p>{{ file.name }}</p>\n\n                </a>\n\n            </ng-container>\n\n        </ion-list>\n\n        <core-empty-box *ngIf="files && !files.length && manage" icon="folder" [message]="\'core.sharedfiles.nosharedfiles\' | translate"></core-empty-box>\n\n        <core-empty-box *ngIf="files && !files.length && !manage" icon="folder" [message]="\'core.sharedfiles.nosharedfilestoupload\' | translate"></core-empty-box>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\sharedfiles\pages\list\list.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_delegate__["a" /* CoreSettingsDelegate */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
-    ], CoreSettingsListPage);
-    return CoreSettingsListPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["G" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_7__providers_sharedfiles__["a" /* CoreSharedFilesProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_6__providers_utils_text__["a" /* CoreTextUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_file__["a" /* CoreFileProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_events__["a" /* CoreEventsProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */]])
+    ], CoreSharedFilesListPage);
+    return CoreSharedFilesListPage;
 }());
 
 //# sourceMappingURL=list.js.map

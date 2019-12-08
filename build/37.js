@@ -1,17 +1,16 @@
 webpackJsonp([37],{
 
-/***/ 1977:
+/***/ 2057:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreGradesGradePageModule", function() { return CoreGradesGradePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreLoginForgottenPasswordPageModule", function() { return CoreLoginForgottenPasswordPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__grade__ = __webpack_require__(2118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__forgotten_password__ = __webpack_require__(2208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(1);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,41 +35,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var CoreGradesGradePageModule = /** @class */ (function () {
-    function CoreGradesGradePageModule() {
+var CoreLoginForgottenPasswordPageModule = /** @class */ (function () {
+    function CoreLoginForgottenPasswordPageModule() {
     }
-    CoreGradesGradePageModule = __decorate([
+    CoreLoginForgottenPasswordPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__grade__["a" /* CoreGradesGradePage */]
+                __WEBPACK_IMPORTED_MODULE_3__forgotten_password__["a" /* CoreLoginForgottenPasswordPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__grade__["a" /* CoreGradesGradePage */]),
-                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ],
+                __WEBPACK_IMPORTED_MODULE_2__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__forgotten_password__["a" /* CoreLoginForgottenPasswordPage */]),
+                __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ]
         })
-    ], CoreGradesGradePageModule);
-    return CoreGradesGradePageModule;
+    ], CoreLoginForgottenPasswordPageModule);
+    return CoreLoginForgottenPasswordPageModule;
 }());
 
-//# sourceMappingURL=grade.module.js.map
+//# sourceMappingURL=forgotten-password.module.js.map
 
 /***/ }),
 
-/***/ 2118:
+/***/ 2208:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreGradesGradePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreLoginForgottenPasswordPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_grades__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(24);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -100,68 +97,76 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Page that displays activity grade.
+ * Page to recover a forgotten password.
  */
-var CoreGradesGradePage = /** @class */ (function () {
-    function CoreGradesGradePage(gradesProvider, domUtils, gradesHelper, navParams, sitesProvider) {
-        this.gradesProvider = gradesProvider;
+var CoreLoginForgottenPasswordPage = /** @class */ (function () {
+    function CoreLoginForgottenPasswordPage(navCtrl, navParams, fb, translate, loginHelper, domUtils) {
+        this.navCtrl = navCtrl;
+        this.translate = translate;
+        this.loginHelper = loginHelper;
         this.domUtils = domUtils;
-        this.gradesHelper = gradesHelper;
-        this.gradeLoaded = false;
-        this.courseId = navParams.get('courseId');
-        this.userId = navParams.get('userId') || sitesProvider.getCurrentSiteUserId();
-        this.gradeId = navParams.get('gradeId');
+        this.siteUrl = navParams.get('siteUrl');
+        this.myForm = fb.group({
+            field: ['username', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required],
+            value: [navParams.get('username') || '', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required]
+        });
     }
     /**
-     * View loaded.
-     */
-    CoreGradesGradePage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.fetchData().finally(function () {
-            _this.gradeLoaded = true;
-        });
-    };
-    /**
-     * Fetch all the data required for the view.
+     * Request to reset the password.
      *
-     * @return {Promise<any>} Resolved when done.
+     * @param {Event} e Event.
      */
-    CoreGradesGradePage.prototype.fetchData = function () {
+    CoreLoginForgottenPasswordPage.prototype.resetPassword = function (e) {
         var _this = this;
-        return this.gradesHelper.getGradeItem(this.courseId, this.gradeId, this.userId).then(function (grade) {
-            _this.grade = grade;
+        e.preventDefault();
+        e.stopPropagation();
+        var field = this.myForm.value.field, value = this.myForm.value.value;
+        if (!value) {
+            this.domUtils.showErrorModal('core.login.usernameoremail', true);
+            return;
+        }
+        var modal = this.domUtils.showModalLoading('core.sending', true), isMail = field == 'email';
+        this.loginHelper.requestPasswordReset(this.siteUrl, isMail ? '' : value, isMail ? value : '').then(function (response) {
+            if (response.status == 'dataerror') {
+                // Error in the data sent.
+                _this.showError(isMail, response.warnings);
+            }
+            else if (response.status == 'emailpasswordconfirmnotsent' || response.status == 'emailpasswordconfirmnoemail') {
+                // Error, not found.
+                _this.domUtils.showErrorModal(response.notice);
+            }
+            else {
+                // Success.
+                _this.domUtils.showAlert(_this.translate.instant('core.success'), response.notice);
+                _this.navCtrl.pop();
+            }
         }).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'Error loading grade item');
+            _this.domUtils.showErrorModal(error);
+        }).finally(function () {
+            modal.dismiss();
         });
     };
-    /**
-     * Refresh data.
-     *
-     * @param {any} refresher Refresher.
-     */
-    CoreGradesGradePage.prototype.refreshGrade = function (refresher) {
-        var _this = this;
-        this.gradesProvider.invalidateCourseGradesData(this.courseId, this.userId).finally(function () {
-            _this.fetchData().finally(function () {
-                refresher.complete();
-            });
-        });
+    // Show an error from the warnings.
+    CoreLoginForgottenPasswordPage.prototype.showError = function (isMail, warnings) {
+        for (var i = 0; i < warnings.length; i++) {
+            var warning = warnings[i];
+            if ((warning.item == 'email' && isMail) || (warning.item == 'username' && !isMail)) {
+                this.domUtils.showErrorModal(warning.message);
+                break;
+            }
+        }
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
-    ], CoreGradesGradePage.prototype, "content", void 0);
-    CoreGradesGradePage = __decorate([
+    CoreLoginForgottenPasswordPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-grades-grade',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\grades\pages\grade\grade.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.grades.grade\' | translate }}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="gradeLoaded" (ionRefresh)="refreshGrade($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <core-loading [hideUntil]="gradeLoaded">\n\n        <core-empty-box *ngIf="!grade" icon="stats" [message]="\'core.grades.nogradesreturned\' | translate"></core-empty-box>\n\n\n\n        <ion-list *ngIf="grade">\n\n            <a ion-item *ngIf="grade.itemname && grade.link" text-wrap detail-push [href]="grade.link" core-link capture="true">\n\n                <ion-icon *ngIf="grade.icon" name="{{grade.icon}}" item-start></ion-icon>\n\n                <img *ngIf="grade.image" [src]="grade.image" item-start class="core-module-icon"/>\n\n                <h2><core-format-text [text]="grade.itemname"></core-format-text></h2>\n\n            </a>\n\n\n\n            <ion-item *ngIf="grade.itemname && !grade.link" text-wrap >\n\n                <ion-icon *ngIf="grade.icon" name="{{grade.icon}}" item-start></ion-icon>\n\n                <img *ngIf="grade.image" [src]="grade.image" item-start class="core-module-icon"/>\n\n                <h2><core-format-text [text]="grade.itemname"></core-format-text></h2>\n\n            </ion-item>\n\n\n\n            <ion-item text-wrap *ngIf="grade.weight">\n\n                <h2>{{ \'core.grades.weight\' | translate}}</h2>\n\n                <p><core-format-text [text]="grade.weight"></core-format-text></p>\n\n            </ion-item>\n\n\n\n            <ion-item text-wrap *ngIf="grade.grade">\n\n                <h2>{{ \'core.grades.grade\' | translate}}</h2>\n\n                <p><core-format-text [text]="grade.grade"></core-format-text></p>\n\n            </ion-item>\n\n\n\n            <ion-item text-wrap *ngIf="grade.range">\n\n                <h2>{{ \'core.grades.range\' | translate}}</h2>\n\n                <p><core-format-text [text]="grade.range"></core-format-text></p>\n\n            </ion-item>\n\n\n\n            <ion-item text-wrap *ngIf="grade.percentage">\n\n                <h2>{{ \'core.grades.percentage\' | translate}}</h2>\n\n                <p><core-format-text [text]="grade.percentage"></core-format-text></p>\n\n            </ion-item>\n\n\n\n            <ion-item text-wrap *ngIf="grade.lettergrade">\n\n                <h2>{{ \'core.grades.lettergrade\' | translate}}</h2>\n\n                <p><core-format-text [text]="grade.lettergrade"></core-format-text></p>\n\n            </ion-item>\n\n\n\n            <ion-item text-wrap *ngIf="grade.rank">\n\n                <h2>{{ \'core.grades.rank\' | translate}}</h2>\n\n                <p><core-format-text [text]="grade.rank"></core-format-text></p>\n\n            </ion-item>\n\n\n\n            <ion-item text-wrap *ngIf="grade.average">\n\n                <h2>{{ \'core.grades.average\' | translate}}</h2>\n\n                <p><core-format-text [text]="grade.average"></core-format-text></p>\n\n            </ion-item>\n\n\n\n            <ion-item text-wrap *ngIf="grade.feedback">\n\n                <h2>{{ \'core.grades.feedback\' | translate}}</h2>\n\n                <p><core-format-text [fullTitle]="\'core.grades.feedback\' | translate" maxHeight="60" fullOnClick="true" [text]="grade.feedback"></core-format-text></p>\n\n            </ion-item>\n\n\n\n            <ion-item text-wrap *ngIf="grade.contributiontocoursetotal">\n\n                <h2>{{ \'core.grades.contributiontocoursetotal\' | translate}}</h2>\n\n                <p><core-format-text [text]="grade.contributiontocoursetotal"></core-format-text></p>\n\n            </ion-item>\n\n        </ion-list>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\grades\pages\grade\grade.html"*/,
+            selector: 'page-core-login-forgotten-password',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\login\pages\forgotten-password\forgotten-password.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.login.passwordforgotten\' | translate }}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list>\n\n        <ion-item text-wrap>\n\n            {{ \'core.login.passwordforgotteninstructions2\' | translate }}\n\n        </ion-item>\n\n    </ion-list>\n\n    <ion-card>\n\n        <form ion-list [formGroup]="myForm" (ngSubmit)="resetPassword($event)">\n\n            <ion-item-divider text-wrap>\n\n                {{ \'core.login.searchby\' | translate }}\n\n            </ion-item-divider>\n\n            <div radio-group formControlName="field">\n\n                <ion-item>\n\n                    <ion-label>{{ \'core.login.username\' | translate }}</ion-label>\n\n                    <ion-radio value="username"></ion-radio>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-label>{{ \'core.user.email\' | translate }}</ion-label>\n\n                    <ion-radio value="email"></ion-radio>\n\n                </ion-item>\n\n            </div>\n\n            <ion-item>\n\n                <ion-input type="text" name="value" placeholder="{{ \'core.login.usernameoremail\' | translate }}" formControlName="value" autocapitalize="none" autocorrect="off" [core-auto-focus]></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <button text-wrap ion-button block [disabled]="!myForm.valid">{{ \'core.courses.search\' | translate }}</button>\n\n            </ion-item>\n\n        </form>\n\n    </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\login\pages\forgotten-password\forgotten-password.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_grades__["a" /* CoreGradesProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_helper__["a" /* CoreGradesHelperProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__providers_sites__["a" /* CoreSitesProvider */]])
-    ], CoreGradesGradePage);
-    return CoreGradesGradePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_helper__["a" /* CoreLoginHelperProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */]])
+    ], CoreLoginForgottenPasswordPage);
+    return CoreLoginForgottenPasswordPage;
 }());
 
-//# sourceMappingURL=grade.js.map
+//# sourceMappingURL=forgotten-password.js.map
 
 /***/ })
 

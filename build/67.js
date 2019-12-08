@@ -1,16 +1,17 @@
 webpackJsonp([67],{
 
-/***/ 1944:
+/***/ 2023:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModScormTocPageModule", function() { return AddonModScormTocPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModWikiIndexPageModule", function() { return AddonModWikiIndexPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__toc__ = __webpack_require__(2083);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(1015);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index__ = __webpack_require__(2172);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,36 +36,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModScormTocPageModule = /** @class */ (function () {
-    function AddonModScormTocPageModule() {
+
+var AddonModWikiIndexPageModule = /** @class */ (function () {
+    function AddonModWikiIndexPageModule() {
     }
-    AddonModScormTocPageModule = __decorate([
+    AddonModWikiIndexPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__toc__["a" /* AddonModScormTocPage */],
+                __WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModWikiIndexPage */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__toc__["a" /* AddonModScormTocPage */]),
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* AddonModWikiComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModWikiIndexPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], AddonModScormTocPageModule);
-    return AddonModScormTocPageModule;
+    ], AddonModWikiIndexPageModule);
+    return AddonModWikiIndexPageModule;
 }());
 
-//# sourceMappingURL=toc.module.js.map
+//# sourceMappingURL=index.module.js.map
 
 /***/ }),
 
-/***/ 2083:
+/***/ 2172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModScormTocPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModWikiIndexPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_scorm__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_index_index__ = __webpack_require__(452);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -91,45 +94,62 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Modal to display the TOC of a SCORM.
+ * Page that displays a wiki page.
  */
-var AddonModScormTocPage = /** @class */ (function () {
-    function AddonModScormTocPage(navParams, viewCtrl) {
-        this.viewCtrl = viewCtrl;
-        this.toc = navParams.get('toc') || [];
-        this.attemptToContinue = navParams.get('attemptToContinue');
-        var mode = navParams.get('mode');
-        this.selected = navParams.get('selected');
-        this.isBrowse = mode === __WEBPACK_IMPORTED_MODULE_2__providers_scorm__["a" /* AddonModScormProvider */].MODEBROWSE;
-        this.isReview = mode === __WEBPACK_IMPORTED_MODULE_2__providers_scorm__["a" /* AddonModScormProvider */].MODEREVIEW;
+var AddonModWikiIndexPage = /** @class */ (function () {
+    function AddonModWikiIndexPage(navParams) {
+        this.module = navParams.get('module') || {};
+        this.courseId = navParams.get('courseId');
+        this.action = navParams.get('action') || 'page';
+        this.pageId = navParams.get('pageId');
+        this.pageTitle = navParams.get('pageTitle');
+        this.wikiId = navParams.get('wikiId');
+        this.subwikiId = navParams.get('subwikiId');
+        this.userId = navParams.get('userId');
+        this.groupId = navParams.get('groupId');
+        this.title = this.pageTitle || this.module.name;
     }
     /**
-     * Function called when a SCO is clicked.
+     * Update some data based on the data received.
      *
-     * @param {any} sco Clicked SCO.
+     * @param {any} data The data received.
      */
-    AddonModScormTocPage.prototype.loadSco = function (sco) {
-        if (!sco.prereq || !sco.isvisible || !sco.launch) {
-            return;
+    AddonModWikiIndexPage.prototype.updateData = function (data) {
+        if (typeof data == 'string') {
+            // We received the title to display.
+            this.title = data;
         }
-        this.viewCtrl.dismiss(sco);
+        else {
+            // We received a wiki instance.
+            this.title = this.pageTitle || data.title || this.title;
+        }
     };
     /**
-     * Close modal.
+     * User entered the page.
      */
-    AddonModScormTocPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
+    AddonModWikiIndexPage.prototype.ionViewDidEnter = function () {
+        this.wikiComponent.ionViewDidEnter();
     };
-    AddonModScormTocPage = __decorate([
+    /**
+     * User left the page.
+     */
+    AddonModWikiIndexPage.prototype.ionViewDidLeave = function () {
+        this.wikiComponent.ionViewDidLeave();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModWikiIndexComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModWikiIndexComponent */])
+    ], AddonModWikiIndexPage.prototype, "wikiComponent", void 0);
+    AddonModWikiIndexPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-scorm-toc',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\scorm\pages\toc\toc.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'addon.mod_scorm.toc\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <nav>\n\n        <ion-list>\n\n            <ion-item text-wrap *ngIf="attemptToContinue">\n\n                <p>{{ \'addon.mod_scorm.dataattemptshown\' | translate:{number: attemptToContinue} }}</p>\n\n            </ion-item>\n\n            <ion-item text-center *ngIf="isBrowse">\n\n                <p>{{ \'addon.mod_scorm.browsemode\' | translate }}</p>\n\n            </ion-item>\n\n            <ion-item text-center *ngIf="isReview">\n\n                <p>{{ \'addon.mod_scorm.reviewmode\' | translate }}</p>\n\n            </ion-item>\n\n\n\n            <!-- List of SCOs. -->\n\n            <ng-container *ngFor="let sco of toc">\n\n                <a *ngIf="sco.isvisible" ion-item text-wrap [ngClass]="\'core-padding-\' + sco.level" [class.core-nav-item-selected]="selected == sco.id" (click)="loadSco(sco)" [attr.disabled]="!sco.prereq || !sco.launch ? true : null" [attr.detail-none]="!sco.prereq || !sco.launch ? true : null">\n\n                    <img [src]="sco.image.url" [alt]="sco.image.description" />\n\n                    <span>{{ sco.title }}</span>\n\n                </a>\n\n            </ng-container>\n\n        </ion-list>\n\n    </nav>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\scorm\pages\toc\toc.html"*/
+            selector: 'page-addon-mod-wiki-index',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\wiki\pages\index\index.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n\n\n        <ion-buttons end>\n\n            <!-- The buttons defined by the component will be added in here. -->\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="wikiComponent.loaded" (ionRefresh)="wikiComponent.doRefresh($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n\n\n    <addon-mod-wiki-index [module]="module" [courseId]="courseId" [action]="action" [pageId]="pageId" [pageTitle]="pageTitle" [wikiId]="wikiId" [subwikiId]="subwikiId" [userId]="userId" [groupId]="groupId" (dataRetrieved)="updateData($event)"></addon-mod-wiki-index>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\wiki\pages\index\index.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */]])
-    ], AddonModScormTocPage);
-    return AddonModScormTocPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
+    ], AddonModWikiIndexPage);
+    return AddonModWikiIndexPage;
 }());
 
-//# sourceMappingURL=toc.js.map
+//# sourceMappingURL=index.js.map
 
 /***/ })
 

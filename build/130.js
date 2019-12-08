@@ -1,18 +1,17 @@
 webpackJsonp([130],{
 
-/***/ 1875:
+/***/ 1955:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonBadgesIssuedBadgePageModule", function() { return AddonBadgesIssuedBadgePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonCalendarSettingsPageModule", function() { return AddonCalendarSettingsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__settings__ = __webpack_require__(2102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__issued_badge__ = __webpack_require__(2012);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(65);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,44 +37,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var AddonBadgesIssuedBadgePageModule = /** @class */ (function () {
-    function AddonBadgesIssuedBadgePageModule() {
+var AddonCalendarSettingsPageModule = /** @class */ (function () {
+    function AddonCalendarSettingsPageModule() {
     }
-    AddonBadgesIssuedBadgePageModule = __decorate([
+    AddonCalendarSettingsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__issued_badge__["a" /* AddonBadgesIssuedBadgePage */],
+                __WEBPACK_IMPORTED_MODULE_3__settings__["a" /* AddonCalendarSettingsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
                 __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__["a" /* CorePipesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__issued_badge__["a" /* AddonBadgesIssuedBadgePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__settings__["a" /* AddonCalendarSettingsPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], AddonBadgesIssuedBadgePageModule);
-    return AddonBadgesIssuedBadgePageModule;
+    ], AddonCalendarSettingsPageModule);
+    return AddonCalendarSettingsPageModule;
 }());
 
-//# sourceMappingURL=issued-badge.module.js.map
+//# sourceMappingURL=settings.module.js.map
 
 /***/ }),
 
-/***/ 2012:
+/***/ 2102:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonBadgesIssuedBadgePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonCalendarSettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_utils_time__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_user_providers_user__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_courses_providers_courses__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_badges__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_calendar__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_events__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -102,99 +95,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
 /**
- * Page that displays the list of calendar events.
+ * Page that displays the calendar settings.
  */
-var AddonBadgesIssuedBadgePage = /** @class */ (function () {
-    function AddonBadgesIssuedBadgePage(badgesProvider, navParams, sitesProvider, domUtils, timeUtils, userProvider, coursesProvider) {
-        this.badgesProvider = badgesProvider;
-        this.domUtils = domUtils;
-        this.timeUtils = timeUtils;
-        this.userProvider = userProvider;
-        this.coursesProvider = coursesProvider;
-        this.user = {};
-        this.course = {};
-        this.badge = {};
-        this.badgeLoaded = false;
-        this.currentTime = 0;
-        this.courseId = navParams.get('courseId') || 0; // Use 0 for site badges.
-        this.userId = navParams.get('userId') || sitesProvider.getCurrentSite().getUserId();
-        this.badgeHash = navParams.get('badgeHash');
+var AddonCalendarSettingsPage = /** @class */ (function () {
+    function AddonCalendarSettingsPage(calendarProvider, eventsProvider, sitesProvider) {
+        this.calendarProvider = calendarProvider;
+        this.eventsProvider = eventsProvider;
+        this.sitesProvider = sitesProvider;
+        this.defaultTime = 0;
     }
     /**
      * View loaded.
      */
-    AddonBadgesIssuedBadgePage.prototype.ionViewDidLoad = function () {
+    AddonCalendarSettingsPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        this.fetchIssuedBadge().finally(function () {
-            _this.badgeLoaded = true;
+        this.calendarProvider.getDefaultNotificationTime().then(function (time) {
+            _this.defaultTime = time;
         });
     };
     /**
-     * Fetch the issued badge required for the view.
+     * Update default time.
      *
-     * @return {Promise<any>} Promise resolved when done.
+     * @param {number} newTime New time.
      */
-    AddonBadgesIssuedBadgePage.prototype.fetchIssuedBadge = function () {
-        var _this = this;
-        var promises = [];
-        this.currentTime = this.timeUtils.timestamp();
-        promises.push(this.userProvider.getProfile(this.userId, this.courseId, true).then(function (user) {
-            _this.user = user;
-        }));
-        promises.push(this.badgesProvider.getUserBadges(this.courseId, this.userId).then(function (badges) {
-            var badge = badges.find(function (badge) {
-                return _this.badgeHash == badge.uniquehash;
-            });
-            if (badge) {
-                _this.badge = badge;
-                if (badge.courseid) {
-                    return _this.coursesProvider.getUserCourse(badge.courseid, true).then(function (course) {
-                        _this.course = course;
-                    }).catch(function () {
-                        // Maybe an old deleted course.
-                        _this.course = null;
-                    });
-                }
-            }
-        }).catch(function (message) {
-            _this.domUtils.showErrorModalDefault(message, 'Error getting badge data.');
-        }));
-        return Promise.all(promises);
+    AddonCalendarSettingsPage.prototype.updateDefaultTime = function (newTime) {
+        this.calendarProvider.setDefaultNotificationTime(newTime);
+        this.eventsProvider.trigger(__WEBPACK_IMPORTED_MODULE_1__providers_calendar__["a" /* AddonCalendarProvider */].DEFAULT_NOTIFICATION_TIME_CHANGED, { time: newTime }, this.sitesProvider.getCurrentSiteId());
     };
-    /**
-     * Refresh the badges.
-     *
-     * @param {any} refresher Refresher.
-     */
-    AddonBadgesIssuedBadgePage.prototype.refreshBadges = function (refresher) {
-        var _this = this;
-        this.badgesProvider.invalidateUserBadges(this.courseId, this.userId).finally(function () {
-            _this.fetchIssuedBadge().finally(function () {
-                refresher.complete();
-            });
-        });
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
-    ], AddonBadgesIssuedBadgePage.prototype, "content", void 0);
-    AddonBadgesIssuedBadgePage = __decorate([
+    AddonCalendarSettingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-badges-issued-badge',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\badges\pages\issued-badge\issued-badge.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{badge.name}}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="badgeLoaded" (ionRefresh)="refreshBadges($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <core-loading [hideUntil]="badgeLoaded">\n\n\n\n        <ion-item-group>\n\n            <ion-item text-wrap class="item-avatar-center">\n\n                <img *ngIf="badge.badgeurl" class="avatar" [src]="badge.badgeurl" core-external-content [alt]="badge.name">\n\n                <ion-badge color="danger" *ngIf="badge.dateexpire && currentTime >= badge.dateexpire">\n\n                    {{ \'addon.badges.expired\' | translate }}\n\n                </ion-badge>\n\n            </ion-item>\n\n        </ion-item-group>\n\n\n\n        <ion-item-group *ngIf="user.fullname">\n\n            <ion-item-divider>\n\n                <h2>{{ \'addon.badges.recipientdetails\' | translate}}</h2>\n\n            </ion-item-divider>\n\n            <ion-item text-wrap>\n\n                <h2>{{ \'core.name\' | translate}}</h2>\n\n                <p>\n\n                    <core-format-text clean="true" [text]="user.fullname"></core-format-text>\n\n                </p>\n\n            </ion-item>\n\n        </ion-item-group>\n\n\n\n        <ion-item-group>\n\n            <ion-item-divider>\n\n                <h2>{{ \'addon.badges.issuerdetails\' | translate}}</h2>\n\n            </ion-item-divider>\n\n            <ion-item text-wrap *ngIf="badge.issuername">\n\n                <h2>{{ \'addon.badges.issuername\' | translate}}</h2>\n\n                <p>\n\n                    <core-format-text clean="true" [text]="badge.issuername"></core-format-text>\n\n                </p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.issuercontact">\n\n                <h2>{{ \'addon.badges.contact\' | translate}}</h2>\n\n                <p><a href="mailto:{{badge.issuercontact}}" core-link auto-login="no">\n\n                    <core-format-text [text]="badge.issuercontact"></core-format-text>\n\n                </a></p>\n\n            </ion-item>\n\n        </ion-item-group>\n\n\n\n        <ion-item-group>\n\n            <ion-item-divider>\n\n                <h2>{{ \'addon.badges.badgedetails\' | translate}}</h2>\n\n            </ion-item-divider>\n\n            <ion-item text-wrap *ngIf="badge.name">\n\n                <h2>{{ \'core.name\' | translate}}</h2>\n\n                <p>{{ badge.name }}</p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.version">\n\n                <h2>{{ \'addon.badges.version\' | translate}}</h2>\n\n                <p>{{ badge.version }}</p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.language">\n\n                <h2>{{ \'addon.badges.language\' | translate}}</h2>\n\n                <p>{{ badge.language }}</p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.description">\n\n                <h2>{{ \'core.description\' | translate}}</h2>\n\n                <p>\n\n                    <core-format-text clean="true" [text]="badge.description"></core-format-text>\n\n                </p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.imageauthorname">\n\n                <h2>{{ \'addon.badges.imageauthorname\' | translate}}</h2>\n\n                <p>{{ badge.imageauthorname }}</p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.imageauthoremail">\n\n                <h2>{{ \'addon.badges.imageauthoremail\' | translate}}</h2>\n\n                <p><a href="mailto:{{badge.imageauthoremail}}" core-link auto-login="no">\n\n                    <core-format-text [text]="badge.imageauthoremail"></core-format-text>\n\n                </a></p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.imageauthorurl">\n\n                <h2>{{ \'addon.badges.imageauthorurl\' | translate}}</h2>\n\n                <p><a [href]="badge.imageauthorurl" core-link auto-login="no">\n\n                    <core-format-text [text]="badge.imageauthorurl"></core-format-text>\n\n                </a></p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.imagecaption">\n\n                <h2>{{ \'addon.badges.imagecaption\' | translate}}</h2>\n\n                <p><core-format-text [text]="badge.imagecaption"></core-format-text></p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="course.fullname">\n\n                <h2>{{ \'core.course\' | translate}}</h2>\n\n                <p>\n\n                    <core-format-text [text]="course.fullname"></core-format-text>\n\n                </p>\n\n            </ion-item>\n\n            <!-- Criteria (not yet avalaible) -->\n\n        </ion-item-group>\n\n\n\n        <ion-item-group>\n\n            <ion-item-divider>\n\n                <h2>{{ \'addon.badges.issuancedetails\' | translate}}</h2>\n\n            </ion-item-divider>\n\n            <ion-item text-wrap *ngIf="badge.dateissued">\n\n                <h2>{{ \'addon.badges.dateawarded\' | translate}}</h2>\n\n                <p>{{badge.dateissued * 1000 | coreFormatDate }}</p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.dateexpire">\n\n                <h2>{{ \'addon.badges.expirydate\' | translate}}</h2>\n\n                <p>\n\n                    {{ badge.dateexpire * 1000 | coreFormatDate }}\n\n                    <span class="text-danger" *ngIf="currentTime >= badge.dateexpire">\n\n                        {{ \'addon.badges.warnexpired\' | translate }}\n\n                    </span>\n\n                </p>\n\n            </ion-item>\n\n            <!-- Evidence (not yet avalaible) -->\n\n        </ion-item-group>\n\n\n\n        <!-- Endorsement -->\n\n        <ion-item-group *ngIf="badge.endorsement">\n\n            <ion-item-divider>\n\n                <h2>{{ \'addon.badges.bendorsement\' | translate}}</h2>\n\n            </ion-item-divider>\n\n            <ion-item text-wrap *ngIf="badge.endorsement.issuername">\n\n                <h2>{{ \'addon.badges.issuername\' | translate}}</h2>\n\n                <p>{{ badge.endorsement.issuername }}</p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.endorsement.issueremail">\n\n                <h2>{{ \'addon.badges.issueremail\' | translate}}</h2>\n\n                <p><a href="mailto:{{badge.endorsement.issueremail}}" core-link auto-login="no">\n\n                    <core-format-text [text]="badge.endorsement.issueremail"></core-format-text>\n\n                </a></p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.endorsement.issuerurl">\n\n                <h2>{{ \'addon.badges.issuerurl\' | translate}}</h2>\n\n                <p><a [href]="badge.endorsement.issuerurl" core-link auto-login="no">\n\n                    <core-format-text [text]="badge.endorsement.issuerurl"></core-format-text>\n\n                </a></p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.endorsement.dateissued">\n\n                <h2>{{ \'addon.badges.dateawarded\' | translate}}</h2>\n\n                <p>{{ badge.endorsement.dateissued * 1000 | coreFormatDate }}</p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.endorsement.claimid">\n\n                <h2>{{ \'addon.badges.claimid\' | translate}}</h2>\n\n                <p><a [href]="badge.endorsement.claimid" core-link auto-login="no">\n\n                    <core-format-text [text]="badge.endorsement.claimid"></core-format-text>\n\n                </a></p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.endorsement.claimcomment">\n\n                <h2>{{ \'addon.badges.claimcomment\' | translate}}</h2>\n\n                <p>\n\n                    <core-format-text [text]="badge.endorsement.claimcomment"></core-format-text>\n\n                </p>\n\n            </ion-item>\n\n        </ion-item-group>\n\n\n\n        <!-- Related badges -->\n\n        <ion-item-group *ngIf="badge.relatedbadges">\n\n            <ion-item-divider>\n\n                <h2>{{ \'addon.badges.relatedbages\' | translate}}</h2>\n\n            </ion-item-divider>\n\n            <ion-item text-wrap *ngFor="let relatedBadge of badge.relatedbadges">\n\n                <h2><core-format-text [text]="relatedBadge.name"></core-format-text></h2>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="badge.relatedbadges.length == 0">\n\n                <h2>{{ \'addon.badges.norelated\' | translate}}</h2>\n\n            </ion-item>\n\n        </ion-item-group>\n\n\n\n        <!-- Competencies alignment -->\n\n        <ion-item-group *ngIf="badge.competencies">\n\n            <ion-item-divider>\n\n                <h2>{{ \'addon.badges.alignment\' | translate}}</h2>\n\n            </ion-item-divider>\n\n            <a ion-item text-wrap *ngFor="let competency of badge.competencies" [href]="competency.targeturl" core-link auto-login="no">\n\n                <h2><core-format-text [text]="competency.targetname"></core-format-text></h2>\n\n            </a>\n\n            <ion-item text-wrap *ngIf="badge.competencies.length == 0">\n\n                <h2>{{ \'addon.badges.noalignment\' | translate}}</h2>\n\n            </ion-item>\n\n        </ion-item-group>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\badges\pages\issued-badge\issued-badge.html"*/,
+            selector: 'page-addon-calendar-settings',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\calendar\pages\settings\settings.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.settings.settings\' | translate }}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list>\n\n        <ion-item>\n\n            <ion-label>{{ \'addon.calendar.defaultnotificationtime\' | translate }}</ion-label>\n\n            <ion-select [(ngModel)]="defaultTime" (ionChange)="updateDefaultTime($event)" interface="action-sheet">\n\n                <ion-option value="0">{{ \'core.settings.disabled\' | translate }}</ion-option>\n\n                <ion-option value="10">{{ 600 | coreDuration }}</ion-option>\n\n                <ion-option value="30">{{ 1800 | coreDuration }}</ion-option>\n\n                <ion-option value="60">{{ 3600 | coreDuration }}</ion-option>\n\n                <ion-option value="120">{{ 7200 | coreDuration }}</ion-option>\n\n                <ion-option value="360">{{ 21600 | coreDuration }}</ion-option>\n\n                <ion-option value="720">{{ 43200 | coreDuration }}</ion-option>\n\n                <ion-option value="1440">{{ 86400 | coreDuration }}</ion-option>\n\n            </ion-select>\n\n        </ion-item>\n\n    </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\calendar\pages\settings\settings.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7__providers_badges__["a" /* AddonBadgesProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_sites__["a" /* CoreSitesProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_utils_time__["a" /* CoreTimeUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__core_user_providers_user__["a" /* CoreUserProvider */], __WEBPACK_IMPORTED_MODULE_6__core_courses_providers_courses__["a" /* CoreCoursesProvider */]])
-    ], AddonBadgesIssuedBadgePage);
-    return AddonBadgesIssuedBadgePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_calendar__["a" /* AddonCalendarProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_events__["a" /* CoreEventsProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */]])
+    ], AddonCalendarSettingsPage);
+    return AddonCalendarSettingsPage;
 }());
 
-//# sourceMappingURL=issued-badge.js.map
+//# sourceMappingURL=settings.js.map
 
 /***/ })
 

@@ -1,19 +1,21 @@
 webpackJsonp([103],{
 
-/***/ 1906:
+/***/ 1985:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModChatSessionMessagesPageModule", function() { return AddonModChatSessionMessagesPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModDataEntryPageModule", function() { return AddonModDataEntryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_components_module__ = __webpack_require__(958);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__session_messages__ = __webpack_require__(2043);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_comments_components_components_module__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_compile_components_compile_html_compile_html_module__ = __webpack_require__(418);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_rating_components_components_module__ = __webpack_require__(988);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_components_module__ = __webpack_require__(416);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__entry__ = __webpack_require__(2132);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -41,42 +43,55 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModChatSessionMessagesPageModule = /** @class */ (function () {
-    function AddonModChatSessionMessagesPageModule() {
+
+
+var AddonModDataEntryPageModule = /** @class */ (function () {
+    function AddonModDataEntryPageModule() {
     }
-    AddonModChatSessionMessagesPageModule = __decorate([
+    AddonModDataEntryPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_7__session_messages__["a" /* AddonModChatSessionMessagesPage */],
+                __WEBPACK_IMPORTED_MODULE_9__entry__["a" /* AddonModDataEntryPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__["a" /* CorePipesModule */],
-                __WEBPACK_IMPORTED_MODULE_6__components_components_module__["a" /* AddonModChatComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_7__session_messages__["a" /* AddonModChatSessionMessagesPage */]),
-                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
+                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_8__components_components_module__["a" /* AddonModDataComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_6__core_compile_components_compile_html_compile_html_module__["a" /* CoreCompileHtmlComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_5__core_comments_components_components_module__["a" /* CoreCommentsComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_9__entry__["a" /* AddonModDataEntryPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild(),
+                __WEBPACK_IMPORTED_MODULE_7__core_rating_components_components_module__["a" /* CoreRatingComponentsModule */]
             ],
         })
-    ], AddonModChatSessionMessagesPageModule);
-    return AddonModChatSessionMessagesPageModule;
+    ], AddonModDataEntryPageModule);
+    return AddonModDataEntryPageModule;
 }());
 
-//# sourceMappingURL=session-messages.module.js.map
+//# sourceMappingURL=entry.module.js.map
 
 /***/ }),
 
-/***/ 2043:
+/***/ 2132:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModChatSessionMessagesPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModDataEntryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_chat__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_utils_utils__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_groups__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_events__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_course_providers_course__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_data__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_helper__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_sync__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_fields_delegate__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_components_module__ = __webpack_require__(416);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__core_comments_providers_comments__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__core_comments_components_comments_comments__ = __webpack_require__(426);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -104,77 +119,328 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
+
+
+
+
+
+
 /**
- * Page that displays list of chat session messages.
+ * Page that displays the view entry page.
  */
-var AddonModChatSessionMessagesPage = /** @class */ (function () {
-    function AddonModChatSessionMessagesPage(navParams, domUtils, chatProvider) {
+var AddonModDataEntryPage = /** @class */ (function () {
+    function AddonModDataEntryPage(params, utils, groupsProvider, domUtils, fieldsDelegate, courseProvider, dataProvider, dataHelper, sitesProvider, navCtrl, eventsProvider, cdr, commentsProvider) {
+        this.utils = utils;
+        this.groupsProvider = groupsProvider;
         this.domUtils = domUtils;
-        this.chatProvider = chatProvider;
-        this.loaded = false;
-        this.messages = [];
-        this.courseId = navParams.get('courseId');
-        this.chatId = navParams.get('chatId');
-        this.groupId = navParams.get('groupId');
-        this.sessionStart = navParams.get('sessionStart');
-        this.sessionEnd = navParams.get('sessionEnd');
-        this.fetchMessages();
+        this.fieldsDelegate = fieldsDelegate;
+        this.courseProvider = courseProvider;
+        this.dataProvider = dataProvider;
+        this.dataHelper = dataHelper;
+        this.navCtrl = navCtrl;
+        this.eventsProvider = eventsProvider;
+        this.cdr = cdr;
+        this.commentsProvider = commentsProvider;
+        this.fields = {};
+        this.fieldsArray = [];
+        this.title = '';
+        this.moduleName = 'data';
+        this.component = __WEBPACK_IMPORTED_MODULE_8__providers_data__["a" /* AddonModDataProvider */].COMPONENT;
+        this.entryLoaded = false;
+        this.renderingEntry = false;
+        this.loadingComments = false;
+        this.loadingRating = false;
+        this.selectedGroup = 0;
+        this.entryHtml = '';
+        this.extraImports = [__WEBPACK_IMPORTED_MODULE_12__components_components_module__["a" /* AddonModDataComponentsModule */]];
+        this.isPullingToRefresh = false; // Whether the last fetching of data was started by a pull-to-refresh action
+        this.module = params.get('module') || {};
+        this.entryId = params.get('entryId') || null;
+        this.courseId = params.get('courseId');
+        this.selectedGroup = params.get('group') || 0;
+        this.offset = params.get('offset');
+        this.siteId = sitesProvider.getCurrentSiteId();
+        this.title = this.module.name;
+        this.moduleName = this.courseProvider.translateModuleName('data');
     }
     /**
-     * Fetch session messages.
+     * View loaded.
+     */
+    AddonModDataEntryPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.commentsEnabled = !this.commentsProvider.areCommentsDisabledInSite();
+        this.fetchEntryData();
+        // Refresh data if this discussion is synchronized automatically.
+        this.syncObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_10__providers_sync__["a" /* AddonModDataSyncProvider */].AUTO_SYNCED, function (data) {
+            if ((data.entryId == _this.entryId || data.offlineEntryId == _this.entryId) && _this.data.id == data.dataId) {
+                if (data.deleted) {
+                    // If deleted, go back.
+                    _this.navCtrl.pop();
+                }
+                else {
+                    _this.entryId = data.entryid;
+                    _this.entryLoaded = false;
+                    _this.fetchEntryData(true);
+                }
+            }
+        }, this.siteId);
+        // Refresh entry on change.
+        this.entryChangedObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_8__providers_data__["a" /* AddonModDataProvider */].ENTRY_CHANGED, function (data) {
+            if (data.entryId == _this.entryId && _this.data.id == data.dataId) {
+                if (data.deleted) {
+                    // If deleted, go back.
+                    _this.navCtrl.pop();
+                }
+                else {
+                    _this.entryLoaded = false;
+                    _this.fetchEntryData(true);
+                }
+            }
+        }, this.siteId);
+    };
+    /**
+     * Fetch the entry data.
      *
+     * @param  {boolean} [refresh] Whether to refresh the current data or not.
+     * @param  {boolean} [isPtr] Whether is a pull to refresh action.
+     * @return {Promise<any>} Resolved when done.
+     */
+    AddonModDataEntryPage.prototype.fetchEntryData = function (refresh, isPtr) {
+        var _this = this;
+        this.isPullingToRefresh = isPtr;
+        return this.dataProvider.getDatabase(this.courseId, this.module.id).then(function (data) {
+            _this.title = data.name || _this.title;
+            _this.data = data;
+            return _this.dataProvider.getFields(_this.data.id).then(function (fieldsData) {
+                _this.fields = _this.utils.arrayToObject(fieldsData, 'id');
+                _this.fieldsArray = fieldsData;
+            });
+        }).then(function () {
+            return _this.setEntryFromOffset().then(function () {
+                return _this.dataProvider.getDatabaseAccessInformation(_this.data.id);
+            });
+        }).then(function (accessData) {
+            _this.access = accessData;
+            return _this.groupsProvider.getActivityGroupInfo(_this.data.coursemodule).then(function (groupInfo) {
+                _this.groupInfo = groupInfo;
+                _this.selectedGroup = _this.groupsProvider.validateGroupId(_this.selectedGroup, groupInfo);
+            });
+        }).then(function () {
+            var actions = _this.dataHelper.getActions(_this.data, _this.access, _this.entry);
+            var template = _this.dataHelper.getTemplate(_this.data, 'singletemplate', _this.fieldsArray);
+            _this.entryHtml = _this.dataHelper.displayShowFields(template, _this.fieldsArray, _this.entry, _this.offset, 'show', actions);
+            _this.showComments = actions.comments;
+            var entries = {};
+            entries[_this.entryId] = _this.entry;
+            // Pass the input data to the component.
+            _this.jsData = {
+                fields: _this.fields,
+                entries: entries,
+                data: _this.data,
+                module: _this.module,
+                group: _this.selectedGroup
+            };
+        }).catch(function (message) {
+            if (!refresh) {
+                // Some call failed, retry without using cache since it might be a new activity.
+                return _this.refreshAllData(isPtr);
+            }
+            _this.domUtils.showErrorModalDefault(message, 'core.course.errorgetmodule', true);
+        }).finally(function () {
+            _this.domUtils.scrollToTop(_this.content);
+            _this.entryLoaded = true;
+        });
+    };
+    /**
+     * Go to selected entry without changing state.
+     *
+     * @param  {number} offset Entry offset.
+     * @return {Promise<any>} Resolved when done.
+     */
+    AddonModDataEntryPage.prototype.gotoEntry = function (offset) {
+        this.offset = offset;
+        this.entryId = null;
+        this.entry = null;
+        this.entryLoaded = false;
+        return this.fetchEntryData();
+    };
+    /**
+     * Refresh all the data.
+     *
+     * @param  {boolean} [isPtr] Whether is a pull to refresh action.
      * @return {Promise<any>} Promise resolved when done.
      */
-    AddonModChatSessionMessagesPage.prototype.fetchMessages = function () {
+    AddonModDataEntryPage.prototype.refreshAllData = function (isPtr) {
         var _this = this;
-        return this.chatProvider.getSessionMessages(this.chatId, this.sessionStart, this.sessionEnd, this.groupId)
-            .then(function (messages) {
-            return _this.chatProvider.getMessagesUserData(messages, _this.courseId).then(function (messages) {
-                _this.messages = messages;
-            });
-        }).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'core.errorloadingcontent', true);
-        }).finally(function () {
-            _this.loaded = true;
-        });
-    };
-    /**
-     * Refresh session messages.
-     *
-     * @param {any} refresher Refresher.
-     */
-    AddonModChatSessionMessagesPage.prototype.refreshMessages = function (refresher) {
-        var _this = this;
-        this.chatProvider.invalidateSessionMessages(this.chatId, this.sessionStart, this.groupId).finally(function () {
-            _this.fetchMessages().finally(function () {
-                refresher.complete();
-            });
-        });
-    };
-    /**
-     * Check if the date should be displayed between messages (when the day changes at midnight for example).
-     *
-     * @param  {any} message     New message object.
-     * @param  {any} prevMessage Previous message object.
-     * @return {boolean} True if messages are from diferent days, false othetwise.
-     */
-    AddonModChatSessionMessagesPage.prototype.showDate = function (message, prevMessage) {
-        if (!prevMessage) {
-            return true;
+        var promises = [];
+        promises.push(this.dataProvider.invalidateDatabaseData(this.courseId));
+        if (this.data) {
+            promises.push(this.dataProvider.invalidateEntryData(this.data.id, this.entryId));
+            promises.push(this.groupsProvider.invalidateActivityGroupInfo(this.data.coursemodule));
+            promises.push(this.dataProvider.invalidateEntriesData(this.data.id));
+            if (this.data.comments && this.entry && this.entry.id > 0 && this.commentsEnabled && this.comments) {
+                // Refresh comments. Don't add it to promises because we don't want the comments fetch to block the entry fetch.
+                this.comments.doRefresh().catch(function () {
+                    // Ignore errors.
+                });
+            }
         }
-        // Check if day has changed.
-        return !__WEBPACK_IMPORTED_MODULE_4_moment__(message.timestamp * 1000).isSame(prevMessage.timestamp * 1000, 'day');
+        return Promise.all(promises).finally(function () {
+            return _this.fetchEntryData(true, isPtr);
+        });
     };
-    AddonModChatSessionMessagesPage = __decorate([
+    /**
+     * Refresh the data.
+     *
+     * @param {any} [refresher] Refresher.
+     * @return {Promise<any>} Promise resolved when done.
+     */
+    AddonModDataEntryPage.prototype.refreshDatabase = function (refresher) {
+        if (this.entryLoaded) {
+            return this.refreshAllData(true).finally(function () {
+                refresher && refresher.complete();
+            });
+        }
+    };
+    /**
+     * Set group to see the database.
+     *
+     * @param  {number}       groupId Group identifier to set.
+     * @return {Promise<any>}         Resolved when done.
+     */
+    AddonModDataEntryPage.prototype.setGroup = function (groupId) {
+        this.selectedGroup = groupId;
+        this.offset = null;
+        this.entry = null;
+        this.entryId = null;
+        this.entryLoaded = false;
+        return this.fetchEntryData();
+    };
+    /**
+     * Convenience function to fetch the entry and set next/previous entries.
+     *
+     * @return {Promise<any>} Resolved when done.
+     */
+    AddonModDataEntryPage.prototype.setEntryFromOffset = function () {
+        var _this = this;
+        var emptyOffset = typeof this.offset != 'number';
+        if (emptyOffset && typeof this.entryId == 'number') {
+            // Entry id passed as navigation parameter instead of the offset.
+            // We don't display next/previous buttons in this case.
+            this.nextOffset = null;
+            this.previousOffset = null;
+            return this.dataHelper.fetchEntry(this.data, this.fieldsArray, this.entryId).then(function (entry) {
+                _this.entry = entry.entry;
+                _this.ratingInfo = entry.ratinginfo;
+            });
+        }
+        var perPage = __WEBPACK_IMPORTED_MODULE_8__providers_data__["a" /* AddonModDataProvider */].PER_PAGE;
+        var page = !emptyOffset && this.offset >= 0 ? Math.floor(this.offset / perPage) : 0;
+        return this.dataHelper.fetchEntries(this.data, this.fieldsArray, this.selectedGroup, undefined, undefined, '0', 'DESC', page, perPage).then(function (entries) {
+            var pageEntries = entries.offlineEntries.concat(entries.entries);
+            var pageIndex; // Index of the entry when concatenating offline and online page entries.
+            if (emptyOffset) {
+                // No offset passed, display the first entry.
+                pageIndex = 0;
+            }
+            else if (_this.offset > 0) {
+                // Online entry.
+                pageIndex = _this.offset % perPage + entries.offlineEntries.length;
+            }
+            else {
+                // Offline entry.
+                pageIndex = _this.offset + entries.offlineEntries.length;
+            }
+            _this.entry = pageEntries[pageIndex];
+            _this.entryId = _this.entry.id;
+            _this.previousOffset = page > 0 || pageIndex > 0 ? _this.offset - 1 : null;
+            var promise;
+            if (pageIndex + 1 < pageEntries.length) {
+                // Not the last entry on the page;
+                _this.nextOffset = _this.offset + 1;
+            }
+            else if (pageEntries.length < perPage) {
+                // Last entry of the last page.
+                _this.nextOffset = null;
+            }
+            else {
+                // Last entry of the page, check if there are more pages.
+                promise = _this.dataProvider.getEntries(_this.data.id, _this.selectedGroup, '0', 'DESC', page + 1, perPage)
+                    .then(function (entries) {
+                    _this.nextOffset = entries && entries.entries && entries.entries.length > 0 ? _this.offset + 1 : null;
+                });
+            }
+            return Promise.resolve(promise).then(function () {
+                if (_this.entryId > 0) {
+                    // Online entry, we need to fetch the the rating info.
+                    return _this.dataProvider.getEntry(_this.data.id, _this.entryId).then(function (entry) {
+                        _this.ratingInfo = entry.ratinginfo;
+                    });
+                }
+            });
+        });
+    };
+    /**
+     * Function called when entry is being rendered.
+     */
+    AddonModDataEntryPage.prototype.setRenderingEntry = function (rendering) {
+        this.renderingEntry = rendering;
+        this.cdr.detectChanges();
+    };
+    /**
+     * Function called when comments component is loading data.
+     */
+    AddonModDataEntryPage.prototype.setLoadingComments = function (loading) {
+        this.loadingComments = loading;
+        this.cdr.detectChanges();
+    };
+    /**
+     * Function called when rate component is loading data.
+     */
+    AddonModDataEntryPage.prototype.setLoadingRating = function (loading) {
+        this.loadingRating = loading;
+        this.cdr.detectChanges();
+    };
+    /**
+     * Function called when rating is updated online.
+     */
+    AddonModDataEntryPage.prototype.ratingUpdated = function () {
+        this.dataProvider.invalidateEntryData(this.data.id, this.entryId);
+    };
+    /**
+     * Component being destroyed.
+     */
+    AddonModDataEntryPage.prototype.ngOnDestroy = function () {
+        this.syncObserver && this.syncObserver.off();
+        this.entryChangedObserver && this.entryChangedObserver.off();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
+    ], AddonModDataEntryPage.prototype, "content", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_14__core_comments_components_comments_comments__["a" /* CoreCommentsCommentsComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_14__core_comments_components_comments_comments__["a" /* CoreCommentsCommentsComponent */])
+    ], AddonModDataEntryPage.prototype, "comments", void 0);
+    AddonModDataEntryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-chat-session-messages',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\chat\pages\session-messages\session-messages.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'addon.mod_chat.messages\' | translate }}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="loaded" (ionRefresh)="refreshMessages($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <core-loading [hideUntil]="loaded">\n\n        <div *ngFor="let message of messages; index as index; last as last">\n\n            <div text-center *ngIf="showDate(messages[index], messages[index - 1])" class="addon-mod-chat-notice">\n\n                <ion-badge text-wrap color="light">\n\n                    <span>{{ message.timestamp * 1000 | coreFormatDate:"strftimedayshort" }}</span>\n\n                </ion-badge>\n\n            </div>\n\n\n\n            <div text-center *ngIf="message.issystem && message.message == \'enter\'" class="addon-mod-chat-notice">\n\n                <ion-badge text-wrap color="light">\n\n                    <span>{{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }} {{ \'addon.mod_chat.messageenter\' | translate:{$a: message.userfullname} }}</span>\n\n                </ion-badge>\n\n            </div>\n\n\n\n            <div text-center *ngIf="message.issystem && message.message == \'exit\'" class="addon-mod-chat-notice">\n\n                <ion-badge text-wrap color="light">\n\n                    <span>{{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }} {{ \'addon.mod_chat.messageexit\' | translate:{$a: message.userfullname} }}</span>\n\n                </ion-badge>\n\n            </div>\n\n\n\n            <ion-item text-wrap *ngIf="!message.issystem && message.message.substr(0, 4) != \'beep\'" class="addon-mod-chat-message">\n\n                <ion-avatar core-user-avatar [user]="message" item-start></ion-avatar>\n\n                <h2>\n\n                    <p float-end>{{ message.timestamp * 1000 | coreFormatDate:"strftimetime" }}</p>\n\n                    <core-format-text [text]="message.userfullname"></core-format-text>\n\n                </h2>\n\n                <core-format-text [text]="message.message"></core-format-text>\n\n            </ion-item>\n\n        </div>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\chat\pages\session-messages\session-messages.html"*/,
+            selector: 'page-addon-mod-data-entry',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\data\pages\entry\entry.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="entryLoaded && (isPullingToRefresh || !renderingEntry && !loadingRating && !loadingComments)" (ionRefresh)="refreshDatabase($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <core-loading [hideUntil]="entryLoaded && (isPullingToRefresh || !renderingEntry && !loadingRating && !loadingComments)">\n\n        <!-- Database entries found to be synchronized -->\n\n        <div class="core-warning-card" icon-start *ngIf="entry && entry.hasOffline">\n\n            <ion-icon name="warning"></ion-icon>\n\n            {{ \'core.hasdatatosync\' | translate: {$a: moduleName} }}\n\n        </div>\n\n\n\n        <ion-item text-wrap *ngIf="groupInfo && (groupInfo.separateGroups || groupInfo.visibleGroups)">\n\n            <ion-label id="addon-data-groupslabel" *ngIf="groupInfo.separateGroups">{{ \'core.groupsseparate\' | translate }}</ion-label>\n\n            <ion-label id="addon-data-groupslabel" *ngIf="groupInfo.visibleGroups">{{ \'core.groupsvisible\' | translate }}</ion-label>\n\n            <ion-select [(ngModel)]="selectedGroup" (ionChange)="setGroup(selectedGroup)" aria-labelledby="addon-data-groupslabel" interface="action-sheet">\n\n                <ion-option *ngFor="let groupOpt of groupInfo.groups" [value]="groupOpt.id">{{groupOpt.name}}</ion-option>\n\n            </ion-select>\n\n        </ion-item>\n\n\n\n        <div class="addon-data-contents addon-data-entries-{{data.id}}" *ngIf="entry">\n\n            <core-style [css]="data.csstemplate" prefix=".addon-data-entries-{{data.id}}"></core-style>\n\n\n\n            <core-compile-html [text]="entryHtml" [jsData]="jsData" [extraImports]="extraImports" (compiling)="setRenderingEntry($event)"></core-compile-html>\n\n        </div>\n\n\n\n        <core-rating-rate *ngIf="data && entry && ratingInfo && (!data.approval || entry.approved)" [ratingInfo]="ratingInfo" contextLevel="module" [instanceId]="data.coursemodule" [itemId]="entry.id" [itemSetId]="0" [courseId]="courseId" [aggregateMethod]="data.assessed" [scaleId]="data.scale" [userId]="entry.userid" (onLoading)="setLoadingRating($event)" (onUpdate)="ratingUpdated()"></core-rating-rate>\n\n        <core-rating-aggregate *ngIf="data && entry && ratingInfo" [ratingInfo]="ratingInfo" contextLevel="module" [instanceId]="data.coursemodule" [itemId]="entry.id" [courseId]="courseId" [aggregateMethod]="data.assessed" [scaleId]="data.scale"></core-rating-aggregate>\n\n\n\n        <ion-item *ngIf="data && data.comments && entry && entry.id > 0 && commentsEnabled">\n\n            <core-comments contextLevel="module" [instanceId]="data.coursemodule" component="mod_data" [itemId]="entry.id" area="database_entry" [displaySpinner]="false" (onLoading)="setLoadingComments($event)"></core-comments>\n\n        </ion-item>\n\n\n\n        <ion-grid *ngIf="previousOffset != null || nextOffset != null">\n\n            <ion-row align-items-center>\n\n                <ion-col *ngIf="previousOffset != null">\n\n                    <button ion-button block outline icon-start (click)="gotoEntry(previousOffset)">\n\n                        <ion-icon name="arrow-back" md="ios-arrow-back"></ion-icon>\n\n                        {{ \'core.previous\' | translate }}\n\n                    </button>\n\n                </ion-col>\n\n                <ion-col *ngIf="nextOffset != null">\n\n                    <button ion-button block icon-end (click)="gotoEntry(nextOffset)">\n\n                        {{ \'core.next\' | translate }}\n\n                        <ion-icon name="arrow-forward" md="ios-arrow-forward"></ion-icon>\n\n                    </button>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-grid>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\data\pages\entry\entry.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_chat__["a" /* AddonModChatProvider */]])
-    ], AddonModChatSessionMessagesPage);
-    return AddonModChatSessionMessagesPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_utils_utils__["a" /* CoreUtilsProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_groups__["a" /* CoreGroupsProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_11__providers_fields_delegate__["a" /* AddonModDataFieldsDelegate */],
+            __WEBPACK_IMPORTED_MODULE_7__core_course_providers_course__["a" /* CoreCourseProvider */], __WEBPACK_IMPORTED_MODULE_8__providers_data__["a" /* AddonModDataProvider */],
+            __WEBPACK_IMPORTED_MODULE_9__providers_helper__["a" /* AddonModDataHelperProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_6__providers_events__["a" /* CoreEventsProvider */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_13__core_comments_providers_comments__["a" /* CoreCommentsProvider */]])
+    ], AddonModDataEntryPage);
+    return AddonModDataEntryPage;
 }());
 
-//# sourceMappingURL=session-messages.js.map
+//# sourceMappingURL=entry.js.map
 
 /***/ })
 

@@ -1,17 +1,18 @@
 webpackJsonp([59],{
 
-/***/ 1953:
+/***/ 2034:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModWorkshopPhaseInfoPageModule", function() { return AddonModWorkshopPhaseInfoPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonStorageManagerCourseStoragePageModule", function() { return AddonStorageManagerCourseStoragePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__phase__ = __webpack_require__(2093);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__core_compile_components_compile_html_compile_html_module__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__course_storage__ = __webpack_require__(2186);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,37 +38,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModWorkshopPhaseInfoPageModule = /** @class */ (function () {
-    function AddonModWorkshopPhaseInfoPageModule() {
+
+var AddonStorageManagerCourseStoragePageModule = /** @class */ (function () {
+    function AddonStorageManagerCourseStoragePageModule() {
     }
-    AddonModWorkshopPhaseInfoPageModule = __decorate([
+    AddonStorageManagerCourseStoragePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__phase__["a" /* AddonModWorkshopPhaseInfoPage */],
+                __WEBPACK_IMPORTED_MODULE_6__course_storage__["a" /* AddonStorageManagerCourseStoragePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_5__core_compile_components_compile_html_compile_html_module__["a" /* CoreCompileHtmlComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__phase__["a" /* AddonModWorkshopPhaseInfoPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__["a" /* CorePipesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__course_storage__["a" /* AddonStorageManagerCourseStoragePage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], AddonModWorkshopPhaseInfoPageModule);
-    return AddonModWorkshopPhaseInfoPageModule;
+    ], AddonStorageManagerCourseStoragePageModule);
+    return AddonStorageManagerCourseStoragePageModule;
 }());
 
-//# sourceMappingURL=phase.module.js.map
+//# sourceMappingURL=course-storage.module.js.map
 
 /***/ }),
 
-/***/ 2093:
+/***/ 2186:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModWorkshopPhaseInfoPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonStorageManagerCourseStoragePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_utils_utils__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__core_course_providers_course__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_course_providers_module_prefetch_delegate__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_course_providers_helper__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__ = __webpack_require__(1);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -93,60 +100,150 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
 /**
- * Page that displays the phase info modal.
+ * Page that displays the amount of file storage used by each activity on the course, and allows
+ * the user to delete these files.
  */
-var AddonModWorkshopPhaseInfoPage = /** @class */ (function () {
-    function AddonModWorkshopPhaseInfoPage(params, viewCtrl, utils) {
-        this.viewCtrl = viewCtrl;
-        this.utils = utils;
-        this.phases = params.get('phases');
-        this.workshopPhase = params.get('workshopPhase');
-        var externalUrl = params.get('externalUrl');
-        // Treat phases.
-        for (var x in this.phases) {
-            this.phases[x].tasks.forEach(function (task) {
-                if (!task.link && (task.code == 'examples' || task.code == 'prepareexamples')) {
-                    // Add links to manage examples.
-                    task.link = externalUrl;
-                }
-            });
-            var action = this.phases[x].actions.find(function (action) {
-                return action.url && action.type == 'switchphase';
-            });
-            this.phases[x].switchUrl = action ? action.url : '';
-        }
+var AddonStorageManagerCourseStoragePage = /** @class */ (function () {
+    function AddonStorageManagerCourseStoragePage(navParams, courseProvider, prefetchDelegate, courseHelperProvider, domUtils, translate) {
+        this.courseProvider = courseProvider;
+        this.prefetchDelegate = prefetchDelegate;
+        this.courseHelperProvider = courseHelperProvider;
+        this.domUtils = domUtils;
+        this.translate = translate;
+        this.course = navParams.get('course');
     }
     /**
-     * Close modal.
+     * View loaded.
      */
-    AddonModWorkshopPhaseInfoPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
+    AddonStorageManagerCourseStoragePage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.courseProvider.getSections(this.course.id, false, true).then(function (sections) {
+            _this.courseHelperProvider.addHandlerDataForModules(sections, _this.course.id);
+            _this.sections = sections;
+            _this.totalSize = 0;
+            var allPromises = [];
+            _this.sections.forEach(function (section) {
+                section.totalSize = 0;
+                section.modules.forEach(function (module) {
+                    module.parentSection = section;
+                    module.totalSize = 0;
+                    // Note: This function only gets the size for modules which are downloadable.
+                    // For other modules it always returns 0, even if they have downloaded some files.
+                    // However there is no 100% reliable way to actually track the files in this case.
+                    // You can maybe guess it based on the component and componentid.
+                    // But these aren't necessarily consistent, for example mod_frog vs mmaModFrog.
+                    // There is nothing enforcing correct values.
+                    // Most modules which have large files are downloadable, so I think this is sufficient.
+                    var promise = _this.prefetchDelegate.getModuleDownloadedSize(module, _this.course.id).
+                        then(function (size) {
+                        // There are some cases where the return from this is not a valid number.
+                        if (!isNaN(size)) {
+                            module.totalSize = Number(size);
+                            section.totalSize += size;
+                            _this.totalSize += size;
+                        }
+                    });
+                    allPromises.push(promise);
+                });
+            });
+            Promise.all(allPromises).then(function () {
+                _this.loaded = true;
+            });
+        });
     };
     /**
-     * Open task.
+     * The user has requested a delete for the whole course data.
      *
-     * @param {any} task Task to be done.
+     * (This works by deleting data for each module on the course that has data.)
      */
-    AddonModWorkshopPhaseInfoPage.prototype.runTask = function (task) {
-        if (task.code == 'submit') {
-            // This will close the modal and go to the submit.
-            this.viewCtrl.dismiss(true);
-        }
-        else if (task.link) {
-            this.utils.openInBrowser(task.link);
+    AddonStorageManagerCourseStoragePage.prototype.deleteForCourse = function () {
+        var modules = [];
+        this.sections.forEach(function (section) {
+            section.modules.forEach(function (module) {
+                if (module.totalSize > 0) {
+                    modules.push(module);
+                }
+            });
+        });
+        this.deleteModules(modules);
+    };
+    /**
+     * The user has requested a delete for a section's data.
+     *
+     * (This works by deleting data for each module in the section that has data.)
+     *
+     * @param {any} section Section object with information about section and modules
+     */
+    AddonStorageManagerCourseStoragePage.prototype.deleteForSection = function (section) {
+        var modules = [];
+        section.modules.forEach(function (module) {
+            if (module.totalSize > 0) {
+                modules.push(module);
+            }
+        });
+        this.deleteModules(modules);
+    };
+    /**
+     * The user has requested a delete for a module's data
+     *
+     * @param {any} module Module details
+     */
+    AddonStorageManagerCourseStoragePage.prototype.deleteForModule = function (module) {
+        if (module.totalSize > 0) {
+            this.deleteModules([module]);
         }
     };
-    AddonModWorkshopPhaseInfoPage = __decorate([
+    /**
+     * Deletes the specified modules, showing the loading overlay while it happens.
+     *
+     * @param {any[]} modules Modules to delete
+     * @return Promise<void> Once deleting has finished
+     */
+    AddonStorageManagerCourseStoragePage.prototype.deleteModules = function (modules) {
+        var _this = this;
+        var modal = this.domUtils.showModalLoading();
+        var promises = [];
+        modules.forEach(function (module) {
+            // Remove the files.
+            var promise = _this.prefetchDelegate.removeModuleFiles(module, _this.course.id).then(function () {
+                // When the files are removed, update the size.
+                module.parentSection.totalSize -= module.totalSize;
+                _this.totalSize -= module.totalSize;
+                module.totalSize = 0;
+            });
+            promises.push(promise);
+        });
+        return Promise.all(promises).then(function () {
+            modal.dismiss();
+        }).catch(function (error) {
+            modal.dismiss();
+            _this.domUtils.showErrorModalDefault(error, _this.translate.instant('core.errordeletefile'));
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
+    ], AddonStorageManagerCourseStoragePage.prototype, "content", void 0);
+    AddonStorageManagerCourseStoragePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-workshop-phase-info',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\workshop\pages\phase\phase.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'addon.mod_workshop.userplan\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list>\n\n        <ng-container *ngFor="let phase of phases">\n\n            <ion-item-divider [class.core-workshop-phase-selected]="workshopPhase == phase.code">\n\n                <h2>{{ phase.title }}</h2>\n\n                <p text-wrap *ngIf="workshopPhase == phase.code">{{ \'addon.mod_workshop.userplancurrentphase\' | translate }}</p>\n\n            </ion-item-divider>\n\n            <a ion-item text-wrap *ngIf="phase.switchUrl" [href]="phase.switchUrl" detail-none>\n\n                <ion-icon item-start name="swap"></ion-icon>\n\n                {{ \'addon.mod_workshop.switchphase\' + phase.code | translate }}\n\n                <ion-icon item-end name="open"></ion-icon>\n\n            </a>\n\n            <a ion-item text-wrap *ngFor="let task of phase.tasks" [class.item-dimmed]="phase.code != workshopPhase" (click)="runTask(task)" detail-none>\n\n                <ion-icon item-start name="radio-button-off" *ngIf="task.completed == null"></ion-icon>\n\n                <ion-icon item-start name="close-circle" color="danger" *ngIf="task.completed == \'\'"></ion-icon>\n\n                <ion-icon item-start name="information-circle" color="info" *ngIf="task.completed == \'info\'"></ion-icon>\n\n                <ion-icon item-start name="checkmark-circle" color="success" *ngIf="task.completed == \'1\'"></ion-icon>\n\n\n\n                <h2 text-wrap>{{task.title}}</h2>\n\n                <p *ngIf="task.details"><core-format-text [text]="task.details"></core-format-text></p>\n\n                <ion-icon item-end *ngIf="task.link && task.code != \'submit\'" name="open"></ion-icon>\n\n            </a>\n\n        </ng-container>\n\n    </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\workshop\pages\phase\phase.html"*/,
+            selector: 'page-addon-storagemanager-course-storage',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\storagemanager\pages\course-storage\course-storage.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'addon.storagemanager.managestorage\' | translate }}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <core-loading [hideUntil]="loaded">\n\n        <ion-card class="wholecourse">\n\n            <ion-card-header>\n\n                <h1 text-wrap>{{ course.displayname }}</h1>\n\n                <p text-wrap>{{ \'addon.storagemanager.info\' | translate }}</p>\n\n                <ion-item no-padding padding-top>\n\n                    <ion-row class="size">\n\n                        <ion-icon name="cube"></ion-icon>\n\n                        {{ \'addon.storagemanager.storageused\' | translate }}\n\n                        {{ totalSize | coreBytesToSize }}\n\n                    </ion-row>\n\n                    <button ion-button icon-only item-end no-padding (click)="deleteForCourse()" [disabled]="totalSize == 0">\n\n                        <core-icon name="trash" label="{{ \'addon.storagemanager.deletecourse\' | translate }}"></core-icon>\n\n                    </button>\n\n                </ion-item>\n\n            </ion-card-header>\n\n        </ion-card>\n\n        <ng-container *ngFor="let section of sections">\n\n            <ion-card *ngIf="section.totalSize > 0" class="section">\n\n                <ion-card-header>\n\n                    <ion-item no-padding>\n\n                        <ion-row>\n\n                            <h2 text-wrap>{{ section.name }}</h2>\n\n                        </ion-row>\n\n                        <ion-row class="size">\n\n                            <ion-icon name="cube"></ion-icon>\n\n                            {{ section.totalSize | coreBytesToSize }}\n\n                        </ion-row>\n\n                        <button ion-button icon-only item-end no-padding (click)="deleteForSection(section)">\n\n                            <core-icon name="trash" label="{{ \'addon.storagemanager.deletedatafrom\' | translate: { name: section.name } }}"></core-icon>\n\n                        </button>\n\n                    </ion-item>\n\n                </ion-card-header>\n\n                <ion-card-content>\n\n                    <ng-container *ngFor="let module of section.modules">\n\n                        <div *ngIf="module.totalSize > 0">\n\n                            <ion-item no-padding>\n\n                                <ion-row class="{{module.handlerData.class}}">\n\n                                    <img *ngIf="module.handlerData.icon" [src]="module.handlerData.icon" alt="" role="presentation" class="core-module-icon"\n\n                                    >{{ module.name }}\n\n                                </ion-row>\n\n                                <ion-row class="size">\n\n                                    <ion-icon name="cube"></ion-icon>\n\n                                    {{ module.totalSize | coreBytesToSize }}\n\n                                </ion-row>\n\n                                <button ion-button icon-only outline item-end (click)="deleteForModule(module)">\n\n                                    <core-icon name="trash" label="{{ \'addon.storagemanager.deletedatafrom\' | translate: { name: module.name } }}"></core-icon>\n\n                                </button>\n\n                            </ion-item>\n\n                        </div>\n\n                    </ng-container>\n\n                </ion-card-content>\n\n            </ion-card>\n\n        </ng-container>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\storagemanager\pages\course-storage\course-storage.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_utils_utils__["a" /* CoreUtilsProvider */]])
-    ], AddonModWorkshopPhaseInfoPage);
-    return AddonModWorkshopPhaseInfoPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__core_course_providers_course__["a" /* CoreCourseProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__core_course_providers_module_prefetch_delegate__["a" /* CoreCourseModulePrefetchDelegate */],
+            __WEBPACK_IMPORTED_MODULE_4__core_course_providers_helper__["a" /* CoreCourseHelperProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */]])
+    ], AddonStorageManagerCourseStoragePage);
+    return AddonStorageManagerCourseStoragePage;
 }());
 
-//# sourceMappingURL=phase.js.map
+//# sourceMappingURL=course-storage.js.map
 
 /***/ })
 

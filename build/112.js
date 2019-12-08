@@ -1,18 +1,17 @@
 webpackJsonp([112],{
 
-/***/ 1899:
+/***/ 1977:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModAssignEditFeedbackModalPageModule", function() { return AddonModAssignEditFeedbackModalPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModBookIndexPageModule", function() { return AddonModBookIndexPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_feedback_modal__ = __webpack_require__(2036);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_components_module__ = __webpack_require__(957);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(999);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index__ = __webpack_require__(2124);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,41 +37,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var AddonModAssignEditFeedbackModalPageModule = /** @class */ (function () {
-    function AddonModAssignEditFeedbackModalPageModule() {
+var AddonModBookIndexPageModule = /** @class */ (function () {
+    function AddonModBookIndexPageModule() {
     }
-    AddonModAssignEditFeedbackModalPageModule = __decorate([
+    AddonModBookIndexPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__edit_feedback_modal__["a" /* AddonModAssignEditFeedbackModalPage */]
+                __WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModBookIndexPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_6__components_components_module__["a" /* AddonModAssignComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_feedback_modal__["a" /* AddonModAssignEditFeedbackModalPage */]),
-                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ]
+                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* AddonModBookComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModBookIndexPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ],
         })
-    ], AddonModAssignEditFeedbackModalPageModule);
-    return AddonModAssignEditFeedbackModalPageModule;
+    ], AddonModBookIndexPageModule);
+    return AddonModBookIndexPageModule;
 }());
 
-//# sourceMappingURL=edit-feedback-modal.module.js.map
+//# sourceMappingURL=index.module.js.map
 
 /***/ }),
 
-/***/ 2036:
+/***/ 2124:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModAssignEditFeedbackModalPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModBookIndexPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_feedback_delegate__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_index_index__ = __webpack_require__(432);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -98,106 +93,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
 /**
- * Modal that allows editing a feedback plugin.
+ * Page that displays a book.
  */
-var AddonModAssignEditFeedbackModalPage = /** @class */ (function () {
-    function AddonModAssignEditFeedbackModalPage(params, viewCtrl, domUtils, translate, feedbackDelegate) {
-        this.viewCtrl = viewCtrl;
-        this.domUtils = domUtils;
-        this.translate = translate;
-        this.feedbackDelegate = feedbackDelegate;
-        this.forceLeave = false; // To allow leaving the page without checking for changes.
-        this.assign = params.get('assign');
-        this.submission = params.get('submission');
-        this.plugin = params.get('plugin');
-        this.userId = params.get('userId');
+var AddonModBookIndexPage = /** @class */ (function () {
+    function AddonModBookIndexPage(navParams) {
+        this.module = navParams.get('module') || {};
+        this.courseId = navParams.get('courseId');
+        this.chapterId = navParams.get('chapterId');
+        this.title = this.module.name;
     }
     /**
-     * Check if we can leave the page or not.
+     * Update some data based on the book instance.
      *
-     * @return {boolean|Promise<void>} Resolved if we can leave it, rejected if not.
+     * @param {any} book Book instance.
      */
-    AddonModAssignEditFeedbackModalPage.prototype.ionViewCanLeave = function () {
-        var _this = this;
-        if (this.forceLeave) {
-            return true;
-        }
-        return this.hasDataChanged().then(function (changed) {
-            if (changed) {
-                return _this.domUtils.showConfirm(_this.translate.instant('core.confirmcanceledit'));
-            }
-        });
-    };
-    /**
-     * Close modal.
-     *
-     * @param {any} data Data to return to the page.
-     */
-    AddonModAssignEditFeedbackModalPage.prototype.closeModal = function (data) {
-        this.viewCtrl.dismiss(data);
-    };
-    /**
-     * Done editing.
-     *
-     * @param {Event} e Click event.
-     */
-    AddonModAssignEditFeedbackModalPage.prototype.done = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        // Close the modal, sending the input data.
-        this.forceLeave = true;
-        this.closeModal(this.getInputData());
-    };
-    /**
-     * Get the input data.
-     *
-     * @return {any} Object with the data.
-     */
-    AddonModAssignEditFeedbackModalPage.prototype.getInputData = function () {
-        return this.domUtils.getDataFromForm(document.forms['addon-mod_assign-edit-feedback-form']);
-    };
-    /**
-     * Check if data has changed.
-     *
-     * @return {Promise<boolean>} Promise resolved with boolean: whether the data has changed.
-     */
-    AddonModAssignEditFeedbackModalPage.prototype.hasDataChanged = function () {
-        return this.feedbackDelegate.hasPluginDataChanged(this.assign, this.userId, this.plugin, this.getInputData(), this.userId)
-            .catch(function () {
-            // Ignore errors.
-            return true;
-        });
+    AddonModBookIndexPage.prototype.updateData = function (book) {
+        this.title = book.name || this.title;
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", Object)
-    ], AddonModAssignEditFeedbackModalPage.prototype, "assign", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", Object)
-    ], AddonModAssignEditFeedbackModalPage.prototype, "submission", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", Object)
-    ], AddonModAssignEditFeedbackModalPage.prototype, "plugin", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
-        __metadata("design:type", Number)
-    ], AddonModAssignEditFeedbackModalPage.prototype, "userId", void 0);
-    AddonModAssignEditFeedbackModalPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModBookIndexComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModBookIndexComponent */])
+    ], AddonModBookIndexPage.prototype, "bookComponent", void 0);
+    AddonModBookIndexPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-assign-edit-feedback-modal',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\assign\pages\edit-feedback-modal\edit-feedback-modal.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title><core-format-text [text]="plugin.name"></core-format-text></ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <form name="addon-mod_assign-edit-feedback-form" *ngIf="userId && plugin">\n\n        <addon-mod-assign-feedback-plugin [assign]="assign" [submission]="submission" [userId]="userId" [plugin]="plugin" [edit]="true"></addon-mod-assign-feedback-plugin>\n\n        <button ion-button block (click)="done($event)">{{ \'core.done\' | translate }}</button>\n\n    </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\assign\pages\edit-feedback-modal\edit-feedback-modal.html"*/,
+            selector: 'page-addon-mod-book-index',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\book\pages\index\index.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n\n\n        <ion-buttons end>\n\n            <!-- The buttons defined by the component will be added in here. -->\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="bookComponent.loaded" (ionRefresh)="bookComponent.doRefresh($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n\n\n    <addon-mod-book-index [module]="module" [courseId]="courseId" [initialChapterId]="chapterId" (dataRetrieved)="updateData($event)"></addon-mod-book-index>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\book\pages\index\index.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */], __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_4__providers_feedback_delegate__["a" /* AddonModAssignFeedbackDelegate */]])
-    ], AddonModAssignEditFeedbackModalPage);
-    return AddonModAssignEditFeedbackModalPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
+    ], AddonModBookIndexPage);
+    return AddonModBookIndexPage;
 }());
 
-//# sourceMappingURL=edit-feedback-modal.js.map
+//# sourceMappingURL=index.js.map
 
 /***/ })
 

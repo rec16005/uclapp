@@ -1,16 +1,16 @@
 webpackJsonp([34],{
 
-/***/ 1980:
+/***/ 2060:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreLoginForgottenPasswordPageModule", function() { return CoreLoginForgottenPasswordPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreLoginSiteErrorPageModule", function() { return CoreLoginSiteErrorPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__forgotten_password__ = __webpack_require__(2121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__site_error__ = __webpack_require__(2211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,39 +35,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreLoginForgottenPasswordPageModule = /** @class */ (function () {
-    function CoreLoginForgottenPasswordPageModule() {
+var CoreLoginSiteErrorPageModule = /** @class */ (function () {
+    function CoreLoginSiteErrorPageModule() {
     }
-    CoreLoginForgottenPasswordPageModule = __decorate([
+    CoreLoginSiteErrorPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__forgotten_password__["a" /* CoreLoginForgottenPasswordPage */]
+                __WEBPACK_IMPORTED_MODULE_2__site_error__["a" /* CoreLoginSiteErrorPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__forgotten_password__["a" /* CoreLoginForgottenPasswordPage */]),
-                __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__["b" /* TranslateModule */].forChild()
+                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__site_error__["a" /* CoreLoginSiteErrorPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ]
         })
-    ], CoreLoginForgottenPasswordPageModule);
-    return CoreLoginForgottenPasswordPageModule;
+    ], CoreLoginSiteErrorPageModule);
+    return CoreLoginSiteErrorPageModule;
 }());
 
-//# sourceMappingURL=forgotten-password.module.js.map
+//# sourceMappingURL=site-error.module.js.map
 
 /***/ }),
 
-/***/ 2121:
+/***/ 2211:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreLoginForgottenPasswordPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreLoginSiteErrorPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_helper__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(24);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -92,81 +88,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-
-
 /**
- * Page to recover a forgotten password.
+ * Component that displays an error when trying to connect to a site.
  */
-var CoreLoginForgottenPasswordPage = /** @class */ (function () {
-    function CoreLoginForgottenPasswordPage(navCtrl, navParams, fb, translate, loginHelper, domUtils) {
-        this.navCtrl = navCtrl;
-        this.translate = translate;
-        this.loginHelper = loginHelper;
-        this.domUtils = domUtils;
-        this.siteUrl = navParams.get('siteUrl');
-        this.myForm = fb.group({
-            field: ['username', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required],
-            value: [navParams.get('username') || '', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required]
-        });
+var CoreLoginSiteErrorPage = /** @class */ (function () {
+    function CoreLoginSiteErrorPage(viewCtrl, params) {
+        this.viewCtrl = viewCtrl;
+        this.siteUrl = params.get('siteUrl');
+        this.issue = params.get('issue');
     }
     /**
-     * Request to reset the password.
-     *
-     * @param {Event} e Event.
+     * Close modal.
      */
-    CoreLoginForgottenPasswordPage.prototype.resetPassword = function (e) {
-        var _this = this;
-        e.preventDefault();
-        e.stopPropagation();
-        var field = this.myForm.value.field, value = this.myForm.value.value;
-        if (!value) {
-            this.domUtils.showErrorModal('core.login.usernameoremail', true);
-            return;
-        }
-        var modal = this.domUtils.showModalLoading('core.sending', true), isMail = field == 'email';
-        this.loginHelper.requestPasswordReset(this.siteUrl, isMail ? '' : value, isMail ? value : '').then(function (response) {
-            if (response.status == 'dataerror') {
-                // Error in the data sent.
-                _this.showError(isMail, response.warnings);
-            }
-            else if (response.status == 'emailpasswordconfirmnotsent' || response.status == 'emailpasswordconfirmnoemail') {
-                // Error, not found.
-                _this.domUtils.showErrorModal(response.notice);
-            }
-            else {
-                // Success.
-                _this.domUtils.showAlert(_this.translate.instant('core.success'), response.notice);
-                _this.navCtrl.pop();
-            }
-        }).catch(function (error) {
-            _this.domUtils.showErrorModal(error);
-        }).finally(function () {
-            modal.dismiss();
-        });
+    CoreLoginSiteErrorPage.prototype.closeModal = function () {
+        this.viewCtrl.dismiss();
     };
-    // Show an error from the warnings.
-    CoreLoginForgottenPasswordPage.prototype.showError = function (isMail, warnings) {
-        for (var i = 0; i < warnings.length; i++) {
-            var warning = warnings[i];
-            if ((warning.item == 'email' && isMail) || (warning.item == 'username' && !isMail)) {
-                this.domUtils.showErrorModal(warning.message);
-                break;
-            }
-        }
-    };
-    CoreLoginForgottenPasswordPage = __decorate([
+    CoreLoginSiteErrorPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-login-forgotten-password',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\login\pages\forgotten-password\forgotten-password.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.login.passwordforgotten\' | translate }}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list>\n\n        <ion-item text-wrap>\n\n            {{ \'core.login.passwordforgotteninstructions2\' | translate }}\n\n        </ion-item>\n\n    </ion-list>\n\n    <ion-card>\n\n        <form ion-list [formGroup]="myForm" (ngSubmit)="resetPassword($event)">\n\n            <ion-item-divider text-wrap>\n\n                {{ \'core.login.searchby\' | translate }}\n\n            </ion-item-divider>\n\n            <div radio-group formControlName="field">\n\n                <ion-item>\n\n                    <ion-label>{{ \'core.login.username\' | translate }}</ion-label>\n\n                    <ion-radio value="username"></ion-radio>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-label>{{ \'core.user.email\' | translate }}</ion-label>\n\n                    <ion-radio value="email"></ion-radio>\n\n                </ion-item>\n\n            </div>\n\n            <ion-item>\n\n                <ion-input type="text" name="value" placeholder="{{ \'core.login.usernameoremail\' | translate }}" formControlName="value" autocapitalize="none" autocorrect="off" [core-auto-focus]></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <button text-wrap ion-button block [disabled]="!myForm.valid">{{ \'core.courses.search\' | translate }}</button>\n\n            </ion-item>\n\n        </form>\n\n    </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\login\pages\forgotten-password\forgotten-password.html"*/,
+            selector: 'page-core-login-site-error',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\login\pages\site-error\site-error.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.error\' | translate }}</ion-title>\n\n\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n    <h3>{{ \'core.whoops\' | translate }}</h3>\n\n    <p>{{ \'core.login.problemconnectingerror\' | translate }}</p>\n\n    <p padding>{{siteUrl}}</p>\n\n    <p>{{ \'core.login.problemconnectingerrorcontinue\' | translate }}</p>\n\n    <button ion-button block (click)="closeModal()">{{ \'core.tryagain\' | translate }}</button>\n\n    <h3>{{ \'core.login.stillcantconnect\' | translate }}</h3>\n\n    <p>{{ \'core.login.contactyouradministrator\' | translate }}</p>\n\n    <p *ngIf="issue">\n\n        {{ \'core.login.contactyouradministratorissue\' | translate:{$a: \'\'} }}\n\n    </p>\n\n    <p *ngIf="issue" margin-bottom>\n\n        <core-format-text [text]="issue"></core-format-text>\n\n    </p>\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\login\pages\site-error\site-error.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_helper__["a" /* CoreLoginHelperProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */]])
-    ], CoreLoginForgottenPasswordPage);
-    return CoreLoginForgottenPasswordPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["G" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
+    ], CoreLoginSiteErrorPage);
+    return CoreLoginSiteErrorPage;
 }());
 
-//# sourceMappingURL=forgotten-password.js.map
+//# sourceMappingURL=site-error.js.map
 
 /***/ })
 

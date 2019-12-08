@@ -1,17 +1,18 @@
 webpackJsonp([50],{
 
-/***/ 1963:
+/***/ 2044:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreCourseSectionSelectorPageModule", function() { return CoreCourseSectionSelectorPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreCoursesCategoriesPageModule", function() { return CoreCoursesCategoriesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__section_selector__ = __webpack_require__(2105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__categories__ = __webpack_require__(2195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_components_module__ = __webpack_require__(185);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,38 +38,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreCourseSectionSelectorPageModule = /** @class */ (function () {
-    function CoreCourseSectionSelectorPageModule() {
+
+var CoreCoursesCategoriesPageModule = /** @class */ (function () {
+    function CoreCoursesCategoriesPageModule() {
     }
-    CoreCourseSectionSelectorPageModule = __decorate([
+    CoreCoursesCategoriesPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__section_selector__["a" /* CoreCourseSectionSelectorPage */],
+                __WEBPACK_IMPORTED_MODULE_3__categories__["a" /* CoreCoursesCategoriesPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__section_selector__["a" /* CoreCourseSectionSelectorPage */]),
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_6__components_components_module__["a" /* CoreCoursesComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__categories__["a" /* CoreCoursesCategoriesPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], CoreCourseSectionSelectorPageModule);
-    return CoreCourseSectionSelectorPageModule;
+    ], CoreCoursesCategoriesPageModule);
+    return CoreCoursesCategoriesPageModule;
 }());
 
-//# sourceMappingURL=section-selector.module.js.map
+//# sourceMappingURL=categories.module.js.map
 
 /***/ }),
 
-/***/ 2105:
+/***/ 2195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreCourseSectionSelectorPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreCoursesCategoriesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_helper__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_course__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_utils__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_courses__ = __webpack_require__(29);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -95,62 +101,107 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 /**
- * Page that displays course section selector.
+ * Page that displays a list of categories and the courses in the current category if any.
  */
-var CoreCourseSectionSelectorPage = /** @class */ (function () {
-    function CoreCourseSectionSelectorPage(navParams, courseHelper, viewCtrl) {
-        this.viewCtrl = viewCtrl;
-        this.stealthModulesSectionId = __WEBPACK_IMPORTED_MODULE_3__providers_course__["a" /* CoreCourseProvider */].STEALTH_MODULES_SECTION_ID;
-        this.sections = navParams.get('sections');
-        this.selected = navParams.get('selected');
-        var course = navParams.get('course');
-        if (course && course.enablecompletion && course.courseformatoptions && course.courseformatoptions.coursedisplay == 1 &&
-            course.completionusertracked !== false) {
-            this.sections.forEach(function (section) {
-                var complete = 0, total = 0;
-                section.modules && section.modules.forEach(function (module) {
-                    if (module.uservisible && typeof module.completiondata != 'undefined' &&
-                        module.completiondata.tracking > __WEBPACK_IMPORTED_MODULE_3__providers_course__["a" /* CoreCourseProvider */].COMPLETION_TRACKING_NONE) {
-                        total++;
-                        if (module.completiondata.state == __WEBPACK_IMPORTED_MODULE_3__providers_course__["a" /* CoreCourseProvider */].COMPLETION_COMPLETE ||
-                            module.completiondata.state == __WEBPACK_IMPORTED_MODULE_3__providers_course__["a" /* CoreCourseProvider */].COMPLETION_COMPLETE_PASS) {
-                            complete++;
-                        }
-                    }
-                });
-                if (total > 0) {
-                    section.progress = complete / total * 100;
-                }
-            });
-        }
+var CoreCoursesCategoriesPage = /** @class */ (function () {
+    function CoreCoursesCategoriesPage(navCtrl, navParams, coursesProvider, domUtils, utils, translate, sitesProvider) {
+        this.navCtrl = navCtrl;
+        this.coursesProvider = coursesProvider;
+        this.domUtils = domUtils;
+        this.utils = utils;
+        this.sitesProvider = sitesProvider;
+        this.categories = [];
+        this.courses = [];
+        this.categoryId = navParams.get('categoryId') || 0;
+        this.title = translate.instant('core.courses.categories');
     }
     /**
-     * Close the modal.
+     * View loaded.
      */
-    CoreCourseSectionSelectorPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
+    CoreCoursesCategoriesPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.fetchCategories().finally(function () {
+            _this.categoriesLoaded = true;
+        });
     };
     /**
-     * Select a section.
+     * Fetch the categories.
      *
-     * @param {any} section Selected section object.
+     * @return {Promise<any>} Promise resolved when done.
      */
-    CoreCourseSectionSelectorPage.prototype.selectSection = function (section) {
-        if (section.uservisible !== false) {
-            this.viewCtrl.dismiss(section);
-        }
+    CoreCoursesCategoriesPage.prototype.fetchCategories = function () {
+        var _this = this;
+        return this.coursesProvider.getCategories(this.categoryId, true).then(function (cats) {
+            _this.currentCategory = undefined;
+            cats.forEach(function (cat, index) {
+                if (cat.id == _this.categoryId) {
+                    _this.currentCategory = cat;
+                    // Delete current Category to avoid problems with the formatTree.
+                    delete cats[index];
+                }
+            });
+            // Sort by depth and sortorder to avoid problems formatting Tree.
+            cats.sort(function (a, b) {
+                if (a.depth == b.depth) {
+                    return (a.sortorder > b.sortorder) ? 1 : ((b.sortorder > a.sortorder) ? -1 : 0);
+                }
+                return a.depth > b.depth ? 1 : -1;
+            });
+            _this.categories = _this.utils.formatTree(cats, 'parent', 'id', _this.categoryId);
+            if (_this.currentCategory) {
+                _this.title = _this.currentCategory.name;
+                return _this.coursesProvider.getCoursesByField('category', _this.categoryId).then(function (courses) {
+                    _this.courses = courses;
+                }).catch(function (error) {
+                    _this.domUtils.showErrorModalDefault(error, 'core.courses.errorloadcourses', true);
+                });
+            }
+        }).catch(function (error) {
+            _this.domUtils.showErrorModalDefault(error, 'core.courses.errorloadcategories', true);
+        });
     };
-    CoreCourseSectionSelectorPage = __decorate([
+    /**
+     * Refresh the categories.
+     *
+     * @param {any} refresher Refresher.
+     */
+    CoreCoursesCategoriesPage.prototype.refreshCategories = function (refresher) {
+        var _this = this;
+        var promises = [];
+        promises.push(this.coursesProvider.invalidateUserCourses());
+        promises.push(this.coursesProvider.invalidateCategories(this.categoryId, true));
+        promises.push(this.coursesProvider.invalidateCoursesByField('category', this.categoryId));
+        promises.push(this.sitesProvider.getCurrentSite().invalidateConfig());
+        Promise.all(promises).finally(function () {
+            _this.fetchCategories().finally(function () {
+                refresher.complete();
+            });
+        });
+    };
+    /**
+     * Open a category.
+     *
+     * @param {number} categoryId The category ID.
+     */
+    CoreCoursesCategoriesPage.prototype.openCategory = function (categoryId) {
+        this.navCtrl.push('CoreCoursesCategoriesPage', { categoryId: categoryId });
+    };
+    CoreCoursesCategoriesPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-course-section-selector',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\course\pages\section-selector\section-selector.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.course.sections\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list id="core-course-section-selector" role="menu" aria-labelledby="core-course-section-button">\n\n        <ng-container *ngFor="let section of sections">\n\n            <a ion-item *ngIf="!section.hiddenbynumsections && section.id != stealthModulesSectionId" text-wrap (click)="selectSection(section)" [class.core-primary-selected-item]="selected.id == section.id" [class.item-dimmed]="section.visible === 0 || section.uservisible === false" detail-none role="menuitem" [attr.aria-hidden]="section.uservisible === false" [attr.aria-label]="section.formattedName || section.name">\n\n                <core-icon name="fa-folder" item-start></core-icon>\n\n                <h2><core-format-text [text]="section.formattedName || section.name"></core-format-text></h2>\n\n                <core-progress-bar *ngIf="section.progress >= 0" [progress]="section.progress"></core-progress-bar>\n\n                <ion-badge color="secondary" *ngIf="section.visible === 0 && section.uservisible !== false" text-wrap>{{ \'core.course.hiddenfromstudents\' | translate }}</ion-badge>\n\n                <ion-badge color="secondary" *ngIf="section.availabilityinfo" text-wrap><core-format-text  [text]=" section.availabilityinfo"></core-format-text></ion-badge>\n\n            </a>\n\n        </ng-container>\n\n    </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\course\pages\section-selector\section-selector.html"*/,
+            selector: 'page-core-courses-categories',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\courses\pages\categories\categories.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="categoriesLoaded" (ionRefresh)="refreshCategories($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <core-loading [hideUntil]="categoriesLoaded">\n\n        <ion-item *ngIf="currentCategory" text-wrap>\n\n            <ion-icon name="folder" item-start></ion-icon>\n\n            <h2><core-format-text [text]="currentCategory.name"></core-format-text></h2>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="currentCategory && currentCategory.description">\n\n            <core-format-text [text]="currentCategory.description" maxHeight="60"></core-format-text>\n\n        </ion-item>\n\n\n\n        <div *ngIf="categories.length > 0">\n\n            <ion-item-divider>{{ \'core.courses.categories\' | translate }}</ion-item-divider>\n\n            <section *ngFor="let category of categories">\n\n                <a ion-item text-wrap (click)="openCategory(category.id)" [title]="category.name">\n\n                    <ion-icon name="folder" item-start></ion-icon>\n\n                    <h2><core-format-text [text]="category.name"></core-format-text></h2>\n\n                    <ion-badge item-end *ngIf="category.coursecount > 0" color="light">{{category.coursecount}}</ion-badge>\n\n                </a>\n\n            </section>\n\n        </div>\n\n\n\n        <div *ngIf="courses.length > 0">\n\n            <ion-item-divider>{{ \'core.courses.courses\' | translate }}</ion-item-divider>\n\n            <core-courses-course-list-item *ngFor="let course of courses" [course]="course"></core-courses-course-list-item>\n\n        </div>\n\n        <core-empty-box *ngIf="!categories.length && !courses.length" icon="ionic" [message]="\'core.courses.nocoursesyet\' | translate">\n\n            <p *ngIf="searchEnabled">{{ \'core.courses.searchcoursesadvice\' | translate }}</p>\n\n        </core-empty-box>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\courses\pages\categories\categories.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_helper__["a" /* CoreCourseHelperProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */]])
-    ], CoreCourseSectionSelectorPage);
-    return CoreCourseSectionSelectorPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_6__providers_courses__["a" /* CoreCoursesProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_utils_utils__["a" /* CoreUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */]])
+    ], CoreCoursesCategoriesPage);
+    return CoreCoursesCategoriesPage;
 }());
 
-//# sourceMappingURL=section-selector.js.map
+//# sourceMappingURL=categories.js.map
 
 /***/ })
 

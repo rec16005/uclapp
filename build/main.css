@@ -6979,7 +6979,6 @@ ion-app.app-root page-core-mainmenu .ion-fa-newspaper-o:before {
 ion-app.app-root core-format-text,
 ion-app.app-root .item core-format-text,
 ion-app.app-root core-rich-text-editor .core-rte-editor {
-  font-size: 1.4rem;
   /*rtl:begin:ignore*/
   /*rtl:end:ignore*/
 }
@@ -7026,7 +7025,14 @@ ion-app.app-root .item core-rich-text-editor .core-rte-editor .item-heading {
 ion-app.app-root core-format-text p,
 ion-app.app-root .item core-format-text p,
 ion-app.app-root core-rich-text-editor .core-rte-editor p {
+  font-size: 1.4rem;
   margin-bottom: 1rem;
+}
+
+ion-app.app-root core-format-text .no-overflow,
+ion-app.app-root .item core-format-text .no-overflow,
+ion-app.app-root core-rich-text-editor .core-rte-editor .no-overflow {
+  overflow: auto;
 }
 
 ion-app.app-root core-format-text ul,
@@ -7160,8 +7166,6 @@ ion-app.app-root core-rich-text-editor .core-rte-editor .atto_image_button_left,
 ion-app.app-root core-rich-text-editor .core-rte-editor .atto_image_button_right {
   vertical-align: middle;
   max-width: 100%;
-  height: auto;
-  width: auto;
   display: inline-block;
   margin: 0 0.5em;
 }
@@ -7184,8 +7188,6 @@ ion-app.app-root core-rich-text-editor .core-rte-editor .atto_image_button_right
   /* If the image is display: block then linking the image to URLs won't work. */
   /*display: inline-block;*/
   max-width: 100%;
-  height: auto;
-  width: auto;
 }
 
 ion-app.app-root core-format-text .atto_image_button_text-top,
@@ -7481,6 +7483,34 @@ ion-app.app-root core-rich-text-editor .core-rte-editor .alert-inverted p {
   color: #ffffff;
 }
 
+ion-app.app-root core-format-text .atto_image_button_text-top,
+ion-app.app-root core-format-text .atto_image_button_middle,
+ion-app.app-root core-format-text .atto_image_button_text-bottom,
+ion-app.app-root core-format-text .atto_image_button_left,
+ion-app.app-root core-format-text .atto_image_button_right,
+ion-app.app-root .item core-format-text .atto_image_button_text-top,
+ion-app.app-root .item core-format-text .atto_image_button_middle,
+ion-app.app-root .item core-format-text .atto_image_button_text-bottom,
+ion-app.app-root .item core-format-text .atto_image_button_left,
+ion-app.app-root .item core-format-text .atto_image_button_right {
+  height: auto;
+  width: auto;
+}
+
+ion-app.app-root core-format-text .atto_image_button_text-top.img-responsive,
+ion-app.app-root core-format-text .atto_image_button_middle.img-responsive,
+ion-app.app-root core-format-text .atto_image_button_text-bottom.img-responsive,
+ion-app.app-root core-format-text .atto_image_button_left.img-responsive,
+ion-app.app-root core-format-text .atto_image_button_right.img-responsive,
+ion-app.app-root .item core-format-text .atto_image_button_text-top.img-responsive,
+ion-app.app-root .item core-format-text .atto_image_button_middle.img-responsive,
+ion-app.app-root .item core-format-text .atto_image_button_text-bottom.img-responsive,
+ion-app.app-root .item core-format-text .atto_image_button_left.img-responsive,
+ion-app.app-root .item core-format-text .atto_image_button_right.img-responsive {
+  height: auto;
+  width: auto;
+}
+
 ion-app.app-root ion-card core-format-text img, ion-app.app-root .core-primary-card core-format-text img, ion-app.app-root .core-secondary-card core-format-text img, ion-app.app-root .core-danger-card core-format-text img, ion-app.app-root .core-light-card core-format-text img, ion-app.app-root .core-gray-card core-format-text img, ion-app.app-root .core-dark-card core-format-text img, ion-app.app-root .core-warning-card core-format-text img, ion-app.app-root .core-success-card core-format-text img, ion-app.app-root .core-info-card core-format-text img, ion-app.app-root .core-inverted-card core-format-text img {
   width: -webkit-min-content;
   width: -moz-min-content;
@@ -7612,7 +7642,7 @@ ion-action-sheet {
   border-bottom: 0.55px solid #d6d6da;
   font-size: 1.3rem;
   font-weight: 400;
-  color: #8f8f8f;
+  color: #c20d2e;
 }
 
 [dir="ltr"] .action-sheet-ios .action-sheet-title, [dir="rtl"] .action-sheet-ios .action-sheet-title {
@@ -7627,7 +7657,7 @@ ion-action-sheet {
   min-height: 5.6rem;
   border-bottom: 0.55px solid #d6d6da;
   font-size: 2rem;
-  color: #007aff;
+  color: #3a3a3a;
   background: transparent;
 }
 
@@ -7659,7 +7689,7 @@ ion-action-sheet {
 }
 
 .action-sheet-ios .action-sheet-destructive {
-  color: #f53d3d;
+  color: #cb3d4d;
 }
 
 .action-sheet-ios .action-sheet-cancel {
@@ -7685,7 +7715,7 @@ ion-action-sheet {
   overflow: hidden;
   min-height: 4.8rem;
   font-size: 1.6rem;
-  color: #222;
+  color: #3a3a3a;
   background: transparent;
 }
 
@@ -7743,7 +7773,7 @@ ion-action-sheet {
   text-align: left;
   text-align: start;
   font-size: 2rem;
-  color: #4d4d4d;
+  color: #c20d2e;
 }
 
 [dir="ltr"] .action-sheet-wp .action-sheet-title, [dir="rtl"] .action-sheet-wp .action-sheet-title {
@@ -7755,7 +7785,7 @@ ion-action-sheet {
   text-align: start;
   min-height: 4.8rem;
   font-size: 1.5rem;
-  color: #4d4d4d;
+  color: #3a3a3a;
   background: transparent;
 }
 
@@ -7906,16 +7936,16 @@ ion-alert input {
 }
 
 .alert-input::-moz-placeholder {
-  color: #999;
+  color: #9e9e9e;
 }
 
 .alert-input:-ms-input-placeholder {
-  color: #999;
+  color: #9e9e9e;
 }
 
 .alert-input::-webkit-input-placeholder {
   text-indent: 0;
-  color: #999;
+  color: #9e9e9e;
 }
 
 [dir="ltr"] .alert-input, [dir="rtl"] .alert-input {
@@ -7948,7 +7978,7 @@ ion-alert input {
 .alert-button {
   z-index: 0;
   display: block;
-  font-size: 14px;
+  font-size: 1.4rem;
   line-height: 20px;
 }
 
@@ -7998,7 +8028,7 @@ ion-alert input {
 }
 
 .alert-ios .alert-title {
-  font-size: 17px;
+  font-size: 2.2rem;
   font-weight: 600;
 }
 
@@ -8007,14 +8037,14 @@ ion-alert input {
 }
 
 .alert-ios .alert-sub-title {
-  font-size: 14px;
+  font-size: 1.6rem;
   color: #666;
 }
 
 .alert-ios .alert-message,
 .alert-ios .alert-input-group {
   text-align: center;
-  font-size: 13px;
+  font-size: 1.4rem;
   color: inherit;
 }
 
@@ -8256,11 +8286,11 @@ ion-alert input {
 }
 
 .alert-md .alert-title {
-  font-size: 22px;
+  font-size: 2.2rem;
 }
 
 .alert-md .alert-sub-title {
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .alert-md .alert-message,
@@ -8274,7 +8304,7 @@ ion-alert input {
 
 .alert-md .alert-message {
   max-height: 240px;
-  font-size: 15px;
+  font-size: 1.4rem;
 }
 
 [dir="ltr"] .alert-md .alert-message:empty, [dir="rtl"] .alert-md .alert-message:empty {
@@ -8874,10 +8904,6 @@ textarea {
 }
 
 textarea::-webkit-input-placeholder {
-  padding-left: 2px;
-}
-
-textarea::-moz-placeholder {
   padding-left: 2px;
 }
 
@@ -9651,7 +9677,7 @@ ion-backdrop.backdrop-no-tappable {
   cursor: auto;
 }
 
-ion-badge {
+ion-badge, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a {
   text-align: center;
   display: inline-block;
   min-width: 10px;
@@ -9662,11 +9688,11 @@ ion-badge {
   vertical-align: baseline;
 }
 
-[dir="ltr"] ion-badge, [dir="rtl"] ion-badge {
+[dir="ltr"] ion-badge, [dir="ltr"] .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="ltr"] a, [dir="ltr"] .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="ltr"] a, [dir="rtl"] ion-badge, [dir="rtl"] .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="rtl"] a, [dir="rtl"] .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="rtl"] a {
   padding: 3px 8px;
 }
 
-ion-badge:empty {
+ion-badge:empty, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a:empty, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a:empty {
   display: none;
 }
 
@@ -9729,12 +9755,12 @@ ion-badge:empty {
   background-color: #ffffff;
 }
 
-.badge-md {
+.badge-md, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a {
   color: #fff;
   background-color: #c20d2e;
 }
 
-[dir="ltr"] .badge-md, [dir="rtl"] .badge-md {
+[dir="ltr"] .badge-md, [dir="ltr"] .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="ltr"] a, [dir="ltr"] .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="ltr"] a, [dir="rtl"] .badge-md, [dir="rtl"] .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="rtl"] a, [dir="rtl"] .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="rtl"] a {
   border-radius: 4px;
 }
 
@@ -16381,7 +16407,7 @@ ion-chip ion-avatar img {
 
 .chip-ios {
   height: 32px;
-  font-size: 13px;
+  font-size: 1.3rem;
   line-height: 32px;
   color: rgba(0, 0, 0, 0.87);
   background: rgba(0, 0, 0, 0.12);
@@ -16466,7 +16492,7 @@ ion-chip ion-avatar img {
 
 .chip-md {
   height: 32px;
-  font-size: 13px;
+  font-size: 1.3rem;
   line-height: 32px;
   color: rgba(0, 0, 0, 0.87);
   background: rgba(0, 0, 0, 0.12);
@@ -17516,7 +17542,7 @@ ion-datetime {
 }
 
 .datetime-ios .datetime-placeholder {
-  color: #999;
+  color: #9e9e9e;
 }
 
 [dir="ltr"] .datetime-md {
@@ -17528,7 +17554,7 @@ ion-datetime {
 }
 
 .datetime-md .datetime-placeholder {
-  color: #999;
+  color: #9e9e9e;
 }
 
 .datetime-wp {
@@ -17564,7 +17590,7 @@ ion-datetime {
 }
 
 .datetime-wp .datetime-placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: #9e9e9e;
 }
 
 .fab {
@@ -22337,16 +22363,16 @@ ion-textarea {
 }
 
 .text-input::-moz-placeholder {
-  color: #999;
+  color: #9e9e9e;
 }
 
 .text-input:-ms-input-placeholder {
-  color: #999;
+  color: #9e9e9e;
 }
 
 .text-input::-webkit-input-placeholder {
   text-indent: 0;
-  color: #999;
+  color: #9e9e9e;
 }
 
 [dir="ltr"] .text-input, [dir="rtl"] .text-input {
@@ -29207,16 +29233,16 @@ ion-searchbar {
 }
 
 .searchbar-ios .searchbar-input::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: #9e9e9e;
 }
 
 .searchbar-ios .searchbar-input:-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: #9e9e9e;
 }
 
 .searchbar-ios .searchbar-input::-webkit-input-placeholder {
   text-indent: 0;
-  color: rgba(0, 0, 0, 0.5);
+  color: #9e9e9e;
 }
 
 [dir="ltr"] .searchbar-ios .searchbar-input, [dir="rtl"] .searchbar-ios .searchbar-input {
@@ -29894,16 +29920,16 @@ ion-searchbar {
 }
 
 .searchbar-md .searchbar-input::-moz-placeholder {
-  color: #aeaeae;
+  color: #9e9e9e;
 }
 
 .searchbar-md .searchbar-input:-ms-input-placeholder {
-  color: #aeaeae;
+  color: #9e9e9e;
 }
 
 .searchbar-md .searchbar-input::-webkit-input-placeholder {
   text-indent: 0;
-  color: #aeaeae;
+  color: #9e9e9e;
 }
 
 [dir="ltr"] .searchbar-md .searchbar-input, [dir="rtl"] .searchbar-md .searchbar-input {
@@ -30033,16 +30059,16 @@ ion-searchbar {
 }
 
 .searchbar-wp .searchbar-input::-moz-placeholder {
-  color: #858585;
+  color: #9e9e9e;
 }
 
 .searchbar-wp .searchbar-input:-ms-input-placeholder {
-  color: #858585;
+  color: #9e9e9e;
 }
 
 .searchbar-wp .searchbar-input::-webkit-input-placeholder {
   text-indent: 0;
-  color: #858585;
+  color: #9e9e9e;
 }
 
 [dir="ltr"] .searchbar-wp .searchbar-input, [dir="rtl"] .searchbar-wp .searchbar-input {
@@ -32705,7 +32731,7 @@ ion-spinner.spinner-paused svg {
   pointer-events: none;
 }
 
-.tab-disabled ion-badge,
+.tab-disabled ion-badge, .tab-disabled .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .tab-disabled a, .tab-disabled .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .tab-disabled a,
 .tab-disabled ion-icon,
 .tab-disabled span {
   opacity: .4;
@@ -32865,8 +32891,8 @@ ion-app.app-root .core-tabs-bar [tabsLayout=icon-end] .tab-slide .tab-button-ico
 
 .tabs-ios .tab-button, .tabs-ios ion-app.app-root .core-tabs-bar .tab-slide, ion-app.app-root .core-tabs-bar .tabs-ios .tab-slide {
   max-width: 240px;
-  min-height: 49px;
-  font-size: 10px;
+  min-height: 56px;
+  font-size: 1.4rem;
   font-weight: 500;
   color: #ffffff;
 }
@@ -32887,7 +32913,7 @@ ion-app.app-root .core-tabs-bar .tabs-ios .tab-slide[aria-selected=true] {
 }
 
 .tabs-ios .tab-button-text {
-  min-height: 11px;
+  min-height: 2.4rem;
 }
 
 [dir="ltr"] .tabs-ios .tab-button-text, [dir="rtl"] .tabs-ios .tab-button-text {
@@ -32896,7 +32922,7 @@ ion-app.app-root .core-tabs-bar .tabs-ios .tab-slide[aria-selected=true] {
 }
 
 .tabs-ios .has-title-only .tab-button-text {
-  font-size: 12px;
+  font-size: 3.4rem;
 }
 
 .tabs-ios .tab-button-icon {
@@ -32948,7 +32974,7 @@ ion-app.app-root .core-tabs-bar .tabs-ios[tabsLayout=icon-start] .tab-slide ion-
 .tabs-ios .tab-button.has-title-only,
 .tabs-ios ion-app.app-root .core-tabs-bar .has-title-only.tab-slide,
 ion-app.app-root .core-tabs-bar .tabs-ios .has-title-only.tab-slide {
-  min-height: 41px;
+  min-height: 48px;
 }
 
 .tabs-ios[tabsLayout=icon-hide] .tab-button .tab-button-text, .tabs-ios[tabsLayout=icon-hide] ion-app.app-root .core-tabs-bar .tab-slide .tab-button-text, ion-app.app-root .core-tabs-bar .tabs-ios[tabsLayout=icon-hide] .tab-slide .tab-button-text,
@@ -32967,7 +32993,7 @@ ion-app.app-root .core-tabs-bar .tabs-ios .has-title-only.tab-slide .tab-button-
 .tabs-ios .tab-button.icon-only,
 .tabs-ios ion-app.app-root .core-tabs-bar .icon-only.tab-slide,
 ion-app.app-root .core-tabs-bar .tabs-ios .icon-only.tab-slide {
-  min-height: 41px;
+  min-height: 48px;
 }
 
 .tabs-ios-primary .tabbar {
@@ -33205,7 +33231,7 @@ ion-app.app-root .core-tabs-bar .tabs-ios-inverted .tab-slide[aria-selected=true
 }
 
 .tabs-md .tab-button, .tabs-md ion-app.app-root .core-tabs-bar .tab-slide, ion-app.app-root .core-tabs-bar .tabs-md .tab-slide {
-  min-height: 5.6rem;
+  min-height: 56px;
   font-weight: normal;
   color: rgba(255, 255, 255, 0.7);
 }
@@ -33264,8 +33290,8 @@ ion-app.app-root .core-tabs-bar .tabs-ios-inverted .tab-slide[aria-selected=true
 }
 
 .tabs-md .tab-button-icon {
-  min-width: 2.4rem;
-  font-size: 2.4rem;
+  min-width: 24px;
+  font-size: 24px;
   color: rgba(255, 255, 255, 0.7);
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   transition: -webkit-transform 0.3s ease-in-out;
@@ -49033,6 +49059,280 @@ ion-app.app-root.wp addon-block-activitymodules .core-module-icon {
   height: 24px;
 }
 
+.addon-block-badges core-block-pre-rendered .core-block-content ul.badges {
+  list-style: none;
+  -webkit-padding-start: 0;
+}
+
+[dir="ltr"] .addon-block-badges core-block-pre-rendered .core-block-content ul.badges, [dir="rtl"] .addon-block-badges core-block-pre-rendered .core-block-content ul.badges {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.addon-block-badges core-block-pre-rendered .core-block-content ul.badges li {
+  position: relative;
+  display: inline-block;
+  padding-top: 1em;
+  text-align: center;
+  vertical-align: top;
+  width: 150px;
+}
+
+.addon-block-badges core-block-pre-rendered .core-block-content ul.badges li .badge-name {
+  display: block;
+  padding: 5px;
+}
+
+.addon-block-blog-menu core-block-pre-rendered .core-block-content ul.list {
+  list-style: none;
+  -webkit-padding-start: 0;
+}
+
+[dir="ltr"] .addon-block-blog-menu core-block-pre-rendered .core-block-content ul.list, [dir="rtl"] .addon-block-blog-menu core-block-pre-rendered .core-block-content ul.list {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.addon-block-blog-menu core-block-pre-rendered .core-block-content ul.list li {
+  padding-bottom: 8px;
+}
+
+.addon-block-blog-menu core-block-pre-rendered .core-block-footer {
+  display: none;
+}
+
+.addon-block-blog-recent core-block-pre-rendered .core-block-content ul.list {
+  list-style: none;
+  -webkit-padding-start: 0;
+}
+
+[dir="ltr"] .addon-block-blog-recent core-block-pre-rendered .core-block-content ul.list, [dir="rtl"] .addon-block-blog-recent core-block-pre-rendered .core-block-content ul.list {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.addon-block-blog-recent core-block-pre-rendered .core-block-content ul.list li {
+  padding-bottom: 8px;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list {
+  list-style: none;
+  -webkit-padding-start: 0;
+}
+
+[dir="ltr"] .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list, [dir="rtl"] .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li {
+  padding: .2em;
+  display: inline-block;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a {
+  text-decoration: none;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s20 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s19 {
+  font-size: 1.5em;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s18 {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s17 {
+  font-size: 1.4em;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s16 {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s15 {
+  font-size: 1.3em;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s14 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s13 {
+  font-size: 1.2em;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s12,
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s11 {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s10,
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s9 {
+  font-size: 1.1em;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s8,
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s7 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s6,
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s5 {
+  font-size: 1em;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s4,
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s3 {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s2,
+.addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li .s1 {
+  font-size: 0.9em;
+}
+
+.addon-block-news-items core-block-pre-rendered .core-block-content .unlist {
+  list-style-type: none;
+  -webkit-padding-start: 0;
+}
+
+[dir="ltr"] .addon-block-news-items core-block-pre-rendered .core-block-content .unlist, [dir="rtl"] .addon-block-news-items core-block-pre-rendered .core-block-content .unlist {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.addon-block-news-items core-block-pre-rendered .core-block-content .unlist li.post {
+  padding-bottom: 16px;
+}
+
+.addon-block-news-items core-block-pre-rendered .core-block-content .unlist li.post:last-child {
+  padding-bottom: 0;
+}
+
+.addon-block-news-items core-block-pre-rendered .core-block-footer a {
+  display: none;
+}
+
+.addon-block-news-items core-block-pre-rendered .core-block-footer a:first-child {
+  display: inline;
+}
+
+.addon-block-online-users core-block-pre-rendered .core-block-content {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.addon-block-online-users core-block-pre-rendered .core-block-content .item-inner,
+.addon-block-online-users core-block-pre-rendered .core-block-content .input-wrapper {
+  overflow-y: visible;
+  -webkit-align-self: start;
+  -ms-flex-item-align: start;
+  align-self: start;
+}
+
+.addon-block-online-users core-block-pre-rendered .core-block-content .list {
+  -webkit-padding-start: 0;
+}
+
+[dir="ltr"] .addon-block-online-users core-block-pre-rendered .core-block-content .list, [dir="rtl"] .addon-block-online-users core-block-pre-rendered .core-block-content .list {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry {
+  clear: both;
+  list-style-type: none;
+}
+
+.addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry .user {
+  position: relative;
+  padding-bottom: 16px;
+}
+
+[dir="ltr"] .addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry .user {
+  float: left;
+}
+
+[dir="rtl"] .addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry .user {
+  float: right;
+}
+
+.addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry .user .core-adapted-img-container {
+  display: inline;
+}
+
+[dir="ltr"] .addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry .user .core-adapted-img-container {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+[dir="rtl"] .addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry .user .core-adapted-img-container {
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+.addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry .user .userpicture {
+  vertical-align: text-bottom;
+}
+
+.addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry .message {
+  margin-top: 3px;
+}
+
+[dir="ltr"] .addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry .message {
+  float: right;
+}
+
+[dir="rtl"] .addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry .message {
+  float: left;
+}
+
+.addon-block-online-users core-block-pre-rendered .core-block-content .list li.listentry .uservisibility {
+  display: none;
+}
+
+.addon-block-online-users core-block-pre-rendered .core-block-content .info {
+  text-align: center;
+}
+
+.addon-block-recent-activity core-block-pre-rendered .core-block-content .activitydate, .addon-block-recent-activity core-block-pre-rendered .core-block-content .activityhead {
+  text-align: center;
+}
+
+.addon-block-recent-activity core-block-pre-rendered .core-block-content .unlist {
+  list-style: none;
+  -webkit-padding-start: 0;
+}
+
+[dir="ltr"] .addon-block-recent-activity core-block-pre-rendered .core-block-content .unlist, [dir="rtl"] .addon-block-recent-activity core-block-pre-rendered .core-block-content .unlist {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.addon-block-recent-activity core-block-pre-rendered .core-block-content .unlist li {
+  margin-bottom: 1em;
+}
+
+[dir="ltr"] .addon-block-recent-activity core-block-pre-rendered .core-block-content .unlist li .head .date {
+  float: right;
+}
+
+[dir="rtl"] .addon-block-recent-activity core-block-pre-rendered .core-block-content .unlist li .head .date {
+  float: left;
+}
+
 ion-app.app-root addon-block-recentlyaccesseditems .core-horizontal-scroll > div {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 80%;
@@ -49090,6 +49390,133 @@ ion-app.app-root addon-block-recentlyaccesseditems .core-horizontal-scroll > div
   text-overflow: ellipsis;
 }
 
+.addon-block-rss-client core-block-pre-rendered .core-block-content .list {
+  list-style: none;
+  -webkit-padding-start: 0;
+}
+
+[dir="ltr"] .addon-block-rss-client core-block-pre-rendered .core-block-content .list, [dir="rtl"] .addon-block-rss-client core-block-pre-rendered .core-block-content .list {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.addon-block-rss-client core-block-pre-rendered .core-block-content .list li {
+  border-top: 1px solid #dddddd;
+  padding: 5px;
+  padding-bottom: 8px;
+}
+
+.addon-block-rss-client core-block-pre-rendered .core-block-content .list li:first-child {
+  border-top-width: 0;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud {
+  text-align: center;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list {
+  list-style: none;
+  -webkit-padding-start: 0;
+}
+
+[dir="ltr"] .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list, [dir="rtl"] .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li {
+  padding: .2em;
+  display: inline-block;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a {
+  text-decoration: none;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s20 {
+  font-size: 2.7em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s19 {
+  font-size: 2.6em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s18 {
+  font-size: 2.5em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s17 {
+  font-size: 2.4em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s16 {
+  font-size: 2.3em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s15 {
+  font-size: 2.2em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s14 {
+  font-size: 2.1em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s13 {
+  font-size: 2em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s12 {
+  font-size: 1.9em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s11 {
+  font-size: 1.8em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s10 {
+  font-size: 1.7em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s9 {
+  font-size: 1.6em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s8 {
+  font-size: 1.5em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s7 {
+  font-size: 1.4em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s6 {
+  font-size: 1.3em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s5 {
+  font-size: 1.2em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s4 {
+  font-size: 1.1em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s3 {
+  font-size: 1em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s2 {
+  font-size: 0.9em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s1 {
+  font-size: 0.8em;
+}
+
+.addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li .s0 {
+  font-size: 0.7em;
+}
+
 ion-app.app-root core-courses-course-progress .core-course-module-handler.item.item-md.item-block > .item-inner {
   border-bottom: 1px solid #dedede;
 }
@@ -49114,8 +49541,438 @@ ion-app.app-root addon-block-timeline-events a button {
   pointer-events: auto;
 }
 
-ion-app.app-root page-addon-messages-discussion .toolbar-title {
+ion-app.app-root page-addon-calendar-list .item.addon-calendar-event > .icon,
+ion-app.app-root page-addon-calendar-day .item.addon-calendar-event > .icon,
+ion-app.app-root addon-calendar-upcoming-events .item.addon-calendar-event > .icon {
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+}
+
+ion-app.app-root page-addon-calendar-list .item.addon-calendar-event > .icon.fa, ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-graduation-cap, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-fa-graduation-cap, ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-newspaper-o, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-fa-newspaper-o,
+ion-app.app-root page-addon-calendar-day .item.addon-calendar-event > .icon.fa,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-graduation-cap,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-fa-graduation-cap,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-newspaper-o,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-fa-newspaper-o,
+ion-app.app-root addon-calendar-upcoming-events .item.addon-calendar-event > .icon.fa,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-graduation-cap,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-fa-graduation-cap,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-newspaper-o,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-fa-newspaper-o {
+  font-size: 20px;
+}
+
+ion-app.app-root page-addon-calendar-list .item.addon-calendar-event > .icon.fa::before, ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap::before, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap::before,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap::before, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap::before,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline::before, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline::before,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap::before, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap::before,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-graduation-cap::before, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-fa-graduation-cap::before, ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o::before, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o::before,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o::before, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o::before,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline::before, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline::before,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o::before, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o::before,
+ion-app.app-root page-addon-calendar-list page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-newspaper-o::before, ion-app.app-root page-core-mainmenu page-addon-calendar-list .item.addon-calendar-event > .icon.ion-fa-newspaper-o::before,
+ion-app.app-root page-addon-calendar-day .item.addon-calendar-event > .icon.fa::before,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap::before,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap::before,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap::before,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap::before,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline::before,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline::before,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap::before,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap::before,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-graduation-cap::before,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-fa-graduation-cap::before,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o::before,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o::before,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o::before,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o::before,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline::before,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline::before,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o::before,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o::before,
+ion-app.app-root page-addon-calendar-day page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-newspaper-o::before,
+ion-app.app-root page-core-mainmenu page-addon-calendar-day .item.addon-calendar-event > .icon.ion-fa-newspaper-o::before,
+ion-app.app-root addon-calendar-upcoming-events .item.addon-calendar-event > .icon.fa::before,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap::before,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-md-fa-graduation-cap::before,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap::before,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap::before,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline::before,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-ios-fa-graduation-cap-outline::before,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap::before,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-wp-fa-graduation-cap::before,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-graduation-cap::before,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-fa-graduation-cap::before,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o::before,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-md-fa-newspaper-o::before,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o::before,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o::before,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline::before,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-ios-fa-newspaper-o-outline::before,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o::before,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-wp-fa-newspaper-o::before,
+ion-app.app-root addon-calendar-upcoming-events page-core-mainmenu .item.addon-calendar-event > .icon.ion-fa-newspaper-o::before,
+ion-app.app-root page-core-mainmenu addon-calendar-upcoming-events .item.addon-calendar-event > .icon.ion-fa-newspaper-o::before {
+  width: 1.9em;
+}
+
+ion-app.app-root page-addon-calendar-list .item.addon-calendar-event > .core-module-icon,
+ion-app.app-root page-addon-calendar-day .item.addon-calendar-event > .core-module-icon,
+ion-app.app-root addon-calendar-upcoming-events .item.addon-calendar-event > .core-module-icon {
+  margin: 9px 8px 9px 8px;
+}
+
+ion-app.app-root page-addon-calendar-list .item.addon-calendar-event.addon-calendar-eventtype-category > .icon,
+ion-app.app-root page-addon-calendar-day .item.addon-calendar-event.addon-calendar-eventtype-category > .icon,
+ion-app.app-root addon-calendar-upcoming-events .item.addon-calendar-event.addon-calendar-eventtype-category > .icon {
+  background-color: #8e24aa;
+}
+
+ion-app.app-root page-addon-calendar-list .item.addon-calendar-event.addon-calendar-eventtype-course > .icon,
+ion-app.app-root page-addon-calendar-day .item.addon-calendar-event.addon-calendar-eventtype-course > .icon,
+ion-app.app-root addon-calendar-upcoming-events .item.addon-calendar-event.addon-calendar-eventtype-course > .icon {
+  background-color: #cb3d4d;
+}
+
+ion-app.app-root page-addon-calendar-list .item.addon-calendar-event.addon-calendar-eventtype-group > .icon,
+ion-app.app-root page-addon-calendar-day .item.addon-calendar-event.addon-calendar-eventtype-group > .icon,
+ion-app.app-root addon-calendar-upcoming-events .item.addon-calendar-event.addon-calendar-eventtype-group > .icon {
+  background-color: #fbad1a;
+}
+
+ion-app.app-root page-addon-calendar-list .item.addon-calendar-event.addon-calendar-eventtype-user > .icon,
+ion-app.app-root page-addon-calendar-day .item.addon-calendar-event.addon-calendar-eventtype-user > .icon,
+ion-app.app-root addon-calendar-upcoming-events .item.addon-calendar-event.addon-calendar-eventtype-user > .icon {
+  background-color: #0064d2;
+}
+
+ion-app.app-root page-addon-calendar-list .item.addon-calendar-event.addon-calendar-eventtype-site > .icon,
+ion-app.app-root page-addon-calendar-day .item.addon-calendar-event.addon-calendar-eventtype-site > .icon,
+ion-app.app-root addon-calendar-upcoming-events .item.addon-calendar-event.addon-calendar-eventtype-site > .icon {
+  background-color: #5e8100;
+}
+
+[dir="ltr"] ion-app.app-root addon-calendar-calendar .addon-calendar-navigation, [dir="rtl"] ion-app.app-root addon-calendar-calendar .addon-calendar-navigation {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+[dir="ltr"] ion-app.app-root addon-calendar-calendar .addon-calendar-navigation, [dir="rtl"] ion-app.app-root addon-calendar-calendar .addon-calendar-navigation {
+  padding-top: 5px;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-months {
+  background-color: white;
   padding: 0;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day {
+  border-bottom: 1px solid #dddddd;
+  overflow: hidden;
+  min-height: 60px;
+}
+
+[dir="ltr"] ion-app.app-root addon-calendar-calendar .addon-calendar-day {
+  border-right: 1px solid #dddddd;
+}
+
+[dir="rtl"] ion-app.app-root addon-calendar-calendar .addon-calendar-day {
+  border-left: 1px solid #dddddd;
+}
+
+[dir="ltr"] ion-app.app-root addon-calendar-calendar .addon-calendar-day:first-child {
+  padding-left: 10px;
+}
+
+[dir="rtl"] ion-app.app-root addon-calendar-calendar .addon-calendar-day:first-child {
+  padding-right: 10px;
+}
+
+[dir="ltr"] ion-app.app-root addon-calendar-calendar .addon-calendar-day:last-child {
+  border-right: 0;
+}
+
+[dir="rtl"] ion-app.app-root addon-calendar-calendar .addon-calendar-day:last-child {
+  border-left: 0;
+}
+
+[dir="ltr"] ion-app.app-root addon-calendar-calendar .addon-calendar-day:last-child {
+  padding-right: 8px;
+}
+
+[dir="rtl"] ion-app.app-root addon-calendar-calendar .addon-calendar-day:last-child {
+  padding-left: 8px;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day.addon-calendar-event-past-day > .addon-calendar-dot-types,
+ion-app.app-root addon-calendar-calendar .addon-calendar-day.addon-calendar-event-past-day > .addon-calendar-day-events {
+  opacity: 0.5;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day .addon-calendar-day-number {
+  margin: 0;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day .addon-calendar-day-number span {
+  line-height: 24px;
+  font-weight: 500;
+  display: inline-block;
+  margin: 3px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  ion-app.app-root addon-calendar-calendar .addon-calendar-day .addon-calendar-day-number {
+    text-align: left;
+  }
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day.today .addon-calendar-day-number span {
+  background-color: #c20d2e;
+  color: #ffffff;
+  border-radius: 50%;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day.dayblank {
+  background-color: #f5f5f5;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day .addon-calendar-event {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day .addon-calendar-event.addon-calendar-event-past {
+  opacity: 0.5;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day .addon-calendar-event .addon-calendar-event-name {
+  font-weight: 500;
+}
+
+[dir="ltr"] ion-app.app-root addon-calendar-calendar .addon-calendar-day .addon-calendar-day-more {
+  margin-left: 4px;
+}
+
+[dir="rtl"] ion-app.app-root addon-calendar-calendar .addon-calendar-day .addon-calendar-day-more {
+  margin-right: 4px;
+}
+
+[dir="ltr"] ion-app.app-root addon-calendar-calendar .addon-calendar-day .addon-calendar-day-more, [dir="rtl"] ion-app.app-root addon-calendar-calendar .addon-calendar-day .addon-calendar-day-more {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day .addon-calendar-dot-types {
+  margin: 0;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-period {
+  -webkit-box-flex: 3;
+  -webkit-flex-grow: 3;
+  -ms-flex-positive: 3;
+  flex-grow: 3;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-period h3 {
+  margin-top: 10px;
+  font-size: 1.6rem;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-weekday {
+  border-bottom: 1px solid #dedede;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day-events {
+  text-align: left;
+  text-align: start;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-day-events ion-icon {
+  font-size: 1em;
+}
+
+[dir="ltr"] ion-app.app-root addon-calendar-calendar .addon-calendar-day-events ion-icon {
+  margin-right: 2px;
+}
+
+[dir="rtl"] ion-app.app-root addon-calendar-calendar .addon-calendar-day-events ion-icon {
+  margin-left: 2px;
+}
+
+ion-app.app-root addon-calendar-calendar .addon-calendar-event, ion-app.app-root addon-calendar-calendar .addon-calendar-day-number, ion-app.app-root addon-calendar-calendar .addon-calendar-day-more {
+  cursor: pointer;
+}
+
+ion-app.app-root addon-calendar-calendar .calendar_event_type {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+[dir="ltr"] ion-app.app-root addon-calendar-calendar .calendar_event_type, [dir="rtl"] ion-app.app-root addon-calendar-calendar .calendar_event_type {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+ion-app.app-root addon-calendar-calendar .calendar_event_type.calendar_event_category {
+  background-color: #8e24aa;
+}
+
+ion-app.app-root addon-calendar-calendar .calendar_event_type.calendar_event_course {
+  background-color: #cb3d4d;
+}
+
+ion-app.app-root addon-calendar-calendar .calendar_event_type.calendar_event_group {
+  background-color: #fbad1a;
+}
+
+ion-app.app-root addon-calendar-calendar .calendar_event_type.calendar_event_user {
+  background-color: #0064d2;
+}
+
+ion-app.app-root addon-calendar-calendar .calendar_event_type.calendar_event_site {
+  background-color: #5e8100;
+}
+
+ion-app.app-root addon-calendar-calendar .core-module-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+[dir="ltr"] ion-app.app-root addon-calendar-calendar .core-module-icon, [dir="rtl"] ion-app.app-root addon-calendar-calendar .core-module-icon {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+page-addon-calendar-day .addon-calendar-period {
+  -webkit-box-flex: 3;
+  -webkit-flex-grow: 3;
+  -ms-flex-positive: 3;
+  flex-grow: 3;
+}
+
+page-addon-calendar-day .addon-calendar-period h3 {
+  margin-top: 10px;
+  font-size: 1.6rem;
+}
+
+[dir="ltr"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-ios {
+  padding-left: 32px;
+}
+
+[dir="rtl"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-ios {
+  padding-right: 32px;
+}
+
+[dir="ltr"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-ios ion-input {
+  padding-left: 16px;
+}
+
+[dir="rtl"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-ios ion-input {
+  padding-right: 16px;
+}
+
+[dir="ltr"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-md {
+  padding-left: 32px;
+}
+
+[dir="rtl"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-md {
+  padding-right: 32px;
+}
+
+[dir="ltr"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-md ion-input {
+  padding-left: 8px;
+}
+
+[dir="rtl"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-md ion-input {
+  padding-right: 8px;
+}
+
+[dir="ltr"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-wp {
+  padding-left: 32px;
+}
+
+[dir="rtl"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-wp {
+  padding-right: 32px;
+}
+
+[dir="ltr"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-wp ion-input {
+  padding-left: 8px;
+}
+
+[dir="rtl"] ion-app.app-root page-addon-calendar-edit-event .addon-calendar-radio-container ion-item:not(.addon-calendar-radio-title).item-wp ion-input {
+  padding-right: 8px;
+}
+
+ion-app.app-root page-addon-calendar-edit-event .addon-calendar-eventtype-container.item-select-disabled ion-label, ion-app.app-root page-addon-calendar-edit-event .addon-calendar-eventtype-container.item-select-disabled ion-select {
+  opacity: 1;
+}
+
+ion-app.app-root page-addon-calendar-edit-event .addon-calendar-eventtype-container.item-select-disabled .select-icon {
+  display: none;
+}
+
+ion-app.app-root page-addon-calendar-event .card ion-note {
+  font-size: 1.6rem;
+}
+
+ion-app.app-root page-addon-calendar-list ion-note {
+  max-width: 30%;
 }
 
 ion-app.app-root page-addon-messages-discussion ion-content {
@@ -49166,7 +50023,6 @@ ion-app.app-root page-addon-messages-discussion .addon-message {
   -webkit-transition: width 500ms ease-in-out;
   transition: width 500ms ease-in-out;
   overflow: visible;
-  contain: none;
 }
 
 [dir="ltr"] ion-app.app-root page-addon-messages-discussion .addon-message, [dir="rtl"] ion-app.app-root page-addon-messages-discussion .addon-message {
@@ -49397,6 +50253,7 @@ ion-app.app-root page-addon-messages-discussion .addon-message-not-mine.activate
 }
 
 ion-app.app-root page-addon-messages-discussion .toolbar-title {
+  padding: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -49430,6 +50287,13 @@ ion-app.app-root page-addon-messages-discussion .toolbar-title core-format-text 
 
 [dir="rtl"] ion-app.app-root page-addon-messages-discussion .toolbar-title ion-icon {
   margin-right: 6px;
+}
+
+ion-app.app-root page-addon-messages-discussion .toolbar-title.toolbar-title-ios {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 ion-app.app-root.ios page-addon-messages-discussion ion-footer .toolbar:last-child {
@@ -49512,7 +50376,7 @@ ion-app.app-root .addon-message-discussion .addon-message-last-message-text {
 }
 
 ion-app.app-root .addon-message-discussion h2 {
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 ion-app.app-root page-addon-messages-settings .list-header {
@@ -50115,26 +50979,26 @@ ion-app.app-root addon-mod-imscp-index core-iframe {
   flex-basis: 100%;
 }
 
-a.core-course-module-handler.addon-mod-label-handler {
+.item.core-course-module-handler.addon-mod-label-handler {
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
 }
 
-a.core-course-module-handler.addon-mod-label-handler:hover {
+.item.core-course-module-handler.addon-mod-label-handler:hover {
   opacity: 1;
 }
 
-.md a.core-course-module-handler.addon-mod-label-handler .item-inner {
+.md .item.core-course-module-handler.addon-mod-label-handler .item-inner {
   padding-bottom: 13px;
 }
 
-.ios a.core-course-module-handler.addon-mod-label-handler .item-inner {
+.ios .item.core-course-module-handler.addon-mod-label-handler .item-inner {
   padding-bottom: 11px;
 }
 
-.wp a.core-course-module-handler.addon-mod-label-handler .item-inner {
+.wp .item.core-course-module-handler.addon-mod-label-handler .item-inner {
   padding-bottom: 13px;
 }
 
@@ -50157,7 +51021,6 @@ ion-app.app-root page-addon-mod-lesson-player .addon-mod_lesson-slideshow {
 }
 
 ion-app.app-root page-addon-mod-lesson-player .addon-mod_lesson-pagebuttons .button-block {
-  contain: content;
   height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -51074,16 +51937,16 @@ addon-qtype-shortanswer .addon-qtype-shortanswer-text input {
 }
 
 addon-qtype-shortanswer .addon-qtype-shortanswer-text input::-moz-placeholder {
-  color: #999;
+  color: #9e9e9e;
 }
 
 addon-qtype-shortanswer .addon-qtype-shortanswer-text input:-ms-input-placeholder {
-  color: #999;
+  color: #9e9e9e;
 }
 
 addon-qtype-shortanswer .addon-qtype-shortanswer-text input::-webkit-input-placeholder {
   text-indent: 0;
-  color: #999;
+  color: #9e9e9e;
 }
 
 [dir="ltr"] addon-qtype-shortanswer .addon-qtype-shortanswer-text input, [dir="rtl"] addon-qtype-shortanswer .addon-qtype-shortanswer-text input {
@@ -51553,6 +52416,13 @@ ion-app.app-root core-format-text audio, ion-app.app-root core-format-text video
   pointer-events: auto;
 }
 
+ion-app.app-root ion-avatar, ion-app.app-root img, ion-app.app-root audio, ion-app.app-root video, ion-app.app-root iframe, ion-app.app-root [core-external-content], ion-app.app-root [role="presentation"], ion-app.app-root [data-original-src], ion-app.app-root [src] {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
 ion-app.app-root .core-media-adapt-width {
   max-width: 100%;
 }
@@ -51732,6 +52602,14 @@ ion-app.app-root ion-select.select-md-inverted .select-icon .select-icon-inner, 
   color: #ffffff;
 }
 
+ion-app.app-root .item-label-stacked ion-select[multiple="true"] {
+  width: 100%;
+}
+
+ion-app.app-root ion-select .select-placeholder {
+  color: #9e9e9e;
+}
+
 ion-app.app-root ion-select.core-button-select,
 ion-app.app-root .core-button-select {
   background-color: white;
@@ -51807,10 +52685,6 @@ ion-app.app-root ion-select.core-button-select .select-text,
 ion-app.app-root .core-button-select .select-text {
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-ion-app.app-root .col > .button-block, ion-app.app-root .addon-data-contents td > .button-block, .addon-data-contents ion-app.app-root td > .button-block, ion-app.app-root .addon-data-contents th > .button-block, .addon-data-contents ion-app.app-root th > .button-block {
-  contain: content;
 }
 
 ion-app.app-root .core-fileuploader-file-handler {
@@ -51988,6 +52862,14 @@ ion-app.app-root .action-sheet-group {
   overflow: auto;
 }
 
+ion-app.app-root .action-sheet-wrapper .action-sheet-button.action-sheet-cancel {
+  color: #cb3d4d;
+}
+
+ion-app.app-root .action-sheet-wrapper .action-sheet-selected {
+  color: #c20d2e;
+}
+
 ion-app.app-root .alert-message {
   overflow-y: auto;
 }
@@ -52039,11 +52921,14 @@ ion-app.app-root textarea:not([core-auto-rows]) {
 ion-app.app-root .toolbar img.core-bar-button-image,
 ion-app.app-root .toolbar .core-bar-button-image img {
   padding: 0;
-  width: 100%;
-  height: 100%;
-  max-width: 31px;
-  max-height: 31px;
+  width: 32px;
+  height: 32px;
+  max-width: 32px;
   border-radius: 50%;
+}
+
+ion-app.app-root .header .toolbar-ios {
+  height: 52px;
 }
 
 ion-app.app-root .footer.footer-adjustable {
@@ -52106,17 +52991,23 @@ ion-app.app-root .core-primary-item.item-input {
   border-bottom: 0 !important;
 }
 
-ion-app.app-root .core-primary-item.item-input.item-md .item-inner {
+ion-app.app-root .core-primary-item.item-input.item-md .item-inner,
+ion-app.app-root .core-primary-item.item-input.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-primary-item.item-input.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #c20d2e;
   -webkit-box-shadow: inset 0 -1px 0 0 #c20d2e;
   box-shadow: inset 0 -1px 0 0 #c20d2e;
 }
 
-ion-app.app-root .core-primary-item.item-input.item-ios .item-inner {
+ion-app.app-root .core-primary-item.item-input.item-ios .item-inner,
+ion-app.app-root .core-primary-item.item-input.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-primary-item.item-input.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #c20d2e;
 }
 
-ion-app.app-root .core-primary-item.item-input.item-wp .item-inner {
+ion-app.app-root .core-primary-item.item-input.item-wp .text-input,
+ion-app.app-root .core-primary-item.item-input.item-wp.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input,
+ion-app.app-root .core-primary-item.item-input.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #c20d2e;
 }
 
@@ -52239,17 +53130,23 @@ ion-app.app-root .core-secondary-item.item-input {
   border-bottom: 0 !important;
 }
 
-ion-app.app-root .core-secondary-item.item-input.item-md .item-inner {
+ion-app.app-root .core-secondary-item.item-input.item-md .item-inner,
+ion-app.app-root .core-secondary-item.item-input.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-secondary-item.item-input.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #007982;
   -webkit-box-shadow: inset 0 -1px 0 0 #007982;
   box-shadow: inset 0 -1px 0 0 #007982;
 }
 
-ion-app.app-root .core-secondary-item.item-input.item-ios .item-inner {
+ion-app.app-root .core-secondary-item.item-input.item-ios .item-inner,
+ion-app.app-root .core-secondary-item.item-input.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-secondary-item.item-input.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #007982;
 }
 
-ion-app.app-root .core-secondary-item.item-input.item-wp .item-inner {
+ion-app.app-root .core-secondary-item.item-input.item-wp .text-input,
+ion-app.app-root .core-secondary-item.item-input.item-wp.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input,
+ion-app.app-root .core-secondary-item.item-input.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #007982;
 }
 
@@ -52372,17 +53269,23 @@ ion-app.app-root .core-danger-item.item-input {
   border-bottom: 0 !important;
 }
 
-ion-app.app-root .core-danger-item.item-input.item-md .item-inner {
+ion-app.app-root .core-danger-item.item-input.item-md .item-inner,
+ion-app.app-root .core-danger-item.item-input.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-danger-item.item-input.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #cb3d4d;
   -webkit-box-shadow: inset 0 -1px 0 0 #cb3d4d;
   box-shadow: inset 0 -1px 0 0 #cb3d4d;
 }
 
-ion-app.app-root .core-danger-item.item-input.item-ios .item-inner {
+ion-app.app-root .core-danger-item.item-input.item-ios .item-inner,
+ion-app.app-root .core-danger-item.item-input.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-danger-item.item-input.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #cb3d4d;
 }
 
-ion-app.app-root .core-danger-item.item-input.item-wp .item-inner {
+ion-app.app-root .core-danger-item.item-input.item-wp .text-input,
+ion-app.app-root .core-danger-item.item-input.item-wp.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input,
+ion-app.app-root .core-danger-item.item-input.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #cb3d4d;
 }
 
@@ -52505,17 +53408,23 @@ ion-app.app-root .core-light-item.item-input {
   border-bottom: 0 !important;
 }
 
-ion-app.app-root .core-light-item.item-input.item-md .item-inner {
+ion-app.app-root .core-light-item.item-input.item-md .item-inner,
+ion-app.app-root .core-light-item.item-input.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-light-item.item-input.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #f5f5f5;
   -webkit-box-shadow: inset 0 -1px 0 0 #f5f5f5;
   box-shadow: inset 0 -1px 0 0 #f5f5f5;
 }
 
-ion-app.app-root .core-light-item.item-input.item-ios .item-inner {
+ion-app.app-root .core-light-item.item-input.item-ios .item-inner,
+ion-app.app-root .core-light-item.item-input.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-light-item.item-input.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #f5f5f5;
 }
 
-ion-app.app-root .core-light-item.item-input.item-wp .item-inner {
+ion-app.app-root .core-light-item.item-input.item-wp .text-input,
+ion-app.app-root .core-light-item.item-input.item-wp.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input,
+ion-app.app-root .core-light-item.item-input.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #f5f5f5;
 }
 
@@ -52638,17 +53547,23 @@ ion-app.app-root .core-gray-item.item-input {
   border-bottom: 0 !important;
 }
 
-ion-app.app-root .core-gray-item.item-input.item-md .item-inner {
+ion-app.app-root .core-gray-item.item-input.item-md .item-inner,
+ion-app.app-root .core-gray-item.item-input.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-gray-item.item-input.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #9e9e9e;
   -webkit-box-shadow: inset 0 -1px 0 0 #9e9e9e;
   box-shadow: inset 0 -1px 0 0 #9e9e9e;
 }
 
-ion-app.app-root .core-gray-item.item-input.item-ios .item-inner {
+ion-app.app-root .core-gray-item.item-input.item-ios .item-inner,
+ion-app.app-root .core-gray-item.item-input.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-gray-item.item-input.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #9e9e9e;
 }
 
-ion-app.app-root .core-gray-item.item-input.item-wp .item-inner {
+ion-app.app-root .core-gray-item.item-input.item-wp .text-input,
+ion-app.app-root .core-gray-item.item-input.item-wp.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input,
+ion-app.app-root .core-gray-item.item-input.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #9e9e9e;
 }
 
@@ -52771,17 +53686,23 @@ ion-app.app-root .core-dark-item.item-input {
   border-bottom: 0 !important;
 }
 
-ion-app.app-root .core-dark-item.item-input.item-md .item-inner {
+ion-app.app-root .core-dark-item.item-input.item-md .item-inner,
+ion-app.app-root .core-dark-item.item-input.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-dark-item.item-input.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #3a3a3a;
   -webkit-box-shadow: inset 0 -1px 0 0 #3a3a3a;
   box-shadow: inset 0 -1px 0 0 #3a3a3a;
 }
 
-ion-app.app-root .core-dark-item.item-input.item-ios .item-inner {
+ion-app.app-root .core-dark-item.item-input.item-ios .item-inner,
+ion-app.app-root .core-dark-item.item-input.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-dark-item.item-input.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #3a3a3a;
 }
 
-ion-app.app-root .core-dark-item.item-input.item-wp .item-inner {
+ion-app.app-root .core-dark-item.item-input.item-wp .text-input,
+ion-app.app-root .core-dark-item.item-input.item-wp.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input,
+ion-app.app-root .core-dark-item.item-input.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #3a3a3a;
 }
 
@@ -52904,17 +53825,23 @@ ion-app.app-root .core-warning-item.item-input {
   border-bottom: 0 !important;
 }
 
-ion-app.app-root .core-warning-item.item-input.item-md .item-inner {
+ion-app.app-root .core-warning-item.item-input.item-md .item-inner,
+ion-app.app-root .core-warning-item.item-input.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-warning-item.item-input.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #fbad1a;
   -webkit-box-shadow: inset 0 -1px 0 0 #fbad1a;
   box-shadow: inset 0 -1px 0 0 #fbad1a;
 }
 
-ion-app.app-root .core-warning-item.item-input.item-ios .item-inner {
+ion-app.app-root .core-warning-item.item-input.item-ios .item-inner,
+ion-app.app-root .core-warning-item.item-input.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-warning-item.item-input.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #fbad1a;
 }
 
-ion-app.app-root .core-warning-item.item-input.item-wp .item-inner {
+ion-app.app-root .core-warning-item.item-input.item-wp .text-input,
+ion-app.app-root .core-warning-item.item-input.item-wp.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input,
+ion-app.app-root .core-warning-item.item-input.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #fbad1a;
 }
 
@@ -53037,17 +53964,23 @@ ion-app.app-root .core-success-item.item-input {
   border-bottom: 0 !important;
 }
 
-ion-app.app-root .core-success-item.item-input.item-md .item-inner {
+ion-app.app-root .core-success-item.item-input.item-md .item-inner,
+ion-app.app-root .core-success-item.item-input.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-success-item.item-input.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #5e8100;
   -webkit-box-shadow: inset 0 -1px 0 0 #5e8100;
   box-shadow: inset 0 -1px 0 0 #5e8100;
 }
 
-ion-app.app-root .core-success-item.item-input.item-ios .item-inner {
+ion-app.app-root .core-success-item.item-input.item-ios .item-inner,
+ion-app.app-root .core-success-item.item-input.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-success-item.item-input.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #5e8100;
 }
 
-ion-app.app-root .core-success-item.item-input.item-wp .item-inner {
+ion-app.app-root .core-success-item.item-input.item-wp .text-input,
+ion-app.app-root .core-success-item.item-input.item-wp.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input,
+ion-app.app-root .core-success-item.item-input.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #5e8100;
 }
 
@@ -53170,17 +54103,23 @@ ion-app.app-root .core-info-item.item-input {
   border-bottom: 0 !important;
 }
 
-ion-app.app-root .core-info-item.item-input.item-md .item-inner {
+ion-app.app-root .core-info-item.item-input.item-md .item-inner,
+ion-app.app-root .core-info-item.item-input.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-info-item.item-input.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #0064d2;
   -webkit-box-shadow: inset 0 -1px 0 0 #0064d2;
   box-shadow: inset 0 -1px 0 0 #0064d2;
 }
 
-ion-app.app-root .core-info-item.item-input.item-ios .item-inner {
+ion-app.app-root .core-info-item.item-input.item-ios .item-inner,
+ion-app.app-root .core-info-item.item-input.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-info-item.item-input.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #0064d2;
 }
 
-ion-app.app-root .core-info-item.item-input.item-wp .item-inner {
+ion-app.app-root .core-info-item.item-input.item-wp .text-input,
+ion-app.app-root .core-info-item.item-input.item-wp.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input,
+ion-app.app-root .core-info-item.item-input.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #0064d2;
 }
 
@@ -53303,17 +54242,23 @@ ion-app.app-root .core-inverted-item.item-input {
   border-bottom: 0 !important;
 }
 
-ion-app.app-root .core-inverted-item.item-input.item-md .item-inner {
+ion-app.app-root .core-inverted-item.item-input.item-md .item-inner,
+ion-app.app-root .core-inverted-item.item-input.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-inverted-item.item-input.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #ffffff;
   -webkit-box-shadow: inset 0 -1px 0 0 #ffffff;
   box-shadow: inset 0 -1px 0 0 #ffffff;
 }
 
-ion-app.app-root .core-inverted-item.item-input.item-ios .item-inner {
+ion-app.app-root .core-inverted-item.item-input.item-ios .item-inner,
+ion-app.app-root .core-inverted-item.item-input.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ion-app.app-root .core-inverted-item.item-input.item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom-color: #ffffff;
 }
 
-ion-app.app-root .core-inverted-item.item-input.item-wp .item-inner {
+ion-app.app-root .core-inverted-item.item-input.item-wp .text-input,
+ion-app.app-root .core-inverted-item.item-input.item-wp.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input,
+ion-app.app-root .core-inverted-item.item-input.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .text-input {
   border-color: #ffffff;
 }
 
@@ -53740,6 +54685,12 @@ ion-app.app-root ion-alert .alert-checkbox-button .alert-checkbox-label {
   white-space: normal;
 }
 
+ion-app.app-root ion-backdrop {
+  -webkit-transition: opacity 100ms ease-in-out;
+  transition: opacity 100ms ease-in-out;
+  opacity: .1;
+}
+
 .text-primary {
   color: #fff;
 }
@@ -53995,16 +54946,12 @@ ion-app.app-root page-core-mainmenu .item-inner > .icon.ion-fa-newspaper-o {
   line-height: 28px;
 }
 
-ion-app,
-ion-nav,
-ion-tab,
-ion-tabs,
-.app-root,
-.ion-page,
-ion-modal,
-.modal-wrapper,
-.split-pane {
-  contain: size layout style;
+* {
+  contain: none !important;
+}
+
+ion-item-divider {
+  z-index: 2;
 }
 
 .matchtext {
@@ -54021,7 +54968,6 @@ ion-app.platform-desktop.platform-windows video::-webkit-media-text-track-displa
 
 .button-block[text-wrap] {
   height: auto;
-  contain: content;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -54079,6 +55025,15 @@ ion-app.platform-desktop.platform-windows video::-webkit-media-text-track-displa
 
 .button-block[text-wrap].button-small-ios {
   min-height: 2.1em;
+}
+
+.ion-md-funnel::before {
+  content: "\f182";
+}
+
+.item > ion-icon,
+.item-inner > ion-icon {
+  font-size: 28px;
 }
 
 ion-app.app-root.ios .button-ios {
@@ -54467,6 +55422,10 @@ ion-app.app-root.ios .radio-ios .radio-icon {
   border-radius: 50%;
 }
 
+ion-app.app-root.ios .action-sheet-ios .action-sheet-title {
+  font-size: 2rem;
+}
+
 ion-app.app-root.ios .action-sheet-ios input.core-fileuploader-file-handler-input {
   position: absolute;
   min-width: 100%;
@@ -54826,19 +55785,13 @@ ion-app.app-root.md .action-sheet-md .action-sheet-title {
   margin-top: 11px;
 }
 
-ion-app.app-root.md .action-sheet-md .action-sheet-cancel {
-  color: #cb3d4d;
-}
-
-ion-app.app-root.md .action-sheet-md .action-sheet-wrapper {
-  bottom: 0;
-  top: initial;
-  max-height: 50%;
-  height: 100%;
-}
-
-ion-app.app-root.md .action-sheet-md .action-sheet-selected {
-  color: #c20d2e;
+@media (min-height: 500px) {
+  ion-app.app-root.md .action-sheet-md .action-sheet-wrapper {
+    bottom: 0;
+    top: initial;
+    max-height: 50%;
+    height: 100%;
+  }
 }
 
 .platform-android4_4 .bar-buttons-md {
@@ -55182,6 +56135,10 @@ ion-app.app-root core-chart canvas {
   margin: 0 auto;
 }
 
+ion-app.app-root core-context-menu-popover .list {
+  margin-bottom: 0;
+}
+
 [dir="ltr"] ion-app.app-root core-context-menu-popover .item-md ion-icon[item-start] + .item-inner, [dir="ltr"] ion-app.app-root core-context-menu-popover .item-md ion-icon[item-start] + .item-input {
   margin-left: 5px;
 }
@@ -55297,6 +56254,10 @@ ion-app.app-root core-empty-box.core-empty-box-clickable .core-empty-box {
     height: 104px;
     width: 121px;
   }
+}
+
+ion-app.app-root core-block-course-blocks core-empty-box .core-empty-box {
+  position: relative;
 }
 
 ion-app.app-root .card-md core-file + core-file > .item-md.item-block > .item-inner, ion-app.app-root page-addon-mod-lesson-player .item-md table core-file + core-file > .item-md.item-block > .item-inner, ion-app.app-root.md .core-primary-card core-file + core-file > .item-md.item-block > .item-inner, ion-app.app-root.md .core-secondary-card core-file + core-file > .item-md.item-block > .item-inner, ion-app.app-root.md .core-danger-card core-file + core-file > .item-md.item-block > .item-inner, ion-app.app-root.md .core-light-card core-file + core-file > .item-md.item-block > .item-inner, ion-app.app-root.md .core-gray-card core-file + core-file > .item-md.item-block > .item-inner, ion-app.app-root.md .core-dark-card core-file + core-file > .item-md.item-block > .item-inner, ion-app.app-root.md .core-warning-card core-file + core-file > .item-md.item-block > .item-inner, ion-app.app-root.md .core-success-card core-file + core-file > .item-md.item-block > .item-inner, ion-app.app-root.md .core-info-card core-file + core-file > .item-md.item-block > .item-inner, ion-app.app-root.md .core-inverted-card core-file + core-file > .item-md.item-block > .item-inner,
@@ -55531,6 +56492,10 @@ ion-app.app-root core-ion-tabs .tab-badge.badge {
   background-color: #c20d2e;
 }
 
+ion-app.app-root core-ion-tabs[tabsplacement="bottom"] .ion-page > ion-content > .scroll-content {
+  margin-bottom: 56px;
+}
+
 ion-app.app-root core-ion-tabs[tabsplacement="side"] .tabbar {
   width: 60px;
   height: 100%;
@@ -55607,12 +56572,16 @@ ion-app.app-root core-ion-tabs[tabsplacement="side"] .tabcontent core-ion-tab {
   right: 60px;
 }
 
+ion-app.app-root core-ion-tabs[tabsplacement="side"] .scroll-content, ion-app.app-root core-ion-tabs[tabsplacement="side"] .fixed-content {
+  margin-bottom: 0 !important;
+}
+
 ion-app.app-root.ios core-ion-tabs .core-ion-tabs-loading {
-  min-height: 49px;
+  min-height: 56px;
 }
 
 ion-app.app-root.md core-ion-tabs .core-ion-tabs-loading {
-  min-height: 5.6rem;
+  min-height: 56px;
 }
 
 ion-app.app-root.wp core-ion-tabs .core-ion-tabs-loading {
@@ -55627,7 +56596,6 @@ core-ion-tabs, core-ion-tab {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  contain: size layout style;
 }
 
 [dir="ltr"] core-ion-tabs, [dir="ltr"] core-ion-tab {
@@ -55951,12 +56919,14 @@ ion-app.app-root core-loading.core-loading-noheight .core-loading-content {
 
 ion-app.app-root .scroll-content > core-loading,
 ion-app.app-root ion-content > .scroll-content > core-loading,
+ion-app.app-root core-tab core-loading,
 ion-app.app-root .core-loading-center {
   position: static !important;
 }
 
 ion-app.app-root .scroll-content > core-loading,
 ion-app.app-root ion-content > .scroll-content > core-loading,
+ion-app.app-root core-tab core-loading,
 ion-app.app-root .core-loading-center,
 ion-app.app-root core-loading.core-loading-loaded {
   position: relative;
@@ -55964,6 +56934,7 @@ ion-app.app-root core-loading.core-loading-loaded {
 
 ion-app.app-root .scroll-content > core-loading > .core-loading-container,
 ion-app.app-root ion-content > .scroll-content > core-loading > .core-loading-container,
+ion-app.app-root core-tab core-loading > .core-loading-container,
 ion-app.app-root .core-loading-center > .core-loading-container,
 ion-app.app-root core-loading.core-loading-loaded > .core-loading-container {
   position: absolute;
@@ -55978,13 +56949,14 @@ ion-app.app-root core-loading.core-loading-loaded > .core-loading-container {
   clear: both;
 }
 
-[dir="ltr"] ion-app.app-root .scroll-content > core-loading > .core-loading-container, [dir="ltr"] ion-app.app-root ion-content > .scroll-content > core-loading > .core-loading-container, [dir="ltr"] ion-app.app-root .core-loading-center > .core-loading-container, [dir="ltr"] ion-app.app-root core-loading.core-loading-loaded > .core-loading-container, [dir="rtl"] ion-app.app-root .scroll-content > core-loading > .core-loading-container, [dir="rtl"] ion-app.app-root ion-content > .scroll-content > core-loading > .core-loading-container, [dir="rtl"] ion-app.app-root .core-loading-center > .core-loading-container, [dir="rtl"] ion-app.app-root core-loading.core-loading-loaded > .core-loading-container {
+[dir="ltr"] ion-app.app-root .scroll-content > core-loading > .core-loading-container, [dir="ltr"] ion-app.app-root ion-content > .scroll-content > core-loading > .core-loading-container, [dir="ltr"] ion-app.app-root core-tab core-loading > .core-loading-container, [dir="ltr"] ion-app.app-root .core-loading-center > .core-loading-container, [dir="ltr"] ion-app.app-root core-loading.core-loading-loaded > .core-loading-container, [dir="rtl"] ion-app.app-root .scroll-content > core-loading > .core-loading-container, [dir="rtl"] ion-app.app-root ion-content > .scroll-content > core-loading > .core-loading-container, [dir="rtl"] ion-app.app-root core-tab core-loading > .core-loading-container, [dir="rtl"] ion-app.app-root .core-loading-center > .core-loading-container, [dir="rtl"] ion-app.app-root core-loading.core-loading-loaded > .core-loading-container {
   left: 0;
   right: 0;
 }
 
 ion-app.app-root .scroll-content > core-loading > .core-loading-container .core-loading-spinner,
 ion-app.app-root ion-content > .scroll-content > core-loading > .core-loading-container .core-loading-spinner,
+ion-app.app-root core-tab core-loading > .core-loading-container .core-loading-spinner,
 ion-app.app-root .core-loading-center > .core-loading-container .core-loading-spinner,
 ion-app.app-root core-loading.core-loading-loaded > .core-loading-container .core-loading-spinner {
   display: table-cell;
@@ -56092,16 +57064,6 @@ ion-app.app-root core-rich-text-editor {
   /* Just in case vh is not supported */
   min-height: 40vh;
   width: 100%;
-  position: relative;
-  display: block;
-}
-
-ion-app.app-root core-rich-text-editor > div {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -56113,24 +57075,22 @@ ion-app.app-root core-rich-text-editor > div {
   flex-direction: column;
 }
 
-[dir="ltr"] ion-app.app-root core-rich-text-editor > div, [dir="rtl"] ion-app.app-root core-rich-text-editor > div {
-  left: 0;
-  right: 0;
-}
-
 ion-app.app-root core-rich-text-editor .core-rte-editor, ion-app.app-root core-rich-text-editor .core-textarea {
   padding: 2px;
   margin: 2px;
   width: 100%;
   resize: none;
   background-color: #ffffff;
+}
+
+ion-app.app-root core-rich-text-editor .core-rte-editor {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-}
-
-ion-app.app-root core-rich-text-editor .core-rte-editor {
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
   -webkit-user-select: auto !important;
   word-wrap: break-word;
   overflow-x: hidden;
@@ -56162,6 +57122,13 @@ ion-app.app-root core-rich-text-editor .core-rte-editor *:empty:after {
 }
 
 ion-app.app-root core-rich-text-editor .core-textarea {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
   position: relative;
 }
 
@@ -56184,77 +57151,100 @@ ion-app.app-root core-rich-text-editor .core-textarea textarea {
 }
 
 ion-app.app-root core-rich-text-editor div.core-rte-toolbar {
-  background: #626262;
-  text-align: center;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  width: 100%;
-  z-index: 1;
-}
-
-[dir="ltr"] ion-app.app-root core-rich-text-editor div.core-rte-toolbar, [dir="rtl"] ion-app.app-root core-rich-text-editor div.core-rte-toolbar {
-  margin: 0px 1px 15px;
-}
-
-ion-app.app-root core-rich-text-editor div.core-rte-toolbar .core-rte-buttons {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: space-evenly;
-  -webkit-justify-content: space-evenly;
-  -ms-flex-pack: space-evenly;
-  justify-content: space-evenly;
+  width: 100%;
+  z-index: 1;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border-top: 1px solid #dddddd;
 }
 
-ion-app.app-root core-rich-text-editor div.core-rte-toolbar .core-rte-buttons button {
-  background: #626262;
-  color: #ffffff;
-  font-size: 1.1em;
-  height: 35px;
-  min-width: 30px;
-  border-bottom: 1px solid #9e9e9e;
-  top: -6px;
+[dir="ltr"] ion-app.app-root core-rich-text-editor div.core-rte-toolbar, [dir="rtl"] ion-app.app-root core-rich-text-editor div.core-rte-toolbar {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+ion-app.app-root core-rich-text-editor div.core-rte-toolbar ion-slides {
+  width: 240px;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  margin: 0;
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
 }
 
-[dir="ltr"] ion-app.app-root core-rich-text-editor div.core-rte-toolbar .core-rte-buttons button, [dir="rtl"] ion-app.app-root core-rich-text-editor div.core-rte-toolbar .core-rte-buttons button {
-  padding-left: 3px;
-  padding-right: 3px;
+ion-app.app-root core-rich-text-editor div.core-rte-toolbar button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  padding-right: 6px;
+  padding-left: 6px;
+  margin: 0 auto;
+  font-size: 18px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  color: #3a3a3a;
+  cursor: pointer;
 }
 
-[dir="ltr"] ion-app.app-root core-rich-text-editor div.core-rte-toolbar .core-rte-buttons button {
-  border-right: qpx solid #9e9e9e;
+ion-app.app-root core-rich-text-editor div.core-rte-toolbar button.toolbar-button-enable {
+  width: 100%;
 }
 
-[dir="rtl"] ion-app.app-root core-rich-text-editor div.core-rte-toolbar .core-rte-buttons button {
-  border-left: qpx solid #9e9e9e;
+ion-app.app-root core-rich-text-editor div.core-rte-toolbar button:active, ion-app.app-root core-rich-text-editor div.core-rte-toolbar button[aria-pressed="true"] {
+  background-color: #dddddd;
 }
 
-[dir="ltr"] ion-app.app-root core-rich-text-editor div.core-rte-toolbar .core-rte-buttons button {
-  right: 0;
+ion-app.app-root core-rich-text-editor div.core-rte-toolbar button.toolbar-arrow {
+  width: 28px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
-[dir="rtl"] ion-app.app-root core-rich-text-editor div.core-rte-toolbar .core-rte-buttons button {
-  left: 0;
+ion-app.app-root core-rich-text-editor div.core-rte-toolbar button.toolbar-arrow:active {
+  background-color: #ffffff;
+}
+
+ion-app.app-root core-rich-text-editor div.core-rte-toolbar button.toolbar-arrow.toolbar-arrow-hidden {
+  opacity: 0;
+}
+
+ion-app.app-root core-rich-text-editor div.core-rte-toolbar.toolbar-hidden {
+  visibility: none;
+  height: 0;
+  border: none;
 }
 
 body.keyboard-is-open ion-app.app-root core-rich-text-editor {
@@ -56689,15 +57679,15 @@ ion-app.app-root .core-tabs-bar ion-col.col-with-arrow {
 }
 
 ion-app.app-root.md .core-tabs-bar .tab-slide {
-  min-height: 5.6rem;
+  min-height: 56px;
   font-weight: normal;
   color: rgba(255, 255, 255, 0.7);
 }
 
 ion-app.app-root.ios .core-tabs-bar .tab-slide {
   max-width: 240px;
-  min-height: 49px;
-  font-size: 14px;
+  min-height: 56px;
+  font-size: 1.4rem;
   font-weight: 500;
   color: #ffffff;
 }
@@ -56727,7 +57717,6 @@ ion-app.app-root core-tabs .core-tabs-content-container.no-scroll {
 
 ion-app.app-root core-tabs .core-tabs-content-container.no-scroll .scroll-content {
   overflow: hidden !important;
-  contain: initial;
   position: relative;
 }
 
@@ -56946,6 +57935,7 @@ ion-avatar[core-user-avatar] .core-avatar-extra-icon {
 
 ion-app.app-root core-block {
   position: relative;
+  display: block;
 }
 
 ion-app.app-root core-block core-loading.core-loading-center {
@@ -57000,24 +57990,93 @@ ion-app.app-root core-block .item-divider .icon {
   color: #3a3a3a;
 }
 
-ion-app.app-root ion-badge.core-course-download-section-progress {
+.core-course-block-with-blocks > .scroll-content {
+  overflow-y: visible;
+}
+
+ion-app.app-root core-block-course-blocks.core-no-blocks .core-course-blocks-content {
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  ion-app.app-root core-block-course-blocks.core-has-blocks {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+  ion-app.app-root core-block-course-blocks.core-has-blocks .core-course-blocks-content {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+  ion-app.app-root core-block-course-blocks.core-has-blocks div.core-course-blocks-side {
+    max-width: 30%;
+    min-width: 280px;
+  }
+  [dir="ltr"] ion-app.app-root core-block-course-blocks.core-has-blocks div.core-course-blocks-side {
+    border-left: 1px solid #dedede;
+  }
+  [dir="rtl"] ion-app.app-root core-block-course-blocks.core-has-blocks div.core-course-blocks-side {
+    border-right: 1px solid #dedede;
+  }
+  ion-app.app-root core-block-course-blocks.core-has-blocks .core-course-blocks-content,
+  ion-app.app-root core-block-course-blocks.core-has-blocks div.core-course-blocks-side {
+    position: relative;
+    height: 100%;
+  }
+  ion-app.app-root core-block-course-blocks.core-has-blocks .core-course-blocks-content .core-loading-center,
+  ion-app.app-root core-block-course-blocks.core-has-blocks .core-course-blocks-content core-loading.core-loading-loaded,
+  ion-app.app-root core-block-course-blocks.core-has-blocks div.core-course-blocks-side .core-loading-center,
+  ion-app.app-root core-block-course-blocks.core-has-blocks div.core-course-blocks-side core-loading.core-loading-loaded {
+    position: initial;
+  }
+}
+
+@media (max-width: 767px) {
+  ion-app.app-root core-block-course-blocks.core-has-blocks div.core-course-blocks-side {
+    height: auto;
+  }
+  ion-app.app-root core-block-course-blocks.core-has-blocks div.core-course-blocks-side.core-hide-blocks {
+    display: none;
+  }
+}
+
+core-comments .core-comments-clickable {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+ion-app.app-root ion-badge.core-course-download-section-progress, ion-app.app-root .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-section-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root a.core-course-download-section-progress, ion-app.app-root .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-section-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root a.core-course-download-section-progress {
   display: block;
 }
 
-[dir="ltr"] ion-app.app-root ion-badge.core-course-download-section-progress {
+[dir="ltr"] ion-app.app-root ion-badge.core-course-download-section-progress, [dir="ltr"] ion-app.app-root .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-section-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="ltr"] ion-app.app-root a.core-course-download-section-progress, [dir="ltr"] ion-app.app-root .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-section-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="ltr"] ion-app.app-root a.core-course-download-section-progress {
   float: left;
 }
 
-[dir="rtl"] ion-app.app-root ion-badge.core-course-download-section-progress {
+[dir="rtl"] ion-app.app-root ion-badge.core-course-download-section-progress, [dir="rtl"] ion-app.app-root .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-section-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="rtl"] ion-app.app-root a.core-course-download-section-progress, [dir="rtl"] ion-app.app-root .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-section-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="rtl"] ion-app.app-root a.core-course-download-section-progress {
   float: right;
 }
 
-[dir="ltr"] ion-app.app-root ion-badge.core-course-download-section-progress, [dir="rtl"] ion-app.app-root ion-badge.core-course-download-section-progress {
+[dir="ltr"] ion-app.app-root ion-badge.core-course-download-section-progress, [dir="ltr"] ion-app.app-root .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-section-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="ltr"] ion-app.app-root a.core-course-download-section-progress, [dir="ltr"] ion-app.app-root .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-section-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="ltr"] ion-app.app-root a.core-course-download-section-progress, [dir="rtl"] ion-app.app-root ion-badge.core-course-download-section-progress, [dir="rtl"] ion-app.app-root .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-section-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="rtl"] ion-app.app-root a.core-course-download-section-progress, [dir="rtl"] ion-app.app-root .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-section-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="rtl"] ion-app.app-root a.core-course-download-section-progress {
   margin-left: 12px;
   margin-right: 12px;
 }
 
-[dir="ltr"] ion-app.app-root ion-badge.core-course-download-section-progress, [dir="rtl"] ion-app.app-root ion-badge.core-course-download-section-progress {
+[dir="ltr"] ion-app.app-root ion-badge.core-course-download-section-progress, [dir="ltr"] ion-app.app-root .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-section-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="ltr"] ion-app.app-root a.core-course-download-section-progress, [dir="ltr"] ion-app.app-root .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-section-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="ltr"] ion-app.app-root a.core-course-download-section-progress, [dir="rtl"] ion-app.app-root ion-badge.core-course-download-section-progress, [dir="rtl"] ion-app.app-root .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-section-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="rtl"] ion-app.app-root a.core-course-download-section-progress, [dir="rtl"] ion-app.app-root .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-section-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="rtl"] ion-app.app-root a.core-course-download-section-progress {
   margin-top: 12px;
 }
 
@@ -57101,7 +58160,7 @@ ion-app.app-root core-course-module {
   display: block;
 }
 
-ion-app.app-root core-course-module a.core-course-module-handler {
+ion-app.app-root core-course-module .item.core-course-module-handler {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
@@ -57109,37 +58168,37 @@ ion-app.app-root core-course-module a.core-course-module-handler {
   min-height: 52px;
 }
 
-[dir="ltr"] ion-app.app-root core-course-module a.core-course-module-handler.item .item-inner {
+[dir="ltr"] ion-app.app-root core-course-module .item.core-course-module-handler.item .item-inner {
   padding-right: 0px;
 }
 
-[dir="rtl"] ion-app.app-root core-course-module a.core-course-module-handler.item .item-inner {
+[dir="rtl"] ion-app.app-root core-course-module .item.core-course-module-handler.item .item-inner {
   padding-left: 0px;
 }
 
 @media screen and (orientation: landscape) {
-  [dir="ltr"] ion-app.app-root core-course-module a.core-course-module-handler.item .item-inner {
+  [dir="ltr"] ion-app.app-root core-course-module .item.core-course-module-handler.item .item-inner {
     padding-right: calc(env(safe-area-inset-right) + 0px);
   }
-  [dir="rtl"] ion-app.app-root core-course-module a.core-course-module-handler.item .item-inner {
+  [dir="rtl"] ion-app.app-root core-course-module .item.core-course-module-handler.item .item-inner {
     padding-left: calc(env(safe-area-inset-right) + 0px);
   }
 }
 
-[dir="ltr"] ion-app.app-root core-course-module a.core-course-module-handler .label {
+[dir="ltr"] ion-app.app-root core-course-module .item.core-course-module-handler .label {
   margin-right: 0;
 }
 
-[dir="rtl"] ion-app.app-root core-course-module a.core-course-module-handler .label {
+[dir="rtl"] ion-app.app-root core-course-module .item.core-course-module-handler .label {
   margin-left: 0;
 }
 
-[dir="ltr"] ion-app.app-root core-course-module a.core-course-module-handler .label, [dir="rtl"] ion-app.app-root core-course-module a.core-course-module-handler .label {
+[dir="ltr"] ion-app.app-root core-course-module .item.core-course-module-handler .label, [dir="rtl"] ion-app.app-root core-course-module .item.core-course-module-handler .label {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-ion-app.app-root core-course-module a.core-course-module-handler .core-module-icon {
+ion-app.app-root core-course-module .item.core-course-module-handler .core-module-icon {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
@@ -57208,7 +58267,7 @@ ion-app.app-root core-course-module .core-module-title .core-module-buttons core
   text-align: center;
 }
 
-ion-app.app-root core-course-module .core-module-more-info ion-badge {
+ion-app.app-root core-course-module .core-module-more-info ion-badge, ion-app.app-root core-course-module .core-module-more-info .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root core-course-module .core-module-more-info a, ion-app.app-root core-course-module .core-module-more-info .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root core-course-module .core-module-more-info a {
   text-align: left;
   text-align: start;
 }
@@ -57247,7 +58306,7 @@ ion-app.app-root.md core-course-module .core-module-description {
   padding-left: 8px;
 }
 
-ion-app.app-root.md core-course-module a.core-course-module-handler .core-module-icon {
+ion-app.app-root.md core-course-module .item.core-course-module-handler .core-module-icon {
   margin-top: 13px;
   margin-bottom: 13px;
   width: 24px;
@@ -57288,7 +58347,7 @@ ion-app.app-root.ios core-course-module .core-module-description {
   padding-left: 8px;
 }
 
-ion-app.app-root.ios core-course-module a.core-course-module-handler .core-module-icon {
+ion-app.app-root.ios core-course-module .item.core-course-module-handler .core-module-icon {
   margin-top: 11px;
   margin-bottom: 11px;
   width: 24px;
@@ -57324,7 +58383,7 @@ ion-app.app-root.wp core-course-module .core-module-description {
   padding-left: 8px;
 }
 
-ion-app.app-root.wp core-course-module a.core-course-module-handler .core-module-icon {
+ion-app.app-root.wp core-course-module .item.core-course-module-handler .core-module-icon {
   margin-top: 13px;
   margin-bottom: 13px;
   width: 24px;
@@ -57340,11 +58399,11 @@ ion-app.app-root.wp core-course-module .button-wp {
   margin-bottom: 8px;
 }
 
-[dir="ltr"] ion-app.app-root a.core-course-module-handler.item [item-start] + .item-inner {
+[dir="ltr"] ion-app.app-root .core-course-module-handler.item [item-start] + .item-inner {
   margin-left: 4px;
 }
 
-[dir="rtl"] ion-app.app-root a.core-course-module-handler.item [item-start] + .item-inner {
+[dir="rtl"] ion-app.app-root .core-course-module-handler.item [item-start] + .item-inner {
   margin-right: 4px;
 }
 
@@ -57376,7 +58435,7 @@ ion-app.app-root page-core-course-section-selector core-progress-bar progress {
   margin: 8px 0 4px 0;
 }
 
-ion-app.app-root page-core-course-section-selector ion-badge {
+ion-app.app-root page-core-course-section-selector ion-badge, ion-app.app-root page-core-course-section-selector .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-course-section-selector a, ion-app.app-root page-core-course-section-selector .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-course-section-selector a {
   text-align: left;
   text-align: start;
 }
@@ -57686,24 +58745,24 @@ ion-app.app-root page-core-courses-course-preview .core-customfieldvalue core-fo
   display: inline;
 }
 
-ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress {
+ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress, ion-app.app-root page-core-courses-dashboard .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-courses-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress, ion-app.app-root page-core-courses-dashboard .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-courses-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress {
   display: block;
 }
 
-[dir="ltr"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress {
+[dir="ltr"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress, [dir="ltr"] ion-app.app-root page-core-courses-dashboard .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-courses-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="ltr"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress, [dir="ltr"] ion-app.app-root page-core-courses-dashboard .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-courses-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="ltr"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress {
   float: left;
 }
 
-[dir="rtl"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress {
+[dir="rtl"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress, [dir="rtl"] ion-app.app-root page-core-courses-dashboard .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-courses-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="rtl"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress, [dir="rtl"] ion-app.app-root page-core-courses-dashboard .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-courses-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="rtl"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress {
   float: right;
 }
 
-[dir="ltr"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress, [dir="rtl"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress {
+[dir="ltr"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress, [dir="ltr"] ion-app.app-root page-core-courses-dashboard .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-courses-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="ltr"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress, [dir="ltr"] ion-app.app-root page-core-courses-dashboard .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-courses-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="ltr"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress, [dir="rtl"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress, [dir="rtl"] ion-app.app-root page-core-courses-dashboard .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-courses-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="rtl"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress, [dir="rtl"] ion-app.app-root page-core-courses-dashboard .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-courses-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="rtl"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress {
   margin-left: 12px;
   margin-right: 12px;
 }
 
-[dir="ltr"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress, [dir="rtl"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress {
+[dir="ltr"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress, [dir="ltr"] ion-app.app-root page-core-courses-dashboard .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-courses-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="ltr"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress, [dir="ltr"] ion-app.app-root page-core-courses-dashboard .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-courses-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="ltr"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress, [dir="rtl"] ion-app.app-root page-core-courses-dashboard ion-badge.core-course-download-courses-progress, [dir="rtl"] ion-app.app-root page-core-courses-dashboard .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a.core-course-download-courses-progress, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li [dir="rtl"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress, [dir="rtl"] ion-app.app-root page-core-courses-dashboard .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a.core-course-download-courses-progress, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li [dir="rtl"] ion-app.app-root page-core-courses-dashboard a.core-course-download-courses-progress {
   margin-top: 12px;
 }
 
@@ -57920,14 +58979,9 @@ ion-app.app-root page-core-login-forgotten-password .content {
 }
 
 ion-app.app-root page-core-login-init .scroll-content {
-  background-color: #ffffff;
+  background: #ffffff;
   /* Change this to add a bg image or change color */
-  background: radial-gradient(#ffffff, #ffffff);
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-ion-app.app-root page-core-login-init .core-bglogo {
+  overflow: hidden;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -57936,23 +58990,20 @@ ion-app.app-root page-core-login-init .core-bglogo {
   display: table;
 }
 
-[dir="ltr"] ion-app.app-root page-core-login-init .core-bglogo, [dir="rtl"] ion-app.app-root page-core-login-init .core-bglogo {
+[dir="ltr"] ion-app.app-root page-core-login-init .scroll-content, [dir="rtl"] ion-app.app-root page-core-login-init .scroll-content {
   left: 0;
   right: 0;
 }
 
-ion-app.app-root page-core-login-init .core-bglogo .core-logo {
+ion-app.app-root page-core-login-init .core-bglogo {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-}
-
-ion-app.app-root page-core-login-init .core-bglogo img {
-  width: 60%;
-  max-width: 300px;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 30px;
+  background-image: url("../assets/img/splash.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-size: 100vmax;
+  background-position: center;
 }
 
 ion-app.app-root page-core-login-init .core-bglogo .spinner circle, ion-app.app-root page-core-login-init .core-bglogo .spinner line {
@@ -58163,6 +59214,108 @@ ion-app.app-root page-core-mainmenu-more .item-divider.item-md {
 
 ion-app.app-root page-core-mainmenu-more .item-divider.item-wp {
   background-color: #f5f5f5;
+}
+
+ion-app.app-root core-tag-list {
+  line-height: 1.6;
+}
+
+ion-app.app-root core-tag-list ion-badge, ion-app.app-root core-tag-list .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root core-tag-list a, ion-app.app-root core-tag-list .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root core-tag-list a {
+  cursor: pointer;
+}
+
+ion-app.app-root page-core-tag-search core-search-box ion-card, ion-app.app-root page-core-tag-search core-search-box .core-primary-card, ion-app.app-root page-core-tag-search core-search-box .core-secondary-card, ion-app.app-root page-core-tag-search core-search-box .core-danger-card, ion-app.app-root page-core-tag-search core-search-box .core-light-card, ion-app.app-root page-core-tag-search core-search-box .core-gray-card, ion-app.app-root page-core-tag-search core-search-box .core-dark-card, ion-app.app-root page-core-tag-search core-search-box .core-warning-card, ion-app.app-root page-core-tag-search core-search-box .core-success-card, ion-app.app-root page-core-tag-search core-search-box .core-info-card, ion-app.app-root page-core-tag-search core-search-box .core-inverted-card {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a {
+  margin: 8px;
+  cursor: pointer;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size20, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size20, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size20, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size20, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size20 {
+  font-size: 3.4rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size19, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size19, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size19, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size19, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size19 {
+  font-size: 3.3rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size18, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size18, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size18, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size18, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size18 {
+  font-size: 3.2rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size17, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size17, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size17, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size17, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size17 {
+  font-size: 3.1rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size16, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size16, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size16, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size16, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size16 {
+  font-size: 3rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size15, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size15, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size15, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size15, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size15 {
+  font-size: 2.9rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size14, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size14, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size14, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size14, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size14 {
+  font-size: 2.8rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size13, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size13, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size13, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size13, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size13 {
+  font-size: 2.7rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size12, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size12, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size12, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size12, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size12 {
+  font-size: 2.6rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size11, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size11, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size11, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size11, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size11 {
+  font-size: 2.5rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size10, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size10, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size10, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size10, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size10 {
+  font-size: 2.4rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size9, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size9, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size9, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size9, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size9 {
+  font-size: 2.3rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size8, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size8, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size8, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size8, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size8 {
+  font-size: 2.2rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size7, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size7, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size7, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size7, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size7 {
+  font-size: 2.1rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size6, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size6, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size6, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size6, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size6 {
+  font-size: 2rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size5, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size5, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size5, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size5, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size5 {
+  font-size: 1.9rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size4, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size4, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size4, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size4, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size4 {
+  font-size: 1.8rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size3, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size3, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size3, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size3, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size3 {
+  font-size: 1.7rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size2, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size2, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size2, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size2, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size2 {
+  font-size: 1.6rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size1, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size1, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size1, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size1, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size1 {
+  font-size: 1.5rem;
+}
+
+ion-app.app-root page-core-tag-search .core-tag-cloud ion-badge .size0, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li a .size0, .addon-block-blog-tags core-block-pre-rendered .core-block-content ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size0, ion-app.app-root page-core-tag-search .core-tag-cloud .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li a .size0, .addon-block-tags core-block-pre-rendered .core-block-content .tag_cloud ul.inline-list li ion-app.app-root page-core-tag-search .core-tag-cloud a .size0 {
+  font-size: 1.4rem;
 }
 
 ion-app.app-root page-core-user-profile .core-icon-foreground {

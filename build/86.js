@@ -1,17 +1,16 @@
 webpackJsonp([86],{
 
-/***/ 1923:
+/***/ 2003:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModForumSortOrderSelectorPagePageModule", function() { return AddonModForumSortOrderSelectorPagePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModImscpTocPageModule", function() { return AddonModImscpTocPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sort_order_selector__ = __webpack_require__(2060);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__toc__ = __webpack_require__(2150);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,35 +35,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var AddonModForumSortOrderSelectorPagePageModule = /** @class */ (function () {
-    function AddonModForumSortOrderSelectorPagePageModule() {
+var AddonModImscpTocPageModule = /** @class */ (function () {
+    function AddonModImscpTocPageModule() {
     }
-    AddonModForumSortOrderSelectorPagePageModule = __decorate([
+    AddonModImscpTocPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__sort_order_selector__["a" /* AddonModForumSortOrderSelectorPage */],
+                __WEBPACK_IMPORTED_MODULE_4__toc__["a" /* AddonModImscpTocPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__sort_order_selector__["a" /* AddonModForumSortOrderSelectorPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__toc__["a" /* AddonModImscpTocPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], AddonModForumSortOrderSelectorPagePageModule);
-    return AddonModForumSortOrderSelectorPagePageModule;
+    ], AddonModImscpTocPageModule);
+    return AddonModImscpTocPageModule;
 }());
 
-//# sourceMappingURL=sort-order-selector.module.js.map
+//# sourceMappingURL=toc.module.js.map
 
 /***/ }),
 
-/***/ 2060:
+/***/ 2150:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModForumSortOrderSelectorPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModImscpTocPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 // (C) Copyright 2015 Martin Dougiamas
@@ -92,39 +89,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Page that displays the sort selector.
+ * Modal to display the TOC of a imscp.
  */
-var AddonModForumSortOrderSelectorPage = /** @class */ (function () {
-    function AddonModForumSortOrderSelectorPage(navParams, viewCtrl) {
+var AddonModImscpTocPage = /** @class */ (function () {
+    function AddonModImscpTocPage(navParams, viewCtrl) {
         this.viewCtrl = viewCtrl;
-        this.sortOrders = [];
-        this.sortOrders = navParams.get('sortOrders');
+        this.items = [];
+        this.items = navParams.get('items') || [];
         this.selected = navParams.get('selected');
     }
     /**
-     * Close the modal.
+     * Function called when an item is clicked.
+     *
+     * @param {string} id ID of the clicked item.
      */
-    AddonModForumSortOrderSelectorPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
+    AddonModImscpTocPage.prototype.loadItem = function (id) {
+        this.viewCtrl.dismiss(id);
     };
     /**
-     * Select a sort order.
+     * Get dummy array for padding.
      *
-     * @param {any} sortOrder Selected sort order.
+     * @param {number} n Array length.
+     * @return {number[]} Dummy array with n elements.
      */
-    AddonModForumSortOrderSelectorPage.prototype.selectSortOrder = function (sortOrder) {
-        this.viewCtrl.dismiss(sortOrder);
+    AddonModImscpTocPage.prototype.getNumberForPadding = function (n) {
+        return new Array(n);
     };
-    AddonModForumSortOrderSelectorPage = __decorate([
+    /**
+     * Close modal.
+     */
+    AddonModImscpTocPage.prototype.closeModal = function () {
+        this.viewCtrl.dismiss();
+    };
+    AddonModImscpTocPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-forum-sort-order-selector',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\forum\pages\sort-order-selector\sort-order-selector.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.sort\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list id="addon-mod-forum-sort-selector" role="menu" aria-labelledby="addon-mod-forum-sort-order-button">\n\n        <ng-container *ngFor="let sortOrder of sortOrders">\n\n            <a ion-item text-wrap (click)="selectSortOrder(sortOrder)" [class.core-primary-selected-item]="selected == sortOrder.value" detail-none role="menuitem" [attr.aria-label]="sortOrder.label | translate">\n\n                <h2><core-format-text [text]="sortOrder.label | translate"></core-format-text></h2>\n\n            </a>\n\n        </ng-container>\n\n    </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\forum\pages\sort-order-selector\sort-order-selector.html"*/,
+            selector: 'page-addon-mod-imscp-toc',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\imscp\pages\toc\toc.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'addon.mod_imscp.toc\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <nav>\n\n        <ion-list>\n\n            <a ion-item *ngFor="let item of items" (click)="loadItem(item.href)" [class.core-bold]="!item.href" [class.core-nav-item-selected]="selected == item.href">\n\n                <span padding-left *ngFor="let i of getNumberForPadding(item.level)"></span>{{item.title}}\n\n            </a>\n\n        </ion-list>\n\n    </nav>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\imscp\pages\toc\toc.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */]])
-    ], AddonModForumSortOrderSelectorPage);
-    return AddonModForumSortOrderSelectorPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["G" /* ViewController */]])
+    ], AddonModImscpTocPage);
+    return AddonModImscpTocPage;
 }());
 
-//# sourceMappingURL=sort-order-selector.js.map
+//# sourceMappingURL=toc.js.map
 
 /***/ })
 

@@ -1,18 +1,18 @@
 webpackJsonp([24],{
 
-/***/ 1990:
+/***/ 2071:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreRatingRatingsPageModule", function() { return CoreRatingRatingsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreSettingsSpaceUsagePageModule", function() { return CoreSettingsSpaceUsagePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ratings__ = __webpack_require__(2131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__space_usage__ = __webpack_require__(2222);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__ = __webpack_require__(65);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,39 +39,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreRatingRatingsPageModule = /** @class */ (function () {
-    function CoreRatingRatingsPageModule() {
+var CoreSettingsSpaceUsagePageModule = /** @class */ (function () {
+    function CoreSettingsSpaceUsagePageModule() {
     }
-    CoreRatingRatingsPageModule = __decorate([
+    CoreSettingsSpaceUsagePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__ratings__["a" /* CoreRatingRatingsPage */]
+                __WEBPACK_IMPORTED_MODULE_3__space_usage__["a" /* CoreSettingsSpaceUsagePage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
                 __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__["a" /* CorePipesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__ratings__["a" /* CoreRatingRatingsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__space_usage__["a" /* CoreSettingsSpaceUsagePage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], CoreRatingRatingsPageModule);
-    return CoreRatingRatingsPageModule;
+    ], CoreSettingsSpaceUsagePageModule);
+    return CoreSettingsSpaceUsagePageModule;
 }());
 
-//# sourceMappingURL=ratings.module.js.map
+//# sourceMappingURL=space-usage.module.js.map
 
 /***/ }),
 
-/***/ 2131:
+/***/ 2222:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreRatingRatingsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSettingsSpaceUsagePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_rating_providers_rating__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_filepool__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_text__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_course_providers_course__ = __webpack_require__(10);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -98,77 +102,185 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
 /**
- * Page that displays individual ratings
+ * Page that displays the space usage settings.
  */
-var CoreRatingRatingsPage = /** @class */ (function () {
-    function CoreRatingRatingsPage(navParams, viewCtrl, domUtils, ratingProvider) {
-        this.viewCtrl = viewCtrl;
+var CoreSettingsSpaceUsagePage = /** @class */ (function () {
+    function CoreSettingsSpaceUsagePage(filePoolProvider, sitesProvider, textUtils, translate, domUtils, appProvider, courseProvider) {
+        this.filePoolProvider = filePoolProvider;
+        this.sitesProvider = sitesProvider;
+        this.textUtils = textUtils;
+        this.translate = translate;
         this.domUtils = domUtils;
-        this.ratingProvider = ratingProvider;
-        this.loaded = false;
-        this.ratings = [];
-        this.contextLevel = navParams.get('contextLevel');
-        this.instanceId = navParams.get('instanceId');
-        this.component = navParams.get('ratingComponent');
-        this.ratingArea = navParams.get('ratingArea');
-        this.aggregateMethod = navParams.get('aggregateMethod');
-        this.itemId = navParams.get('itemId');
-        this.scaleId = navParams.get('scaleId');
-        this.courseId = navParams.get('courseId');
+        this.courseProvider = courseProvider;
+        this.usageLoaded = false;
+        this.sites = [];
+        this.currentSiteId = '';
+        this.totalUsage = 0;
+        this.totalEntries = 0;
+        this.currentSiteId = this.sitesProvider.getCurrentSiteId();
     }
     /**
      * View loaded.
      */
-    CoreRatingRatingsPage.prototype.ionViewDidLoad = function () {
+    CoreSettingsSpaceUsagePage.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.fetchData().finally(function () {
-            _this.loaded = true;
+            _this.usageLoaded = true;
         });
     };
     /**
-     * Fetch all the data required for the view.
+     * Convenience function to calculate each site's usage, and the total usage.
      *
      * @return {Promise<any>} Resolved when done.
      */
-    CoreRatingRatingsPage.prototype.fetchData = function () {
+    CoreSettingsSpaceUsagePage.prototype.calculateSizeUsage = function () {
         var _this = this;
-        return this.ratingProvider.getItemRatings(this.contextLevel, this.instanceId, this.component, this.ratingArea, this.itemId, this.scaleId, undefined, this.courseId).then(function (ratings) {
-            _this.ratings = ratings;
-        }).catch(function (error) {
-            _this.domUtils.showErrorModal(error);
+        return this.sitesProvider.getSortedSites().then(function (sites) {
+            _this.sites = sites;
+            // Get space usage.
+            var promises = _this.sites.map(function (siteEntry) {
+                return _this.sitesProvider.getSite(siteEntry.id).then(function (site) {
+                    var proms2 = [];
+                    proms2.push(_this.calcSiteClearRows(site).then(function (rows) {
+                        siteEntry.cacheEntries = rows;
+                    }));
+                    proms2.push(site.getSpaceUsage().then(function (size) {
+                        siteEntry.spaceUsage = size;
+                    }));
+                    return Promise.all(proms2);
+                });
+            });
+            return Promise.all(promises);
         });
     };
     /**
-     * Refresh data.
+     * Convenience function to calculate total usage.
+     */
+    CoreSettingsSpaceUsagePage.prototype.calculateTotalUsage = function () {
+        var totalSize = 0, totalEntries = 0;
+        this.sites.forEach(function (site) {
+            totalSize += (site.spaceUsage ? parseInt(site.spaceUsage, 10) : 0);
+            totalEntries += (site.cacheEntries ? parseInt(site.cacheEntries, 10) : 0);
+        });
+        this.totalUsage = totalSize;
+        this.totalEntries = totalEntries;
+    };
+    /**
+     * Convenience function to calculate space usage.
+     *
+     * @return {Promise<any>} Resolved when done.
+     */
+    CoreSettingsSpaceUsagePage.prototype.fetchData = function () {
+        var _this = this;
+        var promises = [
+            this.calculateSizeUsage().then(function () { return _this.calculateTotalUsage(); }),
+        ];
+        return Promise.all(promises);
+    };
+    /**
+     * Refresh the data.
      *
      * @param {any} refresher Refresher.
      */
-    CoreRatingRatingsPage.prototype.refreshRatings = function (refresher) {
-        var _this = this;
-        this.ratingProvider.invalidateRatingItems(this.contextLevel, this.instanceId, this.component, this.ratingArea, this.itemId, this.scaleId).finally(function () {
-            return _this.fetchData().finally(function () {
-                refresher.complete();
-            });
+    CoreSettingsSpaceUsagePage.prototype.refreshData = function (refresher) {
+        this.fetchData().finally(function () {
+            refresher.complete();
         });
     };
     /**
-     * Close modal.
+     * Convenience function to update site size, along with total usage.
+     *
+     * @param {any} site Site object with space usage.
+     * @param {number} newUsage New space usage of the site in bytes.
      */
-    CoreRatingRatingsPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
+    CoreSettingsSpaceUsagePage.prototype.updateSiteUsage = function (site, newUsage) {
+        var oldUsage = site.spaceUsage;
+        site.spaceUsage = newUsage;
+        this.totalUsage -= oldUsage - newUsage;
     };
-    CoreRatingRatingsPage = __decorate([
+    /**
+     * Calculate the number of rows to be deleted on a site.
+     *
+     * @param  {any}             site Site object.
+     * @return {Promise<number>}      If there are rows to delete or not.
+     */
+    CoreSettingsSpaceUsagePage.prototype.calcSiteClearRows = function (site) {
+        var clearTables = this.sitesProvider.getSiteTableSchemasToClear();
+        var totalEntries = 0;
+        var promises = clearTables.map(function (name) {
+            return site.getDb().countRecords(name).then(function (rows) {
+                totalEntries += rows;
+            });
+        });
+        return Promise.all(promises).then(function () {
+            return totalEntries;
+        });
+    };
+    /**
+     * Deletes files of a site and the tables that can be cleared.
+     *
+     * @param {any} siteData Site object with space usage.
+     */
+    CoreSettingsSpaceUsagePage.prototype.deleteSiteStorage = function (siteData) {
+        var _this = this;
+        this.textUtils.formatText(siteData.siteName).then(function (siteName) {
+            var title = _this.translate.instant('core.settings.deletesitefilestitle');
+            var message = _this.translate.instant('core.settings.deletesitefiles', { sitename: siteName });
+            _this.domUtils.showConfirm(message, title).then(function () {
+                return _this.sitesProvider.getSite(siteData.id);
+            }).then(function (site) {
+                // Clear cache tables.
+                var cleanSchemas = _this.sitesProvider.getSiteTableSchemasToClear();
+                var promises = cleanSchemas.map(function (name) {
+                    return site.getDb().deleteRecords(name);
+                });
+                promises.push(site.deleteFolder().then(function () {
+                    _this.filePoolProvider.clearAllPackagesStatus(site.id);
+                    _this.filePoolProvider.clearFilepool(site.id);
+                    _this.updateSiteUsage(siteData, 0);
+                    _this.courseProvider.clearAllCoursesStatus(site.id);
+                }).catch(function (error) {
+                    if (error && error.code === FileError.NOT_FOUND_ERR) {
+                        // Not found, set size 0.
+                        _this.filePoolProvider.clearAllPackagesStatus(site.id);
+                        _this.updateSiteUsage(siteData, 0);
+                    }
+                    else {
+                        // Error, recalculate the site usage.
+                        _this.domUtils.showErrorModal('core.settings.errordeletesitefiles', true);
+                        site.getSpaceUsage().then(function (size) {
+                            _this.updateSiteUsage(siteData, size);
+                        });
+                    }
+                }).finally(function () {
+                    _this.calcSiteClearRows(site).then(function (rows) {
+                        siteData.cacheEntries = rows;
+                    });
+                }));
+                return Promise.all(promises);
+            }).catch(function () {
+                // Ignore cancelled confirmation modal.
+            });
+        });
+    };
+    CoreSettingsSpaceUsagePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-rating-ratings',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\rating\pages\ratings\ratings.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.rating.ratings\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="loaded" (ionRefresh)="refreshRatings($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <core-loading [hideUntil]="loaded">\n\n        <ion-list *ngIf="ratings.length > 0">\n\n            <ion-item text-wrap *ngFor="let rating of ratings">\n\n                <ion-avatar core-user-avatar [user]="rating" [courseId]="courseId" item-start></ion-avatar>\n\n                <ion-note item-end padding-left *ngIf="rating.timemodified">\n\n                    {{ rating.timemodified | coreDateDayOrTime }}\n\n                </ion-note>\n\n                <h2><core-format-text [text]="rating.userfullname"></core-format-text></h2>\n\n                <p>{{ rating.rating }}</p>\n\n            </ion-item>\n\n        </ion-list>\n\n        <core-empty-box *ngIf="ratings.length == 0" icon="stats" [message]="\'core.rating.noratings\' | translate"></core-empty-box>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\rating\pages\ratings\ratings.html"*/,
+            selector: 'page-core-settings-space-usage',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\settings\pages\space-usage\space-usage.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.settings.spaceusage\' | translate }}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="usageLoaded" (ionRefresh)="refreshData($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <core-loading [hideUntil]="usageLoaded">\n\n        <ion-item *ngFor="let site of sites" [class.core-primary-selected-item]="site.id == currentSiteId">\n\n            <h2 text-wrap><core-format-text [text]="site.siteName"></core-format-text></h2>\n\n            <p text-wrap>{{ site.fullName }}</p>\n\n            <div item-end>\n\n                <p>{{ site.spaceUsage | coreBytesToSize }}</p>\n\n                <p>{{ \'core.settings.entriesincache\' | translate: { $a: site.cacheEntries } }}</p>\n\n            </div>\n\n            <button ion-button icon-only clear color="danger" item-end (click)="deleteSiteStorage(site)" [hidden]="!site.spaceUsage > \'0\' && !site.cacheEntries > \'0\'" [attr.aria-label]="\'core.settings.deletesitefilestitle\' | translate">\n\n                <ion-icon name="trash"></ion-icon>\n\n            </button>\n\n        </ion-item>\n\n        <ion-item-divider>\n\n            <p>{{ \'core.settings.total\' | translate }}</p>\n\n            <div item-end>\n\n                <p>{{ totalUsage | coreBytesToSize }}</p>\n\n                <p>{{ \'core.settings.entriesincache\' | translate: { $a: totalEntries } }}</p>\n\n            </div>\n\n        </ion-item-divider>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\settings\pages\space-usage\space-usage.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__core_rating_providers_rating__["a" /* CoreRatingProvider */]])
-    ], CoreRatingRatingsPage);
-    return CoreRatingRatingsPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_filepool__["a" /* CoreFilepoolProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_utils_text__["a" /* CoreTextUtilsProvider */],
+            __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_6__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["a" /* CoreAppProvider */],
+            __WEBPACK_IMPORTED_MODULE_7__core_course_providers_course__["a" /* CoreCourseProvider */]])
+    ], CoreSettingsSpaceUsagePage);
+    return CoreSettingsSpaceUsagePage;
 }());
 
-//# sourceMappingURL=ratings.js.map
+//# sourceMappingURL=space-usage.js.map
 
 /***/ })
 

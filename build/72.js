@@ -1,17 +1,17 @@
 webpackJsonp([72],{
 
-/***/ 1937:
+/***/ 2018:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModQuizNavigationModalPageModule", function() { return AddonModQuizNavigationModalPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModScormIndexPageModule", function() { return AddonModScormIndexPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__navigation_modal__ = __webpack_require__(2074);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(1012);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index__ = __webpack_require__(2166);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,36 +37,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModQuizNavigationModalPageModule = /** @class */ (function () {
-    function AddonModQuizNavigationModalPageModule() {
+var AddonModScormIndexPageModule = /** @class */ (function () {
+    function AddonModScormIndexPageModule() {
     }
-    AddonModQuizNavigationModalPageModule = __decorate([
+    AddonModScormIndexPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__navigation_modal__["a" /* AddonModQuizNavigationModalPage */]
+                __WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModScormIndexPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__navigation_modal__["a" /* AddonModQuizNavigationModalPage */]),
-                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ]
+                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* AddonModScormComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModScormIndexPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ],
         })
-    ], AddonModQuizNavigationModalPageModule);
-    return AddonModQuizNavigationModalPageModule;
+    ], AddonModScormIndexPageModule);
+    return AddonModScormIndexPageModule;
 }());
 
-//# sourceMappingURL=navigation-modal.module.js.map
+//# sourceMappingURL=index.module.js.map
 
 /***/ }),
 
-/***/ 2074:
+/***/ 2166:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModQuizNavigationModalPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModScormIndexPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_index_index__ = __webpack_require__(449);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -91,48 +92,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
- * Modal that renders the quiz navigation.
+ * Page that displays the SCORM entry page.
  */
-var AddonModQuizNavigationModalPage = /** @class */ (function () {
-    function AddonModQuizNavigationModalPage(params, viewCtrl) {
-        this.viewCtrl = viewCtrl;
-        this.isReview = !!params.get('isReview');
-        this.pageInstance = params.get('page');
+var AddonModScormIndexPage = /** @class */ (function () {
+    function AddonModScormIndexPage(navParams) {
+        this.module = navParams.get('module') || {};
+        this.courseId = navParams.get('courseId');
+        this.title = this.module.name;
     }
     /**
-     * Close modal.
-     */
-    AddonModQuizNavigationModalPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
-    };
-    /**
-     * Load a certain page.
+     * Update some data based on the SCORM instance.
      *
-     * @param {number} page The page to load.
-     * @param {number} [slot] Slot of the question to scroll to.
+     * @param {any} scorm SCORM instance.
      */
-    AddonModQuizNavigationModalPage.prototype.loadPage = function (page, slot) {
-        this.pageInstance.changePage && this.pageInstance.changePage(page, true, slot);
-        this.closeModal();
+    AddonModScormIndexPage.prototype.updateData = function (scorm) {
+        this.title = scorm.name || this.title;
     };
     /**
-     * Switch mode in review.
+     * User entered the page.
      */
-    AddonModQuizNavigationModalPage.prototype.switchMode = function () {
-        this.pageInstance.switchMode && this.pageInstance.switchMode();
-        this.closeModal();
+    AddonModScormIndexPage.prototype.ionViewDidEnter = function () {
+        this.scormComponent.ionViewDidEnter();
     };
-    AddonModQuizNavigationModalPage = __decorate([
+    /**
+     * User left the page.
+     */
+    AddonModScormIndexPage.prototype.ionViewDidLeave = function () {
+        this.scormComponent.ionViewDidLeave();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModScormIndexComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModScormIndexComponent */])
+    ], AddonModScormIndexPage.prototype, "scormComponent", void 0);
+    AddonModScormIndexPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-quiz-navigation-modal',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\quiz\pages\navigation-modal\navigation-modal.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'addon.mod_quiz.quiznavigation\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content class="addon-mod_quiz-navigation-modal">\n\n    <nav>\n\n        <ion-list>\n\n            <!-- In player, show button to finish attempt. -->\n\n            <a ion-item text-wrap *ngIf="!isReview" (click)="loadPage(-1)">\n\n                {{ \'addon.mod_quiz.finishattemptdots\' | translate }}\n\n            </a>\n\n\n\n            <!-- In review we can toggle between all questions in same page or one page at a time. -->\n\n            <a ion-item text-wrap *ngIf="isReview && pageInstance.numPages > 1" (click)="switchMode()">\n\n                <span *ngIf="!pageInstance.showAll">{{ \'addon.mod_quiz.showall\' | translate }}</span>\n\n                <span *ngIf="pageInstance.showAll">{{ \'addon.mod_quiz.showeachpage\' | translate }}</span>\n\n            </a>\n\n            <a ion-item text-wrap *ngFor="let question of pageInstance.navigation" class="{{question.stateClass}}" [ngClass]=\'{"core-nav-item-selected": !pageInstance.showSummary && pageInstance.attempt.currentpage == question.page}\' (click)="loadPage(question.page, question.slot)">\n\n                <span *ngIf="question.number">{{ \'core.question.questionno\' | translate:{$a: question.number} }}</span>\n\n                <span *ngIf="!question.number">{{ \'core.question.information\' | translate }}</span>\n\n                <core-icon item-content *ngIf="!question.number" name="information-circle" color="info"></core-icon>\n\n                <core-icon item-content *ngIf="question.stateClass == \'core-question-requiresgrading\'" name="fa-question-circle" color="gray" [label]="question.status"></core-icon>\n\n                <core-icon item-content *ngIf="question.stateClass == \'core-question-correct\'" name="fa-check" color="success" [label]="question.status"></core-icon>\n\n                <core-icon item-content *ngIf="question.stateClass == \'core-question-partiallycorrect\'" name="fa-check-square" color="warning" [label]="question.status"></core-icon>\n\n                <core-icon item-content *ngIf="question.stateClass == \'core-question-incorrect\' || question.stateClass == \'core-question-notanswered\'" name="fa-remove" color="danger" [label]="question.status"></core-icon>\n\n            </a>\n\n\n\n            <!-- In player, show button to finish attempt. -->\n\n            <a ion-item text-wrap *ngIf="!isReview" (click)="loadPage(-1)">\n\n                {{ \'addon.mod_quiz.finishattemptdots\' | translate }}\n\n            </a>\n\n\n\n            <!-- In review we can toggle between all questions in same page or one page at a time. -->\n\n            <a ion-item text-wrap *ngIf="isReview && pageInstance.numPages > 1" (click)="switchMode()">\n\n                <span *ngIf="!pageInstance.showAll">{{ \'addon.mod_quiz.showall\' | translate }}</span>\n\n                <span *ngIf="pageInstance.showAll">{{ \'addon.mod_quiz.showeachpage\' | translate }}</span>\n\n            </a>\n\n        </ion-list>\n\n    </nav>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\quiz\pages\navigation-modal\navigation-modal.html"*/,
+            selector: 'page-addon-mod-scorm-index',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\scorm\pages\index\index.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n\n\n        <ion-buttons end>\n\n            <!-- The buttons defined by the component will be added in here. -->\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="scormComponent.loaded" (ionRefresh)="scormComponent.doRefresh($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n\n\n    <addon-mod-scorm-index [module]="module" [courseId]="courseId" (dataRetrieved)="updateData($event)"></addon-mod-scorm-index>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\scorm\pages\index\index.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */]])
-    ], AddonModQuizNavigationModalPage);
-    return AddonModQuizNavigationModalPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
+    ], AddonModScormIndexPage);
+    return AddonModScormIndexPage;
 }());
 
-//# sourceMappingURL=navigation-modal.js.map
+//# sourceMappingURL=index.js.map
 
 /***/ })
 

@@ -1,18 +1,16 @@
 webpackJsonp([62],{
 
-/***/ 1952:
+/***/ 2030:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModWorkshopAssessmentPageModule", function() { return AddonModWorkshopAssessmentPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonNotesAddPageModule", function() { return AddonNotesAddPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add__ = __webpack_require__(2180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(407);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__assessment__ = __webpack_require__(2092);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,53 +35,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
-var AddonModWorkshopAssessmentPageModule = /** @class */ (function () {
-    function AddonModWorkshopAssessmentPageModule() {
+var AddonNotesAddPageModule = /** @class */ (function () {
+    function AddonNotesAddPageModule() {
     }
-    AddonModWorkshopAssessmentPageModule = __decorate([
+    AddonNotesAddPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__assessment__["a" /* AddonModWorkshopAssessmentPage */],
+                __WEBPACK_IMPORTED_MODULE_2__add__["a" /* AddonNotesAddPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__components_components_module__["a" /* AddonModWorkshopComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__assessment__["a" /* AddonModWorkshopAssessmentPage */]),
-                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__add__["a" /* AddonNotesAddPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ]
         })
-    ], AddonModWorkshopAssessmentPageModule);
-    return AddonModWorkshopAssessmentPageModule;
+    ], AddonNotesAddPageModule);
+    return AddonNotesAddPageModule;
 }());
 
-//# sourceMappingURL=assessment.module.js.map
+//# sourceMappingURL=add.module.js.map
 
 /***/ }),
 
-/***/ 2092:
+/***/ 2180:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModWorkshopAssessmentPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonNotesAddPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_events__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_sync__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_utils_text__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_course_providers_course__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_user_providers_user__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__core_grades_providers_helper__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_workshop__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_helper__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_offline__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_sync__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_notes__ = __webpack_require__(194);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -111,317 +94,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /**
- * Page that displays a workshop assessment.
+ * Component that displays a text area for composing a note.
  */
-var AddonModWorkshopAssessmentPage = /** @class */ (function () {
-    function AddonModWorkshopAssessmentPage(navParams, sitesProvider, courseProvider, workshopProvider, workshopOffline, workshopHelper, navCtrl, syncProvider, textUtils, fb, translate, eventsProvider, domUtils, gradesHelper, userProvider) {
-        var _this = this;
-        this.courseProvider = courseProvider;
-        this.workshopProvider = workshopProvider;
-        this.workshopOffline = workshopOffline;
-        this.workshopHelper = workshopHelper;
-        this.navCtrl = navCtrl;
-        this.syncProvider = syncProvider;
-        this.textUtils = textUtils;
-        this.fb = fb;
-        this.translate = translate;
-        this.eventsProvider = eventsProvider;
+var AddonNotesAddPage = /** @class */ (function () {
+    function AddonNotesAddPage(params, viewCtrl, appProvider, domUtils, notesProvider) {
+        this.viewCtrl = viewCtrl;
+        this.appProvider = appProvider;
         this.domUtils = domUtils;
-        this.gradesHelper = gradesHelper;
-        this.userProvider = userProvider;
-        this.evaluating = false;
-        this.loaded = false;
-        this.evaluate = {
-            text: '',
-            grade: -1,
-            weight: 1
-        };
-        this.weights = [];
-        this.originalEvaluation = {};
-        this.hasOffline = false;
-        this.isDestroyed = false;
-        this.forceLeave = false;
-        this.assessment = navParams.get('assessment');
-        this.submission = navParams.get('submission') || {};
-        this.profile = navParams.get('profile');
-        this.courseId = navParams.get('courseId');
-        this.assessmentId = this.assessment.assessmentid || this.assessment.id;
-        this.workshopId = this.submission.workshopid || null;
-        this.siteId = sitesProvider.getCurrentSiteId();
-        this.currentUserId = sitesProvider.getCurrentSiteUserId();
-        this.showGrade = this.workshopHelper.showGrade;
-        this.evaluateForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormGroup */]({});
-        this.evaluateForm.addControl('weight', this.fb.control('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["h" /* Validators */].required));
-        this.evaluateForm.addControl('grade', this.fb.control(''));
-        this.evaluateForm.addControl('text', this.fb.control(''));
-        // Refresh workshop on sync.
-        this.syncObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_15__providers_sync__["a" /* AddonModWorkshopSyncProvider */].AUTO_SYNCED, function (data) {
-            // Update just when all database is synced.
-            if (_this.workshopId === data.workshopId) {
-                _this.loaded = false;
-                _this.refreshAllData();
-            }
-        }, this.siteId);
+        this.notesProvider = notesProvider;
+        this.type = 'personal';
+        this.text = '';
+        this.processing = false;
+        this.userId = params.get('userId');
+        this.courseId = params.get('courseId');
+        this.type = params.get('type') || 'personal';
     }
     /**
-     * Component being initialized.
-     */
-    AddonModWorkshopAssessmentPage.prototype.ngOnInit = function () {
-        this.fetchAssessmentData();
-    };
-    /**
-     * Check if we can leave the page or not.
+     * Send the note or store it offline.
      *
-     * @return {boolean|Promise<void>} Resolved if we can leave it, rejected if not.
+     * @param {Event} e Event.
      */
-    AddonModWorkshopAssessmentPage.prototype.ionViewCanLeave = function () {
-        if (this.forceLeave || !this.evaluating) {
-            return true;
-        }
-        if (!this.hasEvaluationChanged()) {
-            return Promise.resolve();
-        }
-        // Show confirmation if some data has been modified.
-        return this.domUtils.showConfirm(this.translate.instant('core.confirmcanceledit'));
-    };
-    /**
-     * Fetch the assessment data.
-     *
-     * @return {Promise<void>} Resolved when done.
-     */
-    AddonModWorkshopAssessmentPage.prototype.fetchAssessmentData = function () {
+    AddonNotesAddPage.prototype.addNote = function (e) {
         var _this = this;
-        return this.workshopProvider.getWorkshopById(this.courseId, this.workshopId).then(function (workshopData) {
-            _this.workshop = workshopData;
-            _this.title = _this.workshop.name;
-            _this.strategy = _this.workshop.strategy;
-            return _this.courseProvider.getModuleBasicGradeInfo(workshopData.coursemodule);
-        }).then(function (gradeInfo) {
-            _this.maxGrade = gradeInfo.grade;
-            return _this.workshopProvider.getWorkshopAccessInformation(_this.workshopId);
-        }).then(function (accessData) {
-            _this.access = accessData;
-            // Load Weights selector.
-            if (_this.assessmentId && (accessData.canallocate || accessData.canoverridegrades)) {
-                if (!_this.isDestroyed) {
-                    // Block the workshop.
-                    _this.syncProvider.blockOperation(__WEBPACK_IMPORTED_MODULE_12__providers_workshop__["a" /* AddonModWorkshopProvider */].COMPONENT, _this.workshopId);
-                }
-                _this.evaluating = true;
-            }
-            else {
-                _this.evaluating = false;
-            }
-            if (_this.evaluating || _this.workshop.phase == __WEBPACK_IMPORTED_MODULE_12__providers_workshop__["a" /* AddonModWorkshopProvider */].PHASE_CLOSED) {
-                // Get all info of the assessment.
-                return _this.workshopHelper.getReviewerAssessmentById(_this.workshopId, _this.assessmentId, _this.profile && _this.profile.id).then(function (assessment) {
-                    var defaultGrade, promise;
-                    _this.assessment = _this.workshopHelper.realGradeValue(_this.workshop, assessment);
-                    _this.evaluate.text = _this.assessment.feedbackreviewer || '';
-                    _this.evaluate.weight = _this.assessment.weight;
-                    if (_this.evaluating) {
-                        if (accessData.canallocate) {
-                            _this.weights = [];
-                            for (var i = 16; i >= 0; i--) {
-                                _this.weights[i] = i;
-                            }
-                        }
-                        if (accessData.canoverridegrades) {
-                            defaultGrade = _this.translate.instant('addon.mod_workshop.notoverridden');
-                            promise = _this.gradesHelper.makeGradesMenu(_this.workshop.gradinggrade, undefined, defaultGrade, -1)
-                                .then(function (grades) {
-                                _this.evaluationGrades = grades;
-                            });
-                        }
-                        else {
-                            promise = Promise.resolve();
-                        }
-                        return promise.then(function () {
-                            return _this.workshopOffline.getEvaluateAssessment(_this.workshopId, _this.assessmentId)
-                                .then(function (offlineAssess) {
-                                _this.hasOffline = true;
-                                _this.evaluate.weight = offlineAssess.weight;
-                                if (accessData.canoverridegrades) {
-                                    _this.evaluate.text = offlineAssess.feedbacktext || '';
-                                    _this.evaluate.grade = offlineAssess.gradinggradeover || -1;
-                                }
-                            }).catch(function () {
-                                _this.hasOffline = false;
-                                // No offline, load online.
-                                if (accessData.canoverridegrades) {
-                                    _this.evaluate.text = _this.assessment.feedbackreviewer || '';
-                                    _this.evaluate.grade = _this.assessment.gradinggradeover || -1;
-                                }
-                            });
-                        }).finally(function () {
-                            _this.originalEvaluation.weight = _this.evaluate.weight;
-                            if (accessData.canoverridegrades) {
-                                _this.originalEvaluation.text = _this.evaluate.text;
-                                _this.originalEvaluation.grade = _this.evaluate.grade;
-                            }
-                            _this.evaluateForm.controls['weight'].setValue(_this.evaluate.weight);
-                            if (accessData.canoverridegrades) {
-                                _this.evaluateForm.controls['grade'].setValue(_this.evaluate.grade);
-                                _this.evaluateForm.controls['text'].setValue(_this.evaluate.text);
-                            }
-                        });
-                    }
-                    else if (_this.workshop.phase == __WEBPACK_IMPORTED_MODULE_12__providers_workshop__["a" /* AddonModWorkshopProvider */].PHASE_CLOSED && _this.assessment.gradinggradeoverby) {
-                        return _this.userProvider.getProfile(_this.assessment.gradinggradeoverby, _this.courseId, true)
-                            .then(function (profile) {
-                            _this.evaluateByProfile = profile;
-                        });
-                    }
-                });
-            }
-        }).catch(function (message) {
-            _this.domUtils.showErrorModalDefault(message, 'mm.course.errorgetmodule', true);
+        e.preventDefault();
+        e.stopPropagation();
+        this.appProvider.closeKeyboard();
+        var loadingModal = this.domUtils.showModalLoading('core.sending', true);
+        // Freeze the add note button.
+        this.processing = true;
+        this.notesProvider.addNote(this.userId, this.courseId, this.type, this.text).then(function (sent) {
+            _this.viewCtrl.dismiss({ type: _this.type, sent: true }).finally(function () {
+                _this.domUtils.showToast(sent ? 'addon.notes.eventnotecreated' : 'core.datastoredoffline', true, 3000);
+            });
+        }).catch(function (error) {
+            _this.domUtils.showErrorModal(error);
+            _this.processing = false;
         }).finally(function () {
-            _this.loaded = true;
+            loadingModal.dismiss();
         });
     };
     /**
-     * Force leaving the page, without checking for changes.
+     * Close modal.
      */
-    AddonModWorkshopAssessmentPage.prototype.forceLeavePage = function () {
-        this.forceLeave = true;
-        this.navCtrl.pop();
+    AddonNotesAddPage.prototype.closeModal = function () {
+        this.viewCtrl.dismiss({ type: this.type });
     };
-    /**
-     * Check if data has changed.
-     *
-     * @return {boolean} True if changed, false otherwise.
-     */
-    AddonModWorkshopAssessmentPage.prototype.hasEvaluationChanged = function () {
-        if (!this.loaded || !this.evaluating) {
-            return false;
-        }
-        var inputData = this.evaluateForm.value;
-        if (this.originalEvaluation.weight != inputData.weight) {
-            return true;
-        }
-        if (this.access && this.access.canoverridegrades) {
-            if (this.originalEvaluation.text != inputData.text) {
-                return true;
-            }
-            if (this.originalEvaluation.grade != inputData.grade) {
-                return true;
-            }
-        }
-        return false;
-    };
-    /**
-     * Convenience function to refresh all the data.
-     *
-     * @return {Promise<any>} Resolved when done.
-     */
-    AddonModWorkshopAssessmentPage.prototype.refreshAllData = function () {
-        var _this = this;
-        var promises = [];
-        promises.push(this.workshopProvider.invalidateWorkshopData(this.courseId));
-        promises.push(this.workshopProvider.invalidateWorkshopAccessInformationData(this.workshopId));
-        promises.push(this.workshopProvider.invalidateReviewerAssesmentsData(this.workshopId));
-        if (this.assessmentId) {
-            promises.push(this.workshopProvider.invalidateAssessmentFormData(this.workshopId, this.assessmentId));
-            promises.push(this.workshopProvider.invalidateAssessmentData(this.workshopId, this.assessmentId));
-        }
-        return Promise.all(promises).finally(function () {
-            _this.eventsProvider.trigger(__WEBPACK_IMPORTED_MODULE_12__providers_workshop__["a" /* AddonModWorkshopProvider */].ASSESSMENT_INVALIDATED, _this.siteId);
-            return _this.fetchAssessmentData();
-        });
-    };
-    /**
-     * Pull to refresh.
-     *
-     * @param {any} refresher Refresher.
-     */
-    AddonModWorkshopAssessmentPage.prototype.refreshAssessment = function (refresher) {
-        if (this.loaded) {
-            this.refreshAllData().finally(function () {
-                refresher.complete();
-            });
-        }
-    };
-    /**
-     * Save the assessment evaluation.
-     */
-    AddonModWorkshopAssessmentPage.prototype.saveEvaluation = function () {
-        var _this = this;
-        // Check if data has changed.
-        if (this.hasEvaluationChanged()) {
-            this.sendEvaluation().then(function () {
-                _this.forceLeavePage();
-            });
-        }
-        else {
-            // Nothing to save, just go back.
-            this.forceLeavePage();
-        }
-    };
-    /**
-     * Sends the evaluation to be saved on the server.
-     *
-     * @return {Promise<any>} Resolved when done.
-     */
-    AddonModWorkshopAssessmentPage.prototype.sendEvaluation = function () {
-        var _this = this;
-        var modal = this.domUtils.showModalLoading('core.sending', true), inputData = this.evaluateForm.value;
-        inputData.grade = inputData.grade >= 0 ? inputData.grade : '';
-        // Add some HTML to the message if needed.
-        inputData.text = this.textUtils.formatHtmlLines(inputData.text);
-        // Try to send it to server.
-        return this.workshopProvider.evaluateAssessment(this.workshopId, this.assessmentId, this.courseId, inputData.text, inputData.weight, inputData.grade).then(function () {
-            var data = {
-                workshopId: _this.workshopId,
-                assessmentId: _this.assessmentId,
-                userId: _this.currentUserId
-            };
-            return _this.workshopProvider.invalidateAssessmentData(_this.workshopId, _this.assessmentId).finally(function () {
-                _this.eventsProvider.trigger(__WEBPACK_IMPORTED_MODULE_12__providers_workshop__["a" /* AddonModWorkshopProvider */].ASSESSMENT_SAVED, data, _this.siteId);
-            });
-        }).catch(function (message) {
-            _this.domUtils.showErrorModalDefault(message, 'Cannot save assessment evaluation');
-        }).finally(function () {
-            modal.dismiss();
-        });
-    };
-    /**
-     * Component being destroyed.
-     */
-    AddonModWorkshopAssessmentPage.prototype.ngOnDestroy = function () {
-        this.isDestroyed = true;
-        this.syncObserver && this.syncObserver.off();
-        // Restore original back functions.
-        this.syncProvider.unblockOperation(__WEBPACK_IMPORTED_MODULE_12__providers_workshop__["a" /* AddonModWorkshopProvider */].COMPONENT, this.workshopId);
-    };
-    AddonModWorkshopAssessmentPage = __decorate([
+    AddonNotesAddPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-workshop-assessment-page',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\workshop\pages\assessment\assessment.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n        <ion-buttons end [hidden]="!evaluating">\n\n            <button ion-button clear (click)="saveEvaluation()" [attr.aria-label]="\'core.save\' | translate">\n\n                {{ \'core.save\' | translate }}\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="loaded" (ionRefresh)="refreshAssessment($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <core-loading [hideUntil]="loaded">\n\n\n\n        <ion-item text-wrap>\n\n            <ion-avatar *ngIf="profile" core-user-avatar [user]="profile" item-start [courseId]="courseId" [userId]="profile.id"></ion-avatar>\n\n\n\n            <h2 *ngIf="profile && profile.fullname">{{profile.fullname}}</h2>\n\n\n\n            <p *ngIf="workshop && assessment && showGrade(assessment.grade)">\n\n                {{ \'addon.mod_workshop.submissiongradeof\' | translate:{$a: workshop.grade } }}: {{assessment.grade}}\n\n            </p>\n\n            <p *ngIf="access && access.canviewallsubmissions && assessment && showGrade(assessment.gradinggrade)" [class.core-has-overriden-grade]=" showGrade(assessment.gradinggrade)">\n\n                {{ \'addon.mod_workshop.gradinggradeof\' | translate:{$a: workshop.gradinggrade } }}: {{assessment.gradinggrade}}\n\n            </p>\n\n            <p *ngIf="access && access.canviewallsubmissions && assessment && showGrade(assessment.gradinggradeover)" class="core-overriden-grade">\n\n                {{ \'addon.mod_workshop.gradinggradeover\' | translate }}: {{assessment.gradinggradeover}}\n\n            </p>\n\n            <p *ngIf="assessment && assessment.weight && assessment.weight != 1">\n\n                {{ \'addon.mod_workshop.weightinfo\' | translate:{$a: assessment.weight } }}\n\n            </p>\n\n            <ion-badge *ngIf="!assessment || !showGrade(assessment.grade)" color="danger">\n\n                {{ \'addon.mod_workshop.notassessed\' | translate }}\n\n            </ion-badge>\n\n        </ion-item>\n\n\n\n        <addon-mod-workshop-assessment-strategy *ngIf="assessment && assessmentId && showGrade(assessment.grade) && workshop && access" [workshop]="workshop" [access]="access" [assessmentId]="assessmentId" [userId]="profile && profile.id" [strategy]="strategy"></addon-mod-workshop-assessment-strategy>\n\n\n\n        <form ion-list [formGroup]="evaluateForm" *ngIf="evaluating">\n\n            <ion-item text-wrap>\n\n                <h2>{{ \'addon.mod_workshop.assessmentsettings\' | translate }}</h2>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="access.canallocate">\n\n                <ion-label stacked core-mark-required="true">{{ \'addon.mod_workshop.assessmentweight\' | translate }}</ion-label>\n\n                <ion-select formControlName="weight" required="true" interface="action-sheet">\n\n                    <ion-option *ngFor="let w of weights" [value]="w">{{ w }}</ion-option>\n\n                </ion-select>\n\n            </ion-item>\n\n            <ion-item text-wrap>\n\n                <h2>{{ \'addon.mod_workshop.gradinggradecalculated\' | translate }}</h2>\n\n                <p>{{ assessment.gradinggrade }}</p>\n\n            </ion-item>\n\n            <ion-item text-wrap *ngIf="access.canoverridegrades">\n\n                <ion-label stacked>{{ \'addon.mod_workshop.gradinggradeover\' | translate }}</ion-label>\n\n                <ion-select formControlName="grade" interface="action-sheet">\n\n                    <ion-option *ngFor="let grade of evaluationGrades" [value]="grade.value">{{grade.label}}</ion-option>\n\n                </ion-select>\n\n            </ion-item>\n\n            <ion-item *ngIf="access.canoverridegrades">\n\n                <ion-label stacked>{{ \'addon.mod_workshop.feedbackreviewer\' | translate }}</ion-label>\n\n                <core-rich-text-editor item-content [control]="evaluateForm.controls[\'text\']" formControlName="text"></core-rich-text-editor>\n\n            </ion-item>\n\n        </form>\n\n        <ion-list *ngIf="!evaluating && evaluate && evaluate.text">\n\n            <ion-item text-wrap>\n\n                <ion-avatar core-user-avatar *ngIf="evaluateGradingByProfile" [user]="evaluateGradingByProfile" item-start [courseId]="courseId" [userId]="evaluateGradingByProfile.id"></ion-avatar>\n\n                <h2 *ngIf="evaluateGradingByProfile && evaluateGradingByProfile.fullname">{{ \'addon.mod_workshop.feedbackby\' | translate : {$a: evaluateGradingByProfile.fullname} }}</h2>\n\n                <core-format-text [text]="evaluate.text"></core-format-text>\n\n            </ion-item>\n\n        </ion-list>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\workshop\pages\assessment\assessment.html"*/,
+            selector: 'page-addon-notes-add',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\notes\pages\add\add.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'addon.notes.addnewnote\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <form name="itemEdit" (ngSubmit)="addNote($event)">\n\n        <ion-item>\n\n            <ion-label>{{ \'addon.notes.publishstate\' | translate }}</ion-label>\n\n            <ion-select [(ngModel)]="type" name="publishState" interface="popover">\n\n                <ion-option value="personal">{{ \'addon.notes.personalnotes\' | translate }}</ion-option>\n\n                <ion-option value="course">{{ \'addon.notes.coursenotes\' | translate }}</ion-option>\n\n                <ion-option value="site">{{ \'addon.notes.sitenotes\' | translate }}</ion-option>\n\n            </ion-select>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-textarea placeholder="{{ \'addon.notes.note\' | translate }}" rows="5" [(ngModel)]="text" name="text" required="required"></ion-textarea>\n\n        </ion-item>\n\n        <div padding>\n\n            <button ion-button block type="submit" [disabled]="processing || text.length < 2">\n\n                {{ \'addon.notes.addnewnote\' | translate }}\n\n            </button>\n\n        </div>\n\n    </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\notes\pages\add\add.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_9__core_course_providers_course__["a" /* CoreCourseProvider */],
-            __WEBPACK_IMPORTED_MODULE_12__providers_workshop__["a" /* AddonModWorkshopProvider */], __WEBPACK_IMPORTED_MODULE_14__providers_offline__["a" /* AddonModWorkshopOfflineProvider */],
-            __WEBPACK_IMPORTED_MODULE_13__providers_helper__["a" /* AddonModWorkshopHelperProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_sync__["a" /* CoreSyncProvider */], __WEBPACK_IMPORTED_MODULE_8__providers_utils_text__["a" /* CoreTextUtilsProvider */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_4__providers_events__["a" /* CoreEventsProvider */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_11__core_grades_providers_helper__["a" /* CoreGradesHelperProvider */],
-            __WEBPACK_IMPORTED_MODULE_10__core_user_providers_user__["a" /* CoreUserProvider */]])
-    ], AddonModWorkshopAssessmentPage);
-    return AddonModWorkshopAssessmentPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["G" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["a" /* CoreAppProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_notes__["a" /* AddonNotesProvider */]])
+    ], AddonNotesAddPage);
+    return AddonNotesAddPage;
 }());
 
-//# sourceMappingURL=assessment.js.map
+//# sourceMappingURL=add.js.map
 
 /***/ })
 

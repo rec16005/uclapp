@@ -3,9 +3,9 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android = "http://schemas.android.com/apk/res/android"
         id        = "com.tlg.moodleucl"
-        versionCode = "37100"
-        android-versionCode="37100"
-        version   = "3.7.1">
+        versionCode = "3720"
+        android-versionCode="3720"
+        version   = "3.7.2">
     <name>UCL</name>
 
     <description>
@@ -17,7 +17,7 @@
     </author>
 
     <edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="merge">
-        <string>3.7.1</string>
+        <string>3.7.2</string>
     </edit-config>
 
     <gap:platform name="ios" />

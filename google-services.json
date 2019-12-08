@@ -30,6 +30,14 @@
             {
               "client_id": "259626795229-tfg16dnr0ol0tcir1h7bhet9k2khhalp.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "259626795229-f91nvam7njfkbn3grav0c6rmhd63h4qd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tlg.moodleucl",
+                "app_store_id": "1479413390"
+              }
             }
           ]
         }

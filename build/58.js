@@ -1,16 +1,16 @@
 webpackJsonp([58],{
 
-/***/ 1954:
+/***/ 2035:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonNotesAddPageModule", function() { return AddonNotesAddPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CorePlaceholderPageModule", function() { return CorePlaceholderPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add__ = __webpack_require__(2094);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__placeholder__ = __webpack_require__(2187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_module__ = __webpack_require__(13);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -30,43 +30,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+// Code based on https://github.com/martinpritchardelevate/ionic-split-pane-demo
 
 
 
 
 
-var AddonNotesAddPageModule = /** @class */ (function () {
-    function AddonNotesAddPageModule() {
+var CorePlaceholderPageModule = /** @class */ (function () {
+    function CorePlaceholderPageModule() {
     }
-    AddonNotesAddPageModule = __decorate([
+    CorePlaceholderPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__add__["a" /* AddonNotesAddPage */]
+                __WEBPACK_IMPORTED_MODULE_2__placeholder__["a" /* CoreSplitViewPlaceholderPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__add__["a" /* AddonNotesAddPage */]),
+                __WEBPACK_IMPORTED_MODULE_4__components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__placeholder__["a" /* CoreSplitViewPlaceholderPage */]),
                 __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_2__placeholder__["a" /* CoreSplitViewPlaceholderPage */]
             ]
         })
-    ], AddonNotesAddPageModule);
-    return AddonNotesAddPageModule;
+    ], CorePlaceholderPageModule);
+    return CorePlaceholderPageModule;
 }());
 
-//# sourceMappingURL=add.module.js.map
+//# sourceMappingURL=placeholder.module.js.map
 
 /***/ }),
 
-/***/ 2094:
+/***/ 2187:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonNotesAddPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSplitViewPlaceholderPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_notes__ = __webpack_require__(184);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -89,68 +89,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// Code based on https://github.com/martinpritchardelevate/ionic-split-pane-demo
 
-
-
-
-
-/**
- * Component that displays a text area for composing a note.
- */
-var AddonNotesAddPage = /** @class */ (function () {
-    function AddonNotesAddPage(params, viewCtrl, appProvider, domUtils, notesProvider) {
-        this.viewCtrl = viewCtrl;
-        this.appProvider = appProvider;
-        this.domUtils = domUtils;
-        this.notesProvider = notesProvider;
-        this.type = 'personal';
-        this.text = '';
-        this.processing = false;
-        this.userId = params.get('userId');
-        this.courseId = params.get('courseId');
-        this.type = params.get('type') || 'personal';
+var CoreSplitViewPlaceholderPage = /** @class */ (function () {
+    function CoreSplitViewPlaceholderPage() {
+        // Nothing to do.
     }
-    /**
-     * Send the note or store it offline.
-     *
-     * @param {Event} e Event.
-     */
-    AddonNotesAddPage.prototype.addNote = function (e) {
-        var _this = this;
-        e.preventDefault();
-        e.stopPropagation();
-        this.appProvider.closeKeyboard();
-        var loadingModal = this.domUtils.showModalLoading('core.sending', true);
-        // Freeze the add note button.
-        this.processing = true;
-        this.notesProvider.addNote(this.userId, this.courseId, this.type, this.text).then(function (sent) {
-            _this.viewCtrl.dismiss({ type: _this.type, sent: true }).finally(function () {
-                _this.domUtils.showToast(sent ? 'addon.notes.eventnotecreated' : 'core.datastoredoffline', true, 3000);
-            });
-        }).catch(function (error) {
-            _this.domUtils.showErrorModal(error);
-            _this.processing = false;
-        }).finally(function () {
-            loadingModal.dismiss();
-        });
-    };
-    /**
-     * Close modal.
-     */
-    AddonNotesAddPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss({ type: this.type });
-    };
-    AddonNotesAddPage = __decorate([
+    CoreSplitViewPlaceholderPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-notes-add',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\notes\pages\add\add.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'addon.notes.addnewnote\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <form name="itemEdit" (ngSubmit)="addNote($event)">\n\n        <ion-item>\n\n            <ion-label>{{ \'addon.notes.publishstate\' | translate }}</ion-label>\n\n            <ion-select [(ngModel)]="type" name="publishState" interface="popover">\n\n                <ion-option value="personal">{{ \'addon.notes.personalnotes\' | translate }}</ion-option>\n\n                <ion-option value="course">{{ \'addon.notes.coursenotes\' | translate }}</ion-option>\n\n                <ion-option value="site">{{ \'addon.notes.sitenotes\' | translate }}</ion-option>\n\n            </ion-select>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-textarea placeholder="{{ \'addon.notes.note\' | translate }}" rows="5" [(ngModel)]="text" name="text" required="required"></ion-textarea>\n\n        </ion-item>\n\n        <div padding>\n\n            <button ion-button block type="submit" [disabled]="processing || text.length < 2">\n\n                {{ \'addon.notes.addnewnote\' | translate }}\n\n            </button>\n\n        </div>\n\n    </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\notes\pages\add\add.html"*/,
+            selector: 'core-placeholder',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\components\split-view\placeholder\core-placeholder.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>&nbsp;</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <core-empty-box icon="arrow-dropleft" [message]="\'core.emptysplit\' | translate"></core-empty-box>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\components\split-view\placeholder\core-placeholder.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["a" /* CoreAppProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_notes__["a" /* AddonNotesProvider */]])
-    ], AddonNotesAddPage);
-    return AddonNotesAddPage;
+        __metadata("design:paramtypes", [])
+    ], CoreSplitViewPlaceholderPage);
+    return CoreSplitViewPlaceholderPage;
 }());
 
-//# sourceMappingURL=add.js.map
+//# sourceMappingURL=placeholder.js.map
 
 /***/ })
 

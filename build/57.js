@@ -1,17 +1,16 @@
 webpackJsonp([57],{
 
-/***/ 1955:
+/***/ 2036:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonNotesListPageModule", function() { return AddonNotesListPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreCommentsAddPageModule", function() { return CoreCommentsAddPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__list__ = __webpack_require__(2095);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(999);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add__ = __webpack_require__(2188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,37 +35,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var AddonNotesListPageModule = /** @class */ (function () {
-    function AddonNotesListPageModule() {
+var CoreCommentsAddPageModule = /** @class */ (function () {
+    function CoreCommentsAddPageModule() {
     }
-    AddonNotesListPageModule = __decorate([
+    CoreCommentsAddPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__list__["a" /* AddonNotesListPage */]
+                __WEBPACK_IMPORTED_MODULE_2__add__["a" /* CoreCommentsAddPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_5__components_components_module__["a" /* AddonNotesComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__list__["a" /* AddonNotesListPage */]),
-                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
+                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__add__["a" /* CoreCommentsAddPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ]
         })
-    ], AddonNotesListPageModule);
-    return AddonNotesListPageModule;
+    ], CoreCommentsAddPageModule);
+    return CoreCommentsAddPageModule;
 }());
 
-//# sourceMappingURL=list.module.js.map
+//# sourceMappingURL=add.module.js.map
 
 /***/ }),
 
-/***/ 2095:
+/***/ 2188:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonNotesListPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreCommentsAddPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_comments__ = __webpack_require__(124);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -91,24 +91,69 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
 /**
- * Page that displays a list of notes.
+ * Component that displays a text area for composing a comment.
  */
-var AddonNotesListPage = /** @class */ (function () {
-    function AddonNotesListPage(params) {
-        this.userId = params.get('userId');
-        this.courseId = params.get('courseId');
+var CoreCommentsAddPage = /** @class */ (function () {
+    function CoreCommentsAddPage(params, viewCtrl, appProvider, domUtils, commentsProvider) {
+        this.viewCtrl = viewCtrl;
+        this.appProvider = appProvider;
+        this.domUtils = domUtils;
+        this.commentsProvider = commentsProvider;
+        this.area = '';
+        this.content = '';
+        this.processing = false;
+        this.contextLevel = params.get('contextLevel');
+        this.instanceId = params.get('instanceId');
+        this.componentName = params.get('componentName');
+        this.itemId = params.get('itemId');
+        this.area = params.get('area') || '';
+        this.content = params.get('content') || '';
     }
-    AddonNotesListPage = __decorate([
+    /**
+     * Send the comment or store it offline.
+     *
+     * @param {Event} e Event.
+     */
+    CoreCommentsAddPage.prototype.addComment = function (e) {
+        var _this = this;
+        e.preventDefault();
+        e.stopPropagation();
+        this.appProvider.closeKeyboard();
+        var loadingModal = this.domUtils.showModalLoading('core.sending', true);
+        // Freeze the add comment button.
+        this.processing = true;
+        this.commentsProvider.addComment(this.content, this.contextLevel, this.instanceId, this.componentName, this.itemId, this.area).then(function (commentsResponse) {
+            _this.viewCtrl.dismiss({ comments: commentsResponse }).finally(function () {
+                _this.domUtils.showToast(commentsResponse ? 'core.comments.eventcommentcreated' : 'core.datastoredoffline', true, 3000);
+            });
+        }).catch(function (error) {
+            _this.domUtils.showErrorModal(error);
+            _this.processing = false;
+        }).finally(function () {
+            loadingModal.dismiss();
+        });
+    };
+    /**
+     * Close modal.
+     */
+    CoreCommentsAddPage.prototype.closeModal = function () {
+        this.viewCtrl.dismiss();
+    };
+    CoreCommentsAddPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-notes-list-page',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\notes\pages\list\list.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'addon.notes.notes\' | translate }}</ion-title>\n\n        <ion-buttons end></ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<addon-notes-list class="core-avoid-header" [courseId]="courseId" [userId]="userId"></addon-notes-list>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\notes\pages\list\list.html"*/,
+            selector: 'page-core-comments-add',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\comments\pages\add\add.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.comments.addcomment\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <form name="itemEdit" (ngSubmit)="addComment($event)">\n\n        <ion-item>\n\n            <ion-textarea placeholder="{{ \'core.comments.addcomment\' | translate }}" rows="5" [(ngModel)]="content" name="content" required="required"></ion-textarea>\n\n        </ion-item>\n\n        <div padding>\n\n            <button ion-button block type="submit" [disabled]="processing || content.length < 1">\n\n                {{ \'core.comments.savecomment\' | translate }}\n\n            </button>\n\n        </div>\n\n    </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\comments\pages\add\add.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
-    ], AddonNotesListPage);
-    return AddonNotesListPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["G" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["a" /* CoreAppProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_comments__["a" /* CoreCommentsProvider */]])
+    ], CoreCommentsAddPage);
+    return CoreCommentsAddPage;
 }());
 
-//# sourceMappingURL=list.js.map
+//# sourceMappingURL=add.js.map
 
 /***/ })
 

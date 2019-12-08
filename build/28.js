@@ -1,16 +1,18 @@
 webpackJsonp([28],{
 
-/***/ 1986:
+/***/ 2066:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreLoginSitePageModule", function() { return CoreLoginSitePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreRatingRatingsPageModule", function() { return CoreRatingRatingsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__site__ = __webpack_require__(2127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ratings__ = __webpack_require__(2217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__ = __webpack_require__(65);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,41 +37,41 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreLoginSitePageModule = /** @class */ (function () {
-    function CoreLoginSitePageModule() {
+
+
+var CoreRatingRatingsPageModule = /** @class */ (function () {
+    function CoreRatingRatingsPageModule() {
     }
-    CoreLoginSitePageModule = __decorate([
+    CoreRatingRatingsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__site__["a" /* CoreLoginSitePage */]
+                __WEBPACK_IMPORTED_MODULE_3__ratings__["a" /* CoreRatingRatingsPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__site__["a" /* CoreLoginSitePage */]),
-                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ]
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__["a" /* CorePipesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__ratings__["a" /* CoreRatingRatingsPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ],
         })
-    ], CoreLoginSitePageModule);
-    return CoreLoginSitePageModule;
+    ], CoreRatingRatingsPageModule);
+    return CoreRatingRatingsPageModule;
 }());
 
-//# sourceMappingURL=site.module.js.map
+//# sourceMappingURL=ratings.module.js.map
 
 /***/ }),
 
-/***/ 2127:
+/***/ 2217:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreLoginSitePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreRatingRatingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_app__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__configconstants__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_helper__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__core_rating_providers_rating__ = __webpack_require__(158);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -96,140 +98,77 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
 /**
- * Page to enter or select the site URL to connect to.
+ * Page that displays individual ratings
  */
-var CoreLoginSitePage = /** @class */ (function () {
-    function CoreLoginSitePage(navParams, navCtrl, fb, appProvider, sitesProvider, loginHelper, modalCtrl, domUtils) {
-        this.navCtrl = navCtrl;
-        this.appProvider = appProvider;
-        this.sitesProvider = sitesProvider;
-        this.loginHelper = loginHelper;
-        this.modalCtrl = modalCtrl;
+var CoreRatingRatingsPage = /** @class */ (function () {
+    function CoreRatingRatingsPage(navParams, viewCtrl, domUtils, ratingProvider) {
+        this.viewCtrl = viewCtrl;
         this.domUtils = domUtils;
-        this.fixedDisplay = 'buttons';
-        this.showKeyboard = false;
-        this.filter = '';
-        this.showKeyboard = !!navParams.get('showKeyboard');
-        var url = '';
-        // Load fixed sites if they're set.
-        if (this.loginHelper.hasSeveralFixedSites()) {
-            this.fixedSites = this.loginHelper.getFixedSites();
-            this.fixedDisplay = __WEBPACK_IMPORTED_MODULE_5__configconstants__["a" /* CoreConfigConstants */].multisitesdisplay;
-            // Autoselect if not defined.
-            if (['list', 'listnourl', 'select', 'buttons'].indexOf(this.fixedDisplay) < 0) {
-                this.fixedDisplay = this.fixedSites.length > 8 ? 'list' : (this.fixedSites.length > 3 ? 'select' : 'buttons');
-            }
-            this.filteredSites = this.fixedSites;
-            url = this.fixedSites[0].url;
-        }
-        this.siteForm = fb.group({
-            siteUrl: [url, __WEBPACK_IMPORTED_MODULE_7__angular_forms__["h" /* Validators */].required]
-        });
+        this.ratingProvider = ratingProvider;
+        this.loaded = false;
+        this.ratings = [];
+        this.contextLevel = navParams.get('contextLevel');
+        this.instanceId = navParams.get('instanceId');
+        this.component = navParams.get('ratingComponent');
+        this.ratingArea = navParams.get('ratingArea');
+        this.aggregateMethod = navParams.get('aggregateMethod');
+        this.itemId = navParams.get('itemId');
+        this.scaleId = navParams.get('scaleId');
+        this.courseId = navParams.get('courseId');
     }
     /**
-     * Try to connect to a site.
-     *
-     * @param {Event} e Event.
-     * @param {string} url The URL to connect to.
+     * View loaded.
      */
-    CoreLoginSitePage.prototype.connect = function (e, url) {
+    CoreRatingRatingsPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        e.preventDefault();
-        e.stopPropagation();
-        this.appProvider.closeKeyboard();
-        if (!url) {
-            this.domUtils.showErrorModal('core.login.siteurlrequired', true);
-            return;
-        }
-        if (!this.appProvider.isOnline()) {
-            this.domUtils.showErrorModal('core.networkerrormsg', true);
-            return;
-        }
-        var modal = this.domUtils.showModalLoading(), siteData = this.sitesProvider.getDemoSiteData(url);
-        if (siteData) {
-            // It's a demo site.
-            this.sitesProvider.getUserToken(siteData.url, siteData.username, siteData.password).then(function (data) {
-                return _this.sitesProvider.newSite(data.siteUrl, data.token, data.privateToken).then(function () {
-                    return _this.loginHelper.goToSiteInitialPage();
-                }, function (error) {
-                    _this.domUtils.showErrorModal(error);
-                });
-            }, function (error) {
-                _this.loginHelper.treatUserTokenError(siteData.url, error, siteData.username, siteData.password);
-            }).finally(function () {
-                modal.dismiss();
-            });
-        }
-        else {
-            // Not a demo site.
-            this.sitesProvider.checkSite(url).then(function (result) {
-                if (result.warning) {
-                    _this.domUtils.showErrorModal(result.warning, true, 4000);
-                }
-                if (_this.loginHelper.isSSOLoginNeeded(result.code)) {
-                    // SSO. User needs to authenticate in a browser.
-                    _this.loginHelper.confirmAndOpenBrowserForSSOLogin(result.siteUrl, result.code, result.service, result.config && result.config.launchurl);
-                }
-                else {
-                    _this.navCtrl.push('CoreLoginCredentialsPage', { siteUrl: result.siteUrl, siteConfig: result.config });
-                }
-            }, function (error) {
-                _this.showLoginIssue(url, error);
-            }).finally(function () {
-                modal.dismiss();
-            });
-        }
+        this.fetchData().finally(function () {
+            _this.loaded = true;
+        });
     };
     /**
-     * The filter has changed.
+     * Fetch all the data required for the view.
      *
-     * @param {any} Received Event.
+     * @return {Promise<any>} Resolved when done.
      */
-    CoreLoginSitePage.prototype.filterChanged = function (event) {
-        var newValue = event.target.value && event.target.value.trim().toLowerCase();
-        if (!newValue || !this.fixedSites) {
-            this.filteredSites = this.fixedSites;
-        }
-        else {
-            this.filteredSites = this.fixedSites.filter(function (site) {
-                return site.name.toLowerCase().indexOf(newValue) > -1 || site.url.toLowerCase().indexOf(newValue) > -1;
-            });
-        }
+    CoreRatingRatingsPage.prototype.fetchData = function () {
+        var _this = this;
+        return this.ratingProvider.getItemRatings(this.contextLevel, this.instanceId, this.component, this.ratingArea, this.itemId, this.scaleId, undefined, this.courseId).then(function (ratings) {
+            _this.ratings = ratings;
+        }).catch(function (error) {
+            _this.domUtils.showErrorModal(error);
+        });
     };
     /**
-     * Show a help modal.
-     */
-    CoreLoginSitePage.prototype.showHelp = function () {
-        var modal = this.modalCtrl.create('CoreLoginSiteHelpPage');
-        modal.present();
-    };
-    /**
-     * Show an error that aims people to solve the issue.
+     * Refresh data.
      *
-     * @param {string} url The URL the user was trying to connect to.
-     * @param {string} error Error to display.
+     * @param {any} refresher Refresher.
      */
-    CoreLoginSitePage.prototype.showLoginIssue = function (url, error) {
-        var modal = this.modalCtrl.create('CoreLoginSiteErrorPage', { siteUrl: url, issue: error });
-        modal.present();
+    CoreRatingRatingsPage.prototype.refreshRatings = function (refresher) {
+        var _this = this;
+        this.ratingProvider.invalidateRatingItems(this.contextLevel, this.instanceId, this.component, this.ratingArea, this.itemId, this.scaleId).finally(function () {
+            return _this.fetchData().finally(function () {
+                refresher.complete();
+            });
+        });
     };
-    CoreLoginSitePage = __decorate([
+    /**
+     * Close modal.
+     */
+    CoreRatingRatingsPage.prototype.closeModal = function () {
+        this.viewCtrl.dismiss();
+    };
+    CoreRatingRatingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-login-site',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\login\pages\site\site.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.login.connecttomoodle\' | translate }}</ion-title>\n\n\n\n        <ion-buttons end>\n\n            <button ion-button icon-only [navPush]="\'CoreSettingsListPage\'" [attr.aria-label]="\'core.mainmenu.appsettings\' | translate">\n\n                <ion-icon name="cog"></ion-icon>\n\n            </button>\n\n            <button ion-button icon-only (click)="showHelp()" [attr.aria-label]="\'core.help\' | translate">\n\n                <ion-icon name="help-circle"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content class="core-center-view">\n\n    <div class="box">\n\n        <div text-center padding>\n\n            <img src="assets/img/login_logo.png" class="avatar-full login-logo" role="presentation">\n\n        </div>\n\n        <form ion-list [formGroup]="siteForm" (ngSubmit)="connect($event, siteForm.value.siteUrl)" *ngIf="!fixedSites || fixedDisplay == \'select\'">\n\n            <!-- Form to input the site URL if there are no fixed sites. -->\n\n            <ng-container *ngIf="!fixedSites">\n\n                <p padding>{{ \'core.login.newsitedescription\' | translate }}</p>\n\n                <ion-item>\n\n                    <ion-input type="url" name="url" placeholder="{{ \'core.login.siteaddress\' | translate }}" formControlName="siteUrl" [core-auto-focus]="showKeyboard"></ion-input>\n\n                </ion-item>\n\n            </ng-container>\n\n\n\n            <ion-item *ngIf="fixedSites && fixedDisplay == \'select\'" margin-vertical text-wrap>\n\n                <ion-label stacked for="siteSelect">{{ \'core.login.selectsite\' | translate }}</ion-label>\n\n                <ion-select formControlName="siteUrl" name="url" placeholder="{{ \'core.login.siteaddress\' | translate }}" interface="action-sheet">\n\n                    <ion-option *ngFor="let site of fixedSites" [value]="site.url">{{site.name}}</ion-option>\n\n                </ion-select>\n\n            </ion-item>\n\n\n\n            <button ion-button block [disabled]="!siteForm.valid">{{ \'core.login.connect\' | translate }}</button>\n\n        </form>\n\n        <!-- Pick the site from a list of fixed sites. -->\n\n        <ion-list *ngIf="fixedSites && (fixedDisplay == \'list\' || fixedDisplay == \'listnourl\')">\n\n            <ion-item no-lines><h2 class="item-heading">{{ \'core.login.selectsite\' | translate }}</h2></ion-item>\n\n            <ion-searchbar *ngIf="fixedSites.length > 4" [(ngModel)]="filter" (ionInput)="filterChanged($event)" (ionCancel)="filterChanged()" [placeholder]="\'core.login.findyoursite\' | translate"></ion-searchbar>\n\n            <ion-item *ngFor="let site of filteredSites" (click)="connect($event, site.url)" [title]="site.name" detail-push text-wrap>\n\n                <h2>{{site.name}}</h2>\n\n                <p *ngIf="fixedDisplay == \'list\'">{{site.url}}</p>\n\n            </ion-item>\n\n        </ion-list>\n\n\n\n        <!-- Display them using buttons. -->\n\n        <div *ngIf="fixedSites && fixedDisplay == \'buttons\'">\n\n            <p class="padding no-padding-bottom">{{ \'core.login.selectsite\' | translate }}</p>\n\n            <a *ngFor="let site of fixedSites" ion-button block (click)="connect($event, site.url)" [title]="site.name" margin-bottom>{{site.name}}</a>\n\n        </div>\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\login\pages\site\site.html"*/,
+            selector: 'page-core-rating-ratings',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\rating\pages\ratings\ratings.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.rating.ratings\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="loaded" (ionRefresh)="refreshRatings($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <core-loading [hideUntil]="loaded">\n\n        <ion-list *ngIf="ratings.length > 0">\n\n            <ion-item text-wrap *ngFor="let rating of ratings">\n\n                <ion-avatar core-user-avatar [user]="rating" [courseId]="courseId" item-start></ion-avatar>\n\n                <ion-note item-end padding-left *ngIf="rating.timemodified">\n\n                    {{ rating.timemodified | coreDateDayOrTime }}\n\n                </ion-note>\n\n                <h2><core-format-text [text]="rating.userfullname"></core-format-text></h2>\n\n                <p>{{ rating.rating }}</p>\n\n            </ion-item>\n\n        </ion-list>\n\n        <core-empty-box *ngIf="ratings.length == 0" icon="stats" [message]="\'core.rating.noratings\' | translate"></core-empty-box>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\rating\pages\ratings\ratings.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_7__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2__providers_app__["a" /* CoreAppProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_6__providers_helper__["a" /* CoreLoginHelperProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ModalController */], __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__["a" /* CoreDomUtilsProvider */]])
-    ], CoreLoginSitePage);
-    return CoreLoginSitePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["G" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__core_rating_providers_rating__["a" /* CoreRatingProvider */]])
+    ], CoreRatingRatingsPage);
+    return CoreRatingRatingsPage;
 }());
 
-//# sourceMappingURL=site.js.map
+//# sourceMappingURL=ratings.js.map
 
 /***/ })
 

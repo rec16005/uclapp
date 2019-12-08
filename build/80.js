@@ -1,17 +1,17 @@
 webpackJsonp([80],{
 
-/***/ 1928:
+/***/ 2009:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModLessonMenuModalPageModule", function() { return AddonModLessonMenuModalPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModLtiIndexPageModule", function() { return AddonModLtiIndexPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__menu_modal__ = __webpack_require__(2065);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(1007);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__index__ = __webpack_require__(2156);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,36 +37,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddonModLessonMenuModalPageModule = /** @class */ (function () {
-    function AddonModLessonMenuModalPageModule() {
+var AddonModLtiIndexPageModule = /** @class */ (function () {
+    function AddonModLtiIndexPageModule() {
     }
-    AddonModLessonMenuModalPageModule = __decorate([
+    AddonModLtiIndexPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__menu_modal__["a" /* AddonModLessonMenuModalPage */]
+                __WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModLtiIndexPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__menu_modal__["a" /* AddonModLessonMenuModalPage */]),
-                __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ]
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* AddonModLtiComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_5__index__["a" /* AddonModLtiIndexPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ],
         })
-    ], AddonModLessonMenuModalPageModule);
-    return AddonModLessonMenuModalPageModule;
+    ], AddonModLtiIndexPageModule);
+    return AddonModLtiIndexPageModule;
 }());
 
-//# sourceMappingURL=menu-modal.module.js.map
+//# sourceMappingURL=index.module.js.map
 
 /***/ }),
 
-/***/ 2065:
+/***/ 2156:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModLessonMenuModalPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModLtiIndexPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_index_index__ = __webpack_require__(444);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -91,39 +92,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
- * Modal that renders the lesson menu and media file.
+ * Page that displays an LTI.
  */
-var AddonModLessonMenuModalPage = /** @class */ (function () {
-    function AddonModLessonMenuModalPage(params, viewCtrl) {
-        this.viewCtrl = viewCtrl;
-        this.pageInstance = params.get('page');
+var AddonModLtiIndexPage = /** @class */ (function () {
+    function AddonModLtiIndexPage(navParams) {
+        this.module = navParams.get('module') || {};
+        this.courseId = navParams.get('courseId');
+        this.title = this.module.name;
     }
     /**
-     * Close modal.
-     */
-    AddonModLessonMenuModalPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
-    };
-    /**
-     * Load a certain page.
+     * Update some data based on the LTI instance.
      *
-     * @param {number} pageId The page ID to load.
+     * @param {any} lti LTI instance.
      */
-    AddonModLessonMenuModalPage.prototype.loadPage = function (pageId) {
-        this.pageInstance.changePage && this.pageInstance.changePage(pageId);
-        this.closeModal();
+    AddonModLtiIndexPage.prototype.updateData = function (lti) {
+        this.title = lti.name || this.title;
     };
-    AddonModLessonMenuModalPage = __decorate([
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModLtiIndexComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_index_index__["a" /* AddonModLtiIndexComponent */])
+    ], AddonModLtiIndexPage.prototype, "ltiComponent", void 0);
+    AddonModLtiIndexPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-lesson-menu-modal',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\lesson\pages\menu-modal\menu-modal.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ pageInstance.lesson.name }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content class="addon-mod_lesson-menu-modal">\n\n    <nav>\n\n        <ion-list>\n\n            <!-- Media file. -->\n\n            <ng-container *ngIf="pageInstance.mediaFile">\n\n                <ion-item-divider><h2>{{ \'addon.mod_lesson.linkedmedia\' | translate }}</h2></ion-item-divider>\n\n                <core-file [file]="pageInstance.mediaFile" [component]="pageInstance.component" [componentId]="pageInstance.lesson.coursemodule"></core-file>\n\n            </ng-container>\n\n\n\n            <!-- Lesson menu. -->\n\n            <ng-container *ngIf="pageInstance.displayMenu">\n\n                <ion-item-divider><h2>{{ \'addon.mod_lesson.lessonmenu\' | translate }}</h2></ion-item-divider>\n\n                <ion-item text-center *ngIf="pageInstance.loadingMenu">\n\n                    <ion-spinner></ion-spinner>\n\n                </ion-item>\n\n                <div *ngIf="!pageInstance.loadingMenu">\n\n                    <ng-container *ngFor="let page of pageInstance.lessonPages">\n\n                        <a ion-item text-wrap *ngIf="page.display && page.displayinmenublock" (click)="loadPage(page.id)" [ngClass]=\'{"addon-mod_lesson-selected core-white-push-arrow": !pageInstance.eolData && pageInstance.currentPage == page.id}\'>\n\n                            <p><core-format-text [text]="page.title"></core-format-text></p>\n\n                        </a>\n\n                    </ng-container>\n\n                </div>\n\n            </ng-container>\n\n        </ion-list>\n\n    </nav>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\lesson\pages\menu-modal\menu-modal.html"*/,
+            selector: 'page-addon-mod-lti-index',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\lti\pages\index\index.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title><core-format-text [text]="title"></core-format-text></ion-title>\n\n\n\n        <ion-buttons end>\n\n            <!-- The buttons defined by the component will be added in here. -->\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="ltiComponent.loaded" (ionRefresh)="ltiComponent.doRefresh($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n\n\n    <addon-mod-lti-index [module]="module" [courseId]="courseId" (dataRetrieved)="updateData($event)"></addon-mod-lti-index>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\lti\pages\index\index.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */]])
-    ], AddonModLessonMenuModalPage);
-    return AddonModLessonMenuModalPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */]])
+    ], AddonModLtiIndexPage);
+    return AddonModLtiIndexPage;
 }());
 
-//# sourceMappingURL=menu-modal.js.map
+//# sourceMappingURL=index.js.map
 
 /***/ })
 

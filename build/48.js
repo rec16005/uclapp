@@ -1,18 +1,20 @@
 webpackJsonp([48],{
 
-/***/ 1966:
+/***/ 2045:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreCoursesAvailableCoursesPageModule", function() { return CoreCoursesAvailableCoursesPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreCoursesDashboardPageModule", function() { return CoreCoursesDashboardPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__available_courses__ = __webpack_require__(2107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dashboard__ = __webpack_require__(2196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_components_module__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_components_module__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_sitehome_components_components_module__ = __webpack_require__(984);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_block_components_components_module__ = __webpack_require__(191);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,39 +41,52 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreCoursesAvailableCoursesPageModule = /** @class */ (function () {
-    function CoreCoursesAvailableCoursesPageModule() {
+
+
+var CoreCoursesDashboardPageModule = /** @class */ (function () {
+    function CoreCoursesDashboardPageModule() {
     }
-    CoreCoursesAvailableCoursesPageModule = __decorate([
+    CoreCoursesDashboardPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__available_courses__["a" /* CoreCoursesAvailableCoursesPage */],
+                __WEBPACK_IMPORTED_MODULE_3__dashboard__["a" /* CoreCoursesDashboardPage */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
                 __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
                 __WEBPACK_IMPORTED_MODULE_6__components_components_module__["a" /* CoreCoursesComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__available_courses__["a" /* CoreCoursesAvailableCoursesPage */]),
+                __WEBPACK_IMPORTED_MODULE_7__core_sitehome_components_components_module__["a" /* CoreSiteHomeComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_8__core_block_components_components_module__["a" /* CoreBlockComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__dashboard__["a" /* CoreCoursesDashboardPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], CoreCoursesAvailableCoursesPageModule);
-    return CoreCoursesAvailableCoursesPageModule;
+    ], CoreCoursesDashboardPageModule);
+    return CoreCoursesDashboardPageModule;
 }());
 
-//# sourceMappingURL=available-courses.module.js.map
+//# sourceMappingURL=dashboard.module.js.map
 
 /***/ }),
 
-/***/ 2107:
+/***/ 2196:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreCoursesAvailableCoursesPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreCoursesDashboardPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_courses__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_events__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_tabs_tabs__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_block_providers_delegate__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__core_block_components_block_block__ = __webpack_require__(428);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_sitehome_providers_sitehome__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_sitehome_components_index_index__ = __webpack_require__(985);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_courses__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_dashboard__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_my_courses_my_courses__ = __webpack_require__(983);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -98,68 +113,231 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
+
+
+
+
+
 /**
- * Page that displays available courses in current site.
+ * Page that displays the dashboard.
  */
-var CoreCoursesAvailableCoursesPage = /** @class */ (function () {
-    function CoreCoursesAvailableCoursesPage(coursesProvider, domUtils, sitesProvider) {
+var CoreCoursesDashboardPage = /** @class */ (function () {
+    function CoreCoursesDashboardPage(navCtrl, coursesProvider, sitesProvider, siteHomeProvider, eventsProvider, dashboardProvider, domUtils, blockDelegate) {
+        this.navCtrl = navCtrl;
         this.coursesProvider = coursesProvider;
-        this.domUtils = domUtils;
         this.sitesProvider = sitesProvider;
-        this.courses = [];
+        this.siteHomeProvider = siteHomeProvider;
+        this.eventsProvider = eventsProvider;
+        this.dashboardProvider = dashboardProvider;
+        this.domUtils = domUtils;
+        this.blockDelegate = blockDelegate;
+        this.siteHomeEnabled = false;
+        this.tabsReady = false;
+        this.tabs = [];
+        this.dashboardEnabled = false;
+        this.dashboardLoaded = false;
+        this.downloadEnabledIcon = 'square-outline'; // Disabled by default.
+        this.loadSiteName();
     }
     /**
      * View loaded.
      */
-    CoreCoursesAvailableCoursesPage.prototype.ionViewDidLoad = function () {
+    CoreCoursesDashboardPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        this.loadCourses().finally(function () {
-            _this.coursesLoaded = true;
+        this.searchEnabled = !this.coursesProvider.isSearchCoursesDisabledInSite();
+        this.downloadCourseEnabled = !this.coursesProvider.isDownloadCourseDisabledInSite();
+        this.downloadCoursesEnabled = !this.coursesProvider.isDownloadCoursesDisabledInSite();
+        // Refresh the enabled flags if site is updated.
+        this.updateSiteObserver = this.eventsProvider.on(__WEBPACK_IMPORTED_MODULE_2__providers_events__["a" /* CoreEventsProvider */].SITE_UPDATED, function () {
+            _this.searchEnabled = !_this.coursesProvider.isSearchCoursesDisabledInSite();
+            _this.downloadCourseEnabled = !_this.coursesProvider.isDownloadCourseDisabledInSite();
+            _this.downloadCoursesEnabled = !_this.coursesProvider.isDownloadCoursesDisabledInSite();
+            _this.switchDownload(_this.downloadEnabled);
+            _this.loadSiteName();
+        }, this.sitesProvider.getCurrentSiteId());
+        var promises = [];
+        promises.push(this.siteHomeProvider.isAvailable().then(function (enabled) {
+            _this.siteHomeEnabled = enabled;
+        }));
+        promises.push(this.loadDashboardContent());
+        // Decide which tab to load first.
+        Promise.all(promises).finally(function () {
+            if (_this.siteHomeEnabled && _this.dashboardEnabled) {
+                var site = _this.sitesProvider.getCurrentSite(), displaySiteHome = site.getInfo() && site.getInfo().userhomepage === 0;
+                _this.firstSelectedTab = displaySiteHome ? 0 : 1;
+            }
+            else {
+                _this.firstSelectedTab = 0;
+            }
+            _this.tabsReady = true;
         });
     };
     /**
-     * Load the courses.
+     * User entered the page.
+     */
+    CoreCoursesDashboardPage.prototype.ionViewDidEnter = function () {
+        this.tabsComponent && this.tabsComponent.ionViewDidEnter();
+    };
+    /**
+     * User left the page.
+     */
+    CoreCoursesDashboardPage.prototype.ionViewDidLeave = function () {
+        this.tabsComponent && this.tabsComponent.ionViewDidLeave();
+    };
+    /**
+     * Go to search courses.
+     */
+    CoreCoursesDashboardPage.prototype.openSearch = function () {
+        this.navCtrl.push('CoreCoursesSearchPage');
+    };
+    /**
+     * Load the site name.
+     */
+    CoreCoursesDashboardPage.prototype.loadSiteName = function () {
+        this.siteName = this.sitesProvider.getCurrentSite().getSiteName();
+    };
+    /**
+     * Convenience function to fetch the dashboard data.
      *
      * @return {Promise<any>} Promise resolved when done.
      */
-    CoreCoursesAvailableCoursesPage.prototype.loadCourses = function () {
+    CoreCoursesDashboardPage.prototype.loadDashboardContent = function () {
         var _this = this;
-        var frontpageCourseId = this.sitesProvider.getCurrentSite().getSiteHomeId();
-        return this.coursesProvider.getCoursesByField().then(function (courses) {
-            _this.courses = courses.filter(function (course) {
-                return course.id != frontpageCourseId;
-            });
-        }).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'core.courses.errorloadcourses', true);
+        return this.dashboardProvider.isAvailable().then(function (available) {
+            if (available) {
+                _this.userId = _this.sitesProvider.getCurrentSiteUserId();
+                return _this.dashboardProvider.getDashboardBlocks().then(function (blocks) {
+                    _this.blocks = blocks;
+                }).catch(function (error) {
+                    _this.domUtils.showErrorModal(error);
+                    // Cannot get the blocks, just show dashboard if needed.
+                    _this.loadFallbackBlocks();
+                });
+            }
+            else if (!_this.dashboardProvider.isDisabledInSite()) {
+                // Not available, but not disabled either. Use fallback.
+                _this.loadFallbackBlocks();
+            }
+            else {
+                // Disabled.
+                _this.blocks = [];
+            }
+        }).finally(function () {
+            _this.dashboardEnabled = _this.blockDelegate.hasSupportedBlock(_this.blocks);
+            _this.dashboardLoaded = true;
         });
     };
     /**
-     * Refresh the courses.
+     * Refresh the dashboard data.
      *
      * @param {any} refresher Refresher.
      */
-    CoreCoursesAvailableCoursesPage.prototype.refreshCourses = function (refresher) {
+    CoreCoursesDashboardPage.prototype.refreshDashboard = function (refresher) {
         var _this = this;
         var promises = [];
-        promises.push(this.coursesProvider.invalidateUserCourses());
-        promises.push(this.coursesProvider.invalidateCoursesByField());
+        promises.push(this.dashboardProvider.invalidateDashboardBlocks());
+        // Invalidate the blocks.
+        this.blocksComponents.forEach(function (blockComponent) {
+            promises.push(blockComponent.invalidate().catch(function () {
+                // Ignore errors.
+            }));
+        });
         Promise.all(promises).finally(function () {
-            _this.loadCourses().finally(function () {
+            _this.loadDashboardContent().finally(function () {
                 refresher.complete();
             });
         });
     };
-    CoreCoursesAvailableCoursesPage = __decorate([
+    /**
+     * Refresh the dashboard data and My Courses.
+     *
+     * @param {any} refresher Refresher.
+     */
+    CoreCoursesDashboardPage.prototype.refreshMyCourses = function (refresher) {
+        var _this = this;
+        // First of all, refresh dashboard blocks, maybe a new block was added and now we can display the dashboard.
+        this.dashboardProvider.invalidateDashboardBlocks().finally(function () {
+            return _this.loadDashboardContent();
+        }).finally(function () {
+            if (!_this.dashboardEnabled) {
+                // Dashboard still not enabled. Refresh my courses.
+                _this.mcComponent && _this.mcComponent.refreshCourses(refresher);
+            }
+            else {
+                _this.tabsComponent.selectTab(1);
+                refresher.complete();
+            }
+        });
+    };
+    /**
+     * Toggle download enabled.
+     */
+    CoreCoursesDashboardPage.prototype.toggleDownload = function () {
+        this.switchDownload(!this.downloadEnabled);
+    };
+    /**
+     * Convenience function to switch download enabled.
+     *
+     * @param {boolean} enable If enable or disable.
+     */
+    CoreCoursesDashboardPage.prototype.switchDownload = function (enable) {
+        this.downloadEnabled = (this.downloadCourseEnabled || this.downloadCoursesEnabled) && enable;
+        this.downloadEnabledIcon = this.downloadEnabled ? 'checkbox-outline' : 'square-outline';
+        this.eventsProvider.trigger(__WEBPACK_IMPORTED_MODULE_10__providers_courses__["a" /* CoreCoursesProvider */].EVENT_DASHBOARD_DOWNLOAD_ENABLED_CHANGED, { enabled: this.downloadEnabled });
+    };
+    /**
+     * Load fallback blocks to shown before 3.6 when dashboard blocks are not supported.
+     */
+    CoreCoursesDashboardPage.prototype.loadFallbackBlocks = function () {
+        this.blocks = [
+            {
+                name: 'myoverview'
+            },
+            {
+                name: 'timeline'
+            }
+        ];
+    };
+    /**
+     * Component being destroyed.
+     */
+    CoreCoursesDashboardPage.prototype.ngOnDestroy = function () {
+        this.isDestroyed = true;
+        this.updateSiteObserver && this.updateSiteObserver.off();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_5__components_tabs_tabs__["a" /* CoreTabsComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__components_tabs_tabs__["a" /* CoreTabsComponent */])
+    ], CoreCoursesDashboardPage.prototype, "tabsComponent", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_9__core_sitehome_components_index_index__["a" /* CoreSiteHomeIndexComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_9__core_sitehome_components_index_index__["a" /* CoreSiteHomeIndexComponent */])
+    ], CoreCoursesDashboardPage.prototype, "siteHomeComponent", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewChildren */])(__WEBPACK_IMPORTED_MODULE_7__core_block_components_block_block__["a" /* CoreBlockComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* QueryList */])
+    ], CoreCoursesDashboardPage.prototype, "blocksComponents", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_12__components_my_courses_my_courses__["a" /* CoreCoursesMyCoursesComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_12__components_my_courses_my_courses__["a" /* CoreCoursesMyCoursesComponent */])
+    ], CoreCoursesDashboardPage.prototype, "mcComponent", void 0);
+    CoreCoursesDashboardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-courses-available-courses',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\courses\pages\available-courses\available-courses.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.courses.availablecourses\' | translate }}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-refresher [enabled]="coursesLoaded" (ionRefresh)="refreshCourses($event)">\n\n        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n    </ion-refresher>\n\n    <core-loading [hideUntil]="coursesLoaded">\n\n        <div *ngIf="courses.length > 0">\n\n            <core-courses-course-list-item *ngFor="let course of courses" [course]="course"></core-courses-course-list-item>\n\n        </div>\n\n        <core-empty-box *ngIf="!courses.length" icon="ionic" [message]="\'core.courses.nocourses\' | translate"></core-empty-box>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\courses\pages\available-courses\available-courses.html"*/,
+            selector: 'page-core-courses-dashboard',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\courses\pages\dashboard\dashboard.html"*/'    <ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title><core-format-text [text]="siteName"></core-format-text></ion-title>\n\n\n\n        <ion-buttons end>\n\n            <button *ngIf="searchEnabled" ion-button icon-only (click)="openSearch()" [attr.aria-label]="\'core.courses.searchcourses\' | translate">\n\n                <ion-icon name="search"></ion-icon>\n\n            </button>\n\n            <core-context-menu>\n\n                <!-- Action for dashboard and site home. -->\n\n                <core-context-menu-item *ngIf="(siteHomeEnabled || dashboardEnabled) && (downloadCourseEnabled || downloadCoursesEnabled)" [priority]="1000" [content]="\'core.settings.showdownloadoptions\' | translate" (action)="toggleDownload()" [iconAction]="downloadEnabledIcon"></core-context-menu-item>\n\n\n\n                <!-- Actions when both site home and dashboard are disabled. -->\n\n                <core-context-menu-item *ngIf="!siteHomeEnabled && !dashboardEnabled && mcComponent && mcComponent.downloadAllCoursesEnabled && mcComponent.courses && mcComponent.courses.length >= 2" [priority]="800" [content]="\'core.courses.downloadcourses\' | translate" (action)="mcComponent.prefetchCourses()" [iconAction]="mcComponent.prefetchCoursesData.icon" [closeOnClick]="false" [badge]="mcComponent.prefetchCoursesData.badge"></core-context-menu-item>\n\n                <core-context-menu-item *ngIf="!siteHomeEnabled && !dashboardEnabled && mcComponent && mcComponent.courses && mcComponent.courses.length > 5" [priority]="700" [content]="\'core.courses.filtermycourses\' | translate" (action)="mcComponent.switchFilter()" [iconAction]="\'funnel\'"></core-context-menu-item>\n\n            </core-context-menu>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <core-tabs [selectedIndex]="firstSelectedTab" [hideUntil]="tabsReady">\n\n        <!-- Site home tab. -->\n\n        <core-tab [show]="siteHomeEnabled" [title]="\'core.sitehome.sitehome\' | translate">\n\n            <ng-template>\n\n                <ion-content>\n\n                    <ion-refresher [enabled]="!!siteHomeComponent && siteHomeComponent.dataLoaded" (ionRefresh)="siteHomeComponent.doRefresh($event)">\n\n                        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n                    </ion-refresher>\n\n                    <core-sitehome-index [downloadEnabled]="downloadEnabled"></core-sitehome-index>\n\n                </ion-content>\n\n            </ng-template>\n\n        </core-tab>\n\n\n\n        <!-- Dashboard tab. -->\n\n        <core-tab [show]="dashboardEnabled" [title]="\'core.courses.mymoodle\' | translate">\n\n            <ng-template>\n\n                <ion-content>\n\n                    <ion-refresher [enabled]="dashboardLoaded" (ionRefresh)="refreshDashboard($event)">\n\n                        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n                    </ion-refresher>\n\n                    <core-loading [hideUntil]="dashboardLoaded" class="core-loading-center">\n\n                        <ion-list>\n\n                            <!-- Dashboard blocks. -->\n\n                            <ng-container *ngFor="let block of blocks">\n\n                                <core-block [block]="block" contextLevel="user" [instanceId]="userId" [extraData]="{\'downloadEnabled\': downloadEnabled}"></core-block>\n\n                            </ng-container>\n\n                        </ion-list>\n\n\n\n                        <core-empty-box *ngIf="blocks.length == 0" icon="qr-scanner" [message]="\'core.course.nocontentavailable\' | translate"></core-empty-box>\n\n                    </core-loading>\n\n                </ion-content>\n\n            </ng-template>\n\n        </core-tab>\n\n\n\n        <!-- Tab to display if both site home and dashboard are disabled. -->\n\n        <core-tab [show]="!siteHomeEnabled && !dashboardEnabled" [title]="\'core.courses.mymoodle\' | translate">\n\n            <ng-template>\n\n                <ion-content>\n\n                    <ion-refresher [enabled]="mcComponent && mcComponent.coursesLoaded" (ionRefresh)="refreshMyCourses($event)">\n\n                        <ion-refresher-content pullingText="{{ \'core.pulltorefresh\' | translate }}"></ion-refresher-content>\n\n                    </ion-refresher>\n\n                    <core-courses-my-courses></core-courses-my-courses>\n\n                </ion-content>\n\n            </ng-template>\n\n        </core-tab>\n\n    </core-tabs>\n\n</ion-content>'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\courses\pages\dashboard\dashboard.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_courses__["a" /* CoreCoursesProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_utils_dom__["a" /* CoreDomUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_sites__["a" /* CoreSitesProvider */]])
-    ], CoreCoursesAvailableCoursesPage);
-    return CoreCoursesAvailableCoursesPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavController */], __WEBPACK_IMPORTED_MODULE_10__providers_courses__["a" /* CoreCoursesProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_8__core_sitehome_providers_sitehome__["a" /* CoreSiteHomeProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_events__["a" /* CoreEventsProvider */], __WEBPACK_IMPORTED_MODULE_11__providers_dashboard__["a" /* CoreCoursesDashboardProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_6__core_block_providers_delegate__["a" /* CoreBlockDelegate */]])
+    ], CoreCoursesDashboardPage);
+    return CoreCoursesDashboardPage;
 }());
 
-//# sourceMappingURL=available-courses.js.map
+//# sourceMappingURL=dashboard.js.map
 
 /***/ })
 

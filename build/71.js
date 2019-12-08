@@ -1,17 +1,16 @@
 webpackJsonp([71],{
 
-/***/ 1939:
+/***/ 2019:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModQuizPreflightModalModule", function() { return AddonModQuizPreflightModalModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddonModScormTocPageModule", function() { return AddonModScormTocPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__preflight_modal__ = __webpack_require__(2077);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__toc__ = __webpack_require__(2167);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,42 +35,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var AddonModQuizPreflightModalModule = /** @class */ (function () {
-    function AddonModQuizPreflightModalModule() {
+var AddonModScormTocPageModule = /** @class */ (function () {
+    function AddonModScormTocPageModule() {
     }
-    AddonModQuizPreflightModalModule = __decorate([
+    AddonModScormTocPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__preflight_modal__["a" /* AddonModQuizPreflightModalPage */]
+                __WEBPACK_IMPORTED_MODULE_4__toc__["a" /* AddonModScormTocPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__preflight_modal__["a" /* AddonModQuizPreflightModalPage */]),
-                __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["b" /* TranslateModule */].forChild()
-            ]
+                __WEBPACK_IMPORTED_MODULE_3__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__toc__["a" /* AddonModScormTocPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ],
         })
-    ], AddonModQuizPreflightModalModule);
-    return AddonModQuizPreflightModalModule;
+    ], AddonModScormTocPageModule);
+    return AddonModScormTocPageModule;
 }());
 
-//# sourceMappingURL=preflight-modal.module.js.map
+//# sourceMappingURL=toc.module.js.map
 
 /***/ }),
 
-/***/ 2077:
+/***/ 2167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModQuizPreflightModalPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddonModScormTocPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_access_rules_delegate__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_scorm__ = __webpack_require__(170);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -97,104 +90,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
 /**
- * Modal that renders the access rules for a quiz.
+ * Modal to display the TOC of a SCORM.
  */
-var AddonModQuizPreflightModalPage = /** @class */ (function () {
-    function AddonModQuizPreflightModalPage(params, fb, translate, sitesProvider, viewCtrl, accessRuleDelegate, injector, domUtils) {
+var AddonModScormTocPage = /** @class */ (function () {
+    function AddonModScormTocPage(navParams, viewCtrl) {
         this.viewCtrl = viewCtrl;
-        this.accessRuleDelegate = accessRuleDelegate;
-        this.injector = injector;
-        this.domUtils = domUtils;
-        this.accessRulesData = []; // Components and data for each access rule.
-        this.title = params.get('title') || translate.instant('addon.mod_quiz.startattempt');
-        this.quiz = params.get('quiz');
-        this.attempt = params.get('attempt');
-        this.prefetch = params.get('prefetch');
-        this.siteId = params.get('siteId') || sitesProvider.getCurrentSiteId();
-        this.rules = params.get('rules') || [];
-        // Create an empty form group. The controls will be added by the access rules components.
-        this.preflightForm = fb.group({});
+        this.toc = navParams.get('toc') || [];
+        this.attemptToContinue = navParams.get('attemptToContinue');
+        var mode = navParams.get('mode');
+        this.selected = navParams.get('selected');
+        this.isBrowse = mode === __WEBPACK_IMPORTED_MODULE_2__providers_scorm__["a" /* AddonModScormProvider */].MODEBROWSE;
+        this.isReview = mode === __WEBPACK_IMPORTED_MODULE_2__providers_scorm__["a" /* AddonModScormProvider */].MODEREVIEW;
     }
     /**
-     * Component being initialized.
-     */
-    AddonModQuizPreflightModalPage.prototype.ngOnInit = function () {
-        var _this = this;
-        var promises = [];
-        this.rules.forEach(function (rule) {
-            // Check if preflight is required for rule and, if so, get the component to render it.
-            promises.push(_this.accessRuleDelegate.isPreflightCheckRequiredForRule(rule, _this.quiz, _this.attempt, _this.prefetch, _this.siteId).then(function (required) {
-                if (required) {
-                    return _this.accessRuleDelegate.getPreflightComponent(rule, _this.injector).then(function (component) {
-                        if (component) {
-                            _this.accessRulesData.push({
-                                component: component,
-                                data: {
-                                    rule: rule,
-                                    quiz: _this.quiz,
-                                    attempt: _this.attempt,
-                                    prefetch: _this.prefetch,
-                                    form: _this.preflightForm,
-                                    siteId: _this.siteId
-                                }
-                            });
-                        }
-                    });
-                }
-            }));
-        });
-        Promise.all(promises).catch(function (error) {
-            _this.domUtils.showErrorModalDefault(error, 'Error loading rules');
-        }).finally(function () {
-            _this.loaded = true;
-        });
-    };
-    /**
-     * Check that the data is valid and send it back.
+     * Function called when a SCO is clicked.
      *
-     * @param {Event} e Event.
+     * @param {any} sco Clicked SCO.
      */
-    AddonModQuizPreflightModalPage.prototype.sendData = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (!this.preflightForm.valid) {
-            // Form not valid. Scroll to the first element with errors.
-            if (!this.domUtils.scrollToInputError(this.content)) {
-                // Input not found, show an error modal.
-                this.domUtils.showErrorModal('core.errorinvalidform', true);
-            }
+    AddonModScormTocPage.prototype.loadSco = function (sco) {
+        if (!sco.prereq || !sco.isvisible || !sco.launch) {
+            return;
         }
-        else {
-            this.viewCtrl.dismiss(this.preflightForm.value);
-        }
+        this.viewCtrl.dismiss(sco);
     };
     /**
      * Close modal.
      */
-    AddonModQuizPreflightModalPage.prototype.closeModal = function () {
+    AddonModScormTocPage.prototype.closeModal = function () {
         this.viewCtrl.dismiss();
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
-    ], AddonModQuizPreflightModalPage.prototype, "content", void 0);
-    AddonModQuizPreflightModalPage = __decorate([
+    AddonModScormTocPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-addon-mod-quiz-preflight-modal',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\quiz\pages\preflight-modal\preflight-modal.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ title | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content padding class="addon-mod_quiz-preflight-modal">\n\n    <core-loading [hideUntil]="loaded">\n\n        <form ion-list [formGroup]="preflightForm" (ngSubmit)="sendData($event)">\n\n            <!-- Access rules. -->\n\n            <ng-container *ngFor="let data of accessRulesData; let last = last">\n\n                <core-dynamic-component [component]="data.component" [data]="data.data">\n\n                    <p padding>Couldn\'t find the directive to render this access rule.</p>\n\n                </core-dynamic-component>\n\n                <ion-item-divider *ngIf="!last"></ion-item-divider>\n\n            </ng-container>\n\n\n\n            <button ion-button block type="submit">\n\n                {{ title | translate }}\n\n            </button>\n\n        </form>\n\n    </core-loading>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\addon\mod\quiz\pages\preflight-modal\preflight-modal.html"*/,
+            selector: 'page-addon-mod-scorm-toc',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\scorm\pages\toc\toc.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'addon.mod_scorm.toc\' | translate }}</ion-title>\n\n        <ion-buttons end>\n\n            <button ion-button icon-only (click)="closeModal()" [attr.aria-label]="\'core.close\' | translate">\n\n                <ion-icon name="close"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <nav>\n\n        <ion-list>\n\n            <ion-item text-wrap *ngIf="attemptToContinue">\n\n                <p>{{ \'addon.mod_scorm.dataattemptshown\' | translate:{number: attemptToContinue} }}</p>\n\n            </ion-item>\n\n            <ion-item text-center *ngIf="isBrowse">\n\n                <p>{{ \'addon.mod_scorm.browsemode\' | translate }}</p>\n\n            </ion-item>\n\n            <ion-item text-center *ngIf="isReview">\n\n                <p>{{ \'addon.mod_scorm.reviewmode\' | translate }}</p>\n\n            </ion-item>\n\n\n\n            <!-- List of SCOs. -->\n\n            <ng-container *ngFor="let sco of toc">\n\n                <a *ngIf="sco.isvisible" ion-item text-wrap [ngClass]="\'core-padding-\' + sco.level" [class.core-nav-item-selected]="selected == sco.id" (click)="loadSco(sco)" [attr.disabled]="!sco.prereq || !sco.launch ? true : null" [attr.detail-none]="!sco.prereq || !sco.launch ? true : null">\n\n                    <img [src]="sco.image.url" [alt]="sco.image.description" />\n\n                    <span>{{ sco.title }}</span>\n\n                </a>\n\n            </ng-container>\n\n        </ion-list>\n\n    </nav>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\addon\mod\scorm\pages\toc\toc.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_4__providers_sites__["a" /* CoreSitesProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["E" /* ViewController */], __WEBPACK_IMPORTED_MODULE_6__providers_access_rules_delegate__["a" /* AddonModQuizAccessRuleDelegate */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injector */], __WEBPACK_IMPORTED_MODULE_5__providers_utils_dom__["a" /* CoreDomUtilsProvider */]])
-    ], AddonModQuizPreflightModalPage);
-    return AddonModQuizPreflightModalPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["t" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["G" /* ViewController */]])
+    ], AddonModScormTocPage);
+    return AddonModScormTocPage;
 }());
 
-//# sourceMappingURL=preflight-modal.js.map
+//# sourceMappingURL=toc.js.map
 
 /***/ })
 

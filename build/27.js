@@ -1,16 +1,18 @@
 webpackJsonp([27],{
 
-/***/ 1987:
+/***/ 2067:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreLoginSitesPageModule", function() { return CoreLoginSitesPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreSettingsAboutPageModule", function() { return CoreSettingsAboutPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sites__ = __webpack_require__(2128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__about__ = __webpack_require__(2218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_components_module__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__ = __webpack_require__(65);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,41 +37,48 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CoreLoginSitesPageModule = /** @class */ (function () {
-    function CoreLoginSitesPageModule() {
+
+
+var CoreSettingsAboutPageModule = /** @class */ (function () {
+    function CoreSettingsAboutPageModule() {
     }
-    CoreLoginSitesPageModule = __decorate([
+    CoreSettingsAboutPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__sites__["a" /* CoreLoginSitesPage */],
+                __WEBPACK_IMPORTED_MODULE_3__about__["a" /* CoreSettingsAboutPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__directives_directives_module__["a" /* CoreDirectivesModule */],
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__sites__["a" /* CoreLoginSitesPage */]),
+                __WEBPACK_IMPORTED_MODULE_4__components_components_module__["a" /* CoreComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__directives_directives_module__["a" /* CoreDirectivesModule */],
+                __WEBPACK_IMPORTED_MODULE_6__pipes_pipes_module__["a" /* CorePipesModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__about__["a" /* CoreSettingsAboutPage */]),
                 __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
         })
-    ], CoreLoginSitesPageModule);
-    return CoreLoginSitesPageModule;
+    ], CoreSettingsAboutPageModule);
+    return CoreSettingsAboutPageModule;
 }());
 
-//# sourceMappingURL=sites.module.js.map
+//# sourceMappingURL=about.module.js.map
 
 /***/ }),
 
-/***/ 2128:
+/***/ 2218:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreLoginSitesPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreSettingsAboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_logger__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_sites__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utils_text__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__core_pushnotifications_providers_pushnotifications__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_helper__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_device__ = __webpack_require__(425);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_app__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_file__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_init__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_lang__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_local_notifications__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_sites__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__configconstants__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__core_pushnotifications_providers_pushnotifications__ = __webpack_require__(86);
 // (C) Copyright 2015 Martin Dougiamas
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -100,113 +109,77 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 /**
- * Page that displays the list of stored sites.
+ * Page that displays the about settings.
  */
-var CoreLoginSitesPage = /** @class */ (function () {
-    function CoreLoginSitesPage(domUtils, textUtils, sitesProvider, loginHelper, logger, translate, pushNotificationsProvider) {
-        this.domUtils = domUtils;
-        this.textUtils = textUtils;
-        this.sitesProvider = sitesProvider;
-        this.loginHelper = loginHelper;
-        this.translate = translate;
-        this.pushNotificationsProvider = pushNotificationsProvider;
-        this.logger = logger.getInstance('CoreLoginSitesPage');
-    }
-    /**
-     * View loaded.
-     */
-    CoreLoginSitesPage.prototype.ionViewDidLoad = function () {
+var CoreSettingsAboutPage = /** @class */ (function () {
+    function CoreSettingsAboutPage(platform, device, appProvider, fileProvider, initDelegate, langProvider, sitesProvider, localNotificationsProvider, pushNotificationsProvider) {
         var _this = this;
-        this.sitesProvider.getSortedSites().then(function (sites) {
-            // Remove protocol from the url to show more url text.
-            _this.sites = sites.map(function (site) {
-                site.siteUrl = site.siteUrl.replace(/^https?:\/\//, '');
-                site.badge = 0;
-                _this.pushNotificationsProvider.getSiteCounter(site.id).then(function (counter) {
-                    site.badge = counter;
-                });
-                return site;
-            });
-            _this.showDelete = false;
-        }).catch(function () {
-            // Shouldn't happen.
-        });
-    };
-    /**
-     * Go to the page to add a site.
-     */
-    CoreLoginSitesPage.prototype.add = function () {
-        this.loginHelper.goToAddSite(false, true);
-    };
-    /**
-     * Delete a site.
-     *
-     * @param {Event} e Click event.
-     * @param {number} index Position of the site.
-     */
-    CoreLoginSitesPage.prototype.deleteSite = function (e, index) {
-        var _this = this;
-        e.stopPropagation();
-        var site = this.sites[index], siteName = site.siteName;
-        this.textUtils.formatText(siteName).then(function (siteName) {
-            _this.domUtils.showConfirm(_this.translate.instant('core.login.confirmdeletesite', { sitename: siteName })).then(function () {
-                _this.sitesProvider.deleteSite(site.id).then(function () {
-                    _this.sites.splice(index, 1);
-                    _this.showDelete = false;
-                    // If there are no sites left, go to add site.
-                    _this.sitesProvider.hasSites().then(function (hasSites) {
-                        if (!hasSites) {
-                            _this.loginHelper.goToAddSite(true, true);
-                        }
-                    });
-                }).catch(function (error) {
-                    _this.logger.error('Error deleting site ' + site.id, error);
-                    _this.domUtils.showErrorModalDefault(error, 'Delete site failed.');
-                    _this.domUtils.showErrorModal('core.login.errordeletesite', true);
-                });
-            }).catch(function () {
-                // User cancelled, nothing to do.
-            });
-        });
-    };
-    /**
-     * Login in a site.
-     *
-     * @param {string} siteId The site ID.
-     */
-    CoreLoginSitesPage.prototype.login = function (siteId) {
-        var _this = this;
-        var modal = this.domUtils.showModalLoading();
-        this.sitesProvider.loadSite(siteId).then(function (loggedIn) {
-            if (loggedIn) {
-                return _this.loginHelper.goToSiteInitialPage();
+        var currentSite = sitesProvider.getCurrentSite();
+        this.appName = appProvider.isDesktop() ? __WEBPACK_IMPORTED_MODULE_9__configconstants__["a" /* CoreConfigConstants */].desktopappname : __WEBPACK_IMPORTED_MODULE_9__configconstants__["a" /* CoreConfigConstants */].appname;
+        this.versionName = __WEBPACK_IMPORTED_MODULE_9__configconstants__["a" /* CoreConfigConstants */].versionname;
+        this.versionCode = __WEBPACK_IMPORTED_MODULE_9__configconstants__["a" /* CoreConfigConstants */].versioncode;
+        this.compilationTime = __WEBPACK_IMPORTED_MODULE_9__configconstants__["a" /* CoreConfigConstants */].compilationtime;
+        this.lastCommit = __WEBPACK_IMPORTED_MODULE_9__configconstants__["a" /* CoreConfigConstants */].lastcommit;
+        // Calculate the privacy policy to use.
+        this.privacyPolicy = (currentSite && (currentSite.getStoredConfig('tool_mobile_apppolicy') ||
+            currentSite.getStoredConfig('sitepolicy'))) || __WEBPACK_IMPORTED_MODULE_9__configconstants__["a" /* CoreConfigConstants */].privacypolicy;
+        this.navigator = window.navigator;
+        if (window.location && window.location.href) {
+            var url = window.location.href;
+            this.locationHref = url.substr(0, url.indexOf('#'));
+        }
+        this.appReady = initDelegate.isReady() ? 'core.yes' : 'core.no';
+        this.deviceType = platform.is('tablet') ? 'core.tablet' : 'core.phone';
+        if (platform.is('android')) {
+            this.deviceOs = 'core.android';
+        }
+        else if (platform.is('ios')) {
+            this.deviceOs = 'core.ios';
+        }
+        else if (platform.is('windows')) {
+            this.deviceOs = 'core.windowsphone';
+        }
+        else {
+            var matches = navigator.userAgent.match(/\(([^\)]*)\)/);
+            if (matches && matches.length > 1) {
+                this.deviceOs = matches[1];
             }
-        }).catch(function (error) {
-            _this.logger.error('Error loading site ' + siteId, error);
-            _this.domUtils.showErrorModalDefault(error, 'Error loading site.');
-        }).finally(function () {
-            modal.dismiss();
+            else {
+                this.deviceOs = 'core.unknown';
+            }
+        }
+        langProvider.getCurrentLanguage().then(function (lang) {
+            _this.currentLanguage = lang;
         });
-    };
-    /**
-     * Toggle delete.
-     */
-    CoreLoginSitesPage.prototype.toggleDelete = function () {
-        this.showDelete = !this.showDelete;
-    };
-    CoreLoginSitesPage = __decorate([
+        this.networkStatus = appProvider.isOnline() ? 'core.online' : 'core.offline';
+        this.wifiConnection = appProvider.isWifi() ? 'core.yes' : 'core.no';
+        this.deviceWebWorkers = !!window['Worker'] && !!window['URL'] ? 'core.yes' : 'core.no';
+        this.device = device;
+        if (fileProvider.isAvailable()) {
+            fileProvider.getBasePath().then(function (basepath) {
+                _this.fileSystemRoot = basepath;
+                _this.fsClickable = fileProvider.usesHTMLAPI();
+            });
+        }
+        this.localNotifAvailable = localNotificationsProvider.isAvailable() ? 'core.yes' : 'core.no';
+        this.pushId = pushNotificationsProvider.getPushId();
+    }
+    CoreSettingsAboutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-core-login-sites',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\login\pages\sites\sites.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.settings.sites\' | translate }}</ion-title>\n\n\n\n        <ion-buttons end>\n\n            <button ion-button icon-only [navPush]="\'CoreSettingsListPage\'" [attr.aria-label]="\'core.mainmenu.appsettings\' | translate">\n\n                <ion-icon name="cog"></ion-icon>\n\n            </button>\n\n            <button *ngIf="sites && sites.length > 0" ion-button icon-only (click)="toggleDelete()" [attr.aria-label]="\'core.delete\' | translate">\n\n                <ion-icon name="create" ios="md-create"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-list>\n\n        <a ion-item (click)="login(site.id)" *ngFor="let site of sites; let idx = index" detail-none>\n\n            <ion-avatar item-start>\n\n                <img [src]="site.avatar" core-external-content [siteId]="site.id" alt="{{ \'core.pictureof\' | translate:{$a: site.fullname} }}" role="presentation" onError="this.src=\'assets/img/user-avatar.png\'">\n\n            </ion-avatar>\n\n            <h2>{{site.fullName}}</h2>\n\n            <p><core-format-text [text]="site.siteName" clean="true" [siteId]="site.id"></core-format-text></p>\n\n            <p>{{site.siteUrl}}</p>\n\n            <ion-badge item-end *ngIf="!showDelete && site.badge">{{site.badge}}</ion-badge>\n\n            <button *ngIf="showDelete" item-end ion-button icon-only clear color="danger" (click)="deleteSite($event, idx)" [attr.aria-label]="\'core.delete\' | translate">\n\n                <ion-icon name="trash"></ion-icon>\n\n            </button>\n\n        </a>\n\n    </ion-list>\n\n    <ion-fab core-fab bottom end>\n\n        <button ion-fab (click)="add()" [attr.aria-label]="\'core.add\' | translate">\n\n            <ion-icon name="add"></ion-icon>\n\n        </button>\n\n    </ion-fab>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app2\moodlemobile2\src\core\login\pages\sites\sites.html"*/,
+            selector: 'page-core-settings-about',template:/*ion-inline-start:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\settings\pages\about\about.html"*/'<ion-header>\n\n    <ion-navbar core-back-button>\n\n        <ion-title>{{ \'core.settings.about\' | translate }}</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    <ion-item text-wrap>\n\n        <h2>{{ appName }} {{ versionName }}</h2>\n\n    </ion-item>\n\n    <ion-item-group>\n\n        <ion-item-divider text-wrap>\n\n            {{ \'core.settings.license\' | translate }}\n\n        </ion-item-divider>\n\n        <ion-item text-wrap>\n\n            <h2>Apache 2.0</h2>\n\n            <p><a href="http://www.apache.org/licenses/LICENSE-2.0" core-link auto-login="no">http://www.apache.org/licenses/LICENSE-2.0</a></p>\n\n        </ion-item>\n\n    </ion-item-group>\n\n    <ion-item-group *ngIf="privacyPolicy">\n\n        <ion-item-divider text-wrap>\n\n            {{ \'core.settings.privacypolicy\' | translate }}\n\n        </ion-item-divider>\n\n        <ion-item text-wrap>\n\n            <p><a [href]="privacyPolicy" core-link auto-login="no">{{ privacyPolicy }}</a></p>\n\n        </ion-item>\n\n    </ion-item-group>\n\n    <ion-item-group>\n\n        <ion-item-divider text-wrap>\n\n            {{ \'core.settings.deviceinfo\' | translate }}\n\n        </ion-item-divider>\n\n        <ion-item text-wrap *ngIf="versionName">\n\n            <h2>{{ \'core.settings.versionname\' | translate}}</h2>\n\n            <p>{{ versionName }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="versionCode">\n\n            <h2>{{ \'core.settings.versioncode\' | translate}}</h2>\n\n            <p>{{ versionCode }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="compilationTime || lastCommit">\n\n            <h2>{{ \'core.settings.compilationinfo\' | translate }}</h2>\n\n            <p *ngIf="compilationTime">{{ compilationTime | coreFormatDate: "LLL Z": false }}</p>\n\n            <p *ngIf="lastCommit">{{ lastCommit }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="fileSystemRoot">\n\n            <h2>{{ \'core.settings.filesystemroot\' | translate}}</h2>\n\n            <p><a *ngIf="fsClickable" [href]="fileSystemRoot" core-link auto-login="no">{{ fileSystemRoot }}</a></p>\n\n            <p *ngIf="!fsClickable">{{ fileSystemRoot }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="navigator && navigator.userAgent">\n\n            <h2>{{ \'core.settings.navigatoruseragent\' | translate}}</h2>\n\n            <p>{{ navigator.userAgent }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="navigator && navigator.language">\n\n            <h2>{{ \'core.settings.navigatorlanguage\' | translate}}</h2>\n\n            <p>{{ navigator.language }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="locationHref">\n\n            <h2>{{ \'core.settings.locationhref\' | translate}}</h2>\n\n            <p>{{ locationHref }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="appReady">\n\n            <h2>{{ \'core.settings.appready\' | translate}}</h2>\n\n            <p>{{ appReady | translate }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="deviceType">\n\n            <h2>{{ \'core.settings.displayformat\' | translate}}</h2>\n\n            <p>{{ deviceType | translate }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="deviceOs">\n\n            <h2>{{ \'core.settings.deviceos\' | translate}}</h2>\n\n            <p>{{ deviceOs | translate }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="currentLanguage">\n\n            <h2>{{ \'core.settings.currentlanguage\' | translate}}</h2>\n\n            <p>{{ currentLanguage }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="networkStatus">\n\n            <h2>{{ \'core.settings.networkstatus\' | translate}}</h2>\n\n            <p>{{ networkStatus | translate }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="wifiConnection">\n\n            <h2>{{ \'core.settings.wificonnection\' | translate}}</h2>\n\n            <p>{{ wifiConnection | translate }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="deviceWebWorkers">\n\n            <h2>{{ \'core.settings.devicewebworkers\' | translate}}</h2>\n\n            <p>{{ deviceWebWorkers | translate }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="device && device.cordova">\n\n            <h2>{{ \'core.settings.cordovaversion\' | translate}}</h2>\n\n            <p>{{ device.cordova }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="device && device.platform">\n\n            <h2>{{ \'core.settings.cordovadeviceplatform\' | translate}}</h2>\n\n            <p>{{ device.platform }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="device && device.version">\n\n            <h2>{{ \'core.settings.cordovadeviceosversion\' | translate}}</h2>\n\n            <p>{{ device.version }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="device && device.model">\n\n            <h2>{{ \'core.settings.cordovadevicemodel\' | translate}}</h2>\n\n            <p>{{ device.model }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="device && device.uuid">\n\n            <h2>{{ \'core.settings.cordovadeviceuuid\' | translate}}</h2>\n\n            <p>{{ device.uuid }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="pushId">\n\n            <h2>{{ \'core.settings.pushid\' | translate}}</h2>\n\n            <p>{{ pushId }}</p>\n\n        </ion-item>\n\n        <ion-item text-wrap *ngIf="localNotifAvailable">\n\n            <h2>{{ \'core.settings.localnotifavailable\' | translate}}</h2>\n\n            <p>{{ localNotifAvailable | translate }}</p>\n\n        </ion-item>\n\n    </ion-item-group>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sebas\Documents\TLG\app4\moodlemobile2\src\core\settings\pages\about\about.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_utils_dom__["a" /* CoreDomUtilsProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_utils_text__["a" /* CoreTextUtilsProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_sites__["a" /* CoreSitesProvider */], __WEBPACK_IMPORTED_MODULE_7__providers_helper__["a" /* CoreLoginHelperProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_logger__["a" /* CoreLoggerProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_6__core_pushnotifications_providers_pushnotifications__["a" /* CorePushNotificationsProvider */]])
-    ], CoreLoginSitesPage);
-    return CoreLoginSitesPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["v" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_device__["a" /* Device */], __WEBPACK_IMPORTED_MODULE_3__providers_app__["a" /* CoreAppProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_file__["a" /* CoreFileProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_init__["a" /* CoreInitDelegate */], __WEBPACK_IMPORTED_MODULE_6__providers_lang__["a" /* CoreLangProvider */], __WEBPACK_IMPORTED_MODULE_8__providers_sites__["a" /* CoreSitesProvider */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_local_notifications__["a" /* CoreLocalNotificationsProvider */], __WEBPACK_IMPORTED_MODULE_10__core_pushnotifications_providers_pushnotifications__["a" /* CorePushNotificationsProvider */]])
+    ], CoreSettingsAboutPage);
+    return CoreSettingsAboutPage;
 }());
 
-//# sourceMappingURL=sites.js.map
+//# sourceMappingURL=about.js.map
 
 /***/ })
 
