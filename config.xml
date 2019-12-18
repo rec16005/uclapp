@@ -3,10 +3,10 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android = "http://schemas.android.com/apk/res/android"
         id        = "com.tlg.moodleucl"
-        versionCode = "37200"
-        android-versionCode="37200"
-        version   = "3.7.2">
-    <name>UCL</name>
+        versionCode = "37210"
+        android-versionCode="37210"
+        version   = "3.7.2.1">
+    <name>Lancasco A.P.P.</name>
 
     <description>
         App oficial de la Universidad Corporativa Lancasco
@@ -17,7 +17,7 @@
     </author>
 
     <edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="merge">
-        <string>3.7.2</string>
+        <string>3.7.2.1</string>
     </edit-config>
 
     <gap:platform name="ios" />

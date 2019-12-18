@@ -1,9 +1,9 @@
 {
     "app_id": "com.tlg.moodleucl",
-    "appname": "UCL",
-    "desktopappname": "UCL",
-    "versioncode": 37200,
-    "versionname": "3.7.2",
+    "appname": "Lancasco A.P.P.",
+    "desktopappname": "Lancasco A.P.P.",
+    "versioncode": 3721,
+    "versionname": "3.7.2.1",
     "cache_update_frequency_usually": 420000,
     "cache_update_frequency_often": 1200000,
     "cache_update_frequency_sometimes": 3600000,
