@@ -3,9 +3,9 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android = "http://schemas.android.com/apk/res/android"
         id        = "com.tlg.moodleucl"
-        versionCode = "37210"
-        android-versionCode="37210"
-        version   = "3.7.2.1">
+        versionCode = "37220"
+        android-versionCode="37220"
+        version   = "3.7.2.2">
     <name>Lancasco A.P.P.</name>
 
     <description>
@@ -17,7 +17,7 @@
     </author>
 
     <edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="merge">
-        <string>3.7.21</string>
+        <string>3.7.22</string>
     </edit-config>
 
     <gap:platform name="ios" />
